@@ -8,5 +8,9 @@ namespace MasterSharp.Model
 {
     class Plongeur
     {
+        public void DoWork()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

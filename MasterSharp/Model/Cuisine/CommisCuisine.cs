@@ -8,5 +8,9 @@ namespace MasterSharp.Model
 {
     class CommisCuisine
     {
+        public void DoWork()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
