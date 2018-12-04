@@ -35,7 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +76,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Tables\Action.cs" />
+    <Compile Include="Model\Tables\Aliment.cs" />
+    <Compile Include="Model\ChefCuisine.cs" />
+    <Compile Include="Model\ChefPartie.cs" />
+    <Compile Include="Model\ChefRang.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\CommisCuisine.cs" />
+    <Compile Include="Model\CommisSalle.cs" />
+    <Compile Include="Model\LaveLinge.cs" />
+    <Compile Include="Model\LaveVaisselle.cs" />
+    <Compile Include="Model\MaitreHotel.cs" />
+    <Compile Include="Model\Plongeur.cs" />
+    <Compile Include="Model\Tables\Recette.cs" />
+    <Compile Include="Model\Restaurant.cs" />
+    <Compile Include="Model\Serveur.cs" />
+    <Compile Include="Model\Tables\Ustensil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +109,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\" />
-    <Folder Include="Model\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
