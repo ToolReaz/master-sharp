@@ -70,27 +70,34 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controller\ISimulation.cs" />
+    <Compile Include="Controller\Simulation.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\CuisineElements\Cuisine.cs" />
+    <Compile Include="Model\CuisineElements\IEmploye.cs" />
+    <Compile Include="Model\SalleElements\ClientFactory.cs" />
+    <Compile Include="Model\SalleElements\IClient.cs" />
+    <Compile Include="Model\SalleElements\Salle.cs" />
     <Compile Include="Model\Tables\Action.cs" />
     <Compile Include="Model\Tables\Aliment.cs" />
-    <Compile Include="Model\ChefCuisine.cs" />
-    <Compile Include="Model\ChefPartie.cs" />
-    <Compile Include="Model\ChefRang.cs" />
-    <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\CommisCuisine.cs" />
-    <Compile Include="Model\CommisSalle.cs" />
-    <Compile Include="Model\LaveLinge.cs" />
-    <Compile Include="Model\LaveVaisselle.cs" />
-    <Compile Include="Model\MaitreHotel.cs" />
-    <Compile Include="Model\Plongeur.cs" />
+    <Compile Include="Model\CuisineElements\ChefCuisine.cs" />
+    <Compile Include="Model\CuisineElements\ChefPartie.cs" />
+    <Compile Include="Model\SalleElements\ChefRang.cs" />
+    <Compile Include="Model\SalleElements\Client.cs" />
+    <Compile Include="Model\CuisineElements\CommisCuisine.cs" />
+    <Compile Include="Model\SalleElements\CommisSalle.cs" />
+    <Compile Include="Model\CuisineElements\LaveLinge.cs" />
+    <Compile Include="Model\CuisineElements\LaveVaisselle.cs" />
+    <Compile Include="Model\SalleElements\MaitreHotel.cs" />
+    <Compile Include="Model\CuisineElements\Plongeur.cs" />
     <Compile Include="Model\Tables\Recette.cs" />
     <Compile Include="Model\Restaurant.cs" />
-    <Compile Include="Model\Serveur.cs" />
+    <Compile Include="Model\SalleElements\Serveur.cs" />
     <Compile Include="Model\Tables\Ustensil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -119,7 +126,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
