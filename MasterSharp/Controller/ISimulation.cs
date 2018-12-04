@@ -8,5 +8,9 @@ namespace MasterSharp.Controller
 {
     interface ISimulation
     {
+
+        void Start();
+        void Pause();
+        void Resume();
     }
 }

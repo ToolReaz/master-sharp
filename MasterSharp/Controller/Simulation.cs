@@ -8,5 +8,17 @@ namespace MasterSharp.Controller
 {
     class Simulation : ISimulation
     {
+
+        public void Start() {
+            throw new NotImplementedException();
+        }
+
+        public void Pause() {
+            throw new NotImplementedException();
+        }
+
+        public void Resume() {
+            throw new NotImplementedException();
+        }
     }
 }
