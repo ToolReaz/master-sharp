@@ -27,9 +27,8 @@ CREATE TABLE Foods(
 -- Table: Food_Types
 ------------------------------------------------------------*/
 CREATE TABLE Food_Types(
-	ID                INT IDENTITY (1,1) NOT NULL ,
-	Name              VARCHAR (255) NOT NULL ,
-	Preservation_Time DATETIME NOT NULL ,
+	ID   INT IDENTITY (1,1) NOT NULL ,
+	Name VARCHAR (255) NOT NULL ,
 	CONSTRAINT prk_constraint_Food_Types PRIMARY KEY NONCLUSTERED (ID)
 );
 
@@ -55,11 +54,9 @@ CREATE TABLE Recipes(
 -- Table: Utensils
 ------------------------------------------------------------*/
 CREATE TABLE Utensils(
-	ID       INT IDENTITY (1,1) NOT NULL ,
-	Name     VARCHAR (255) NOT NULL ,
-	Quantity INT  NOT NULL ,
-	Clean    bit  NOT NULL ,
-	ID_Size  INT  NOT NULL ,
+	ID      INT IDENTITY (1,1) NOT NULL ,
+	Name    VARCHAR (255) NOT NULL ,
+	ID_Size INT  NOT NULL ,
 	CONSTRAINT prk_constraint_Utensils PRIMARY KEY NONCLUSTERED (ID)
 );
 
@@ -98,9 +95,8 @@ CREATE TABLE Size(
 -- Table: Dishes
 ------------------------------------------------------------*/
 CREATE TABLE Dishes(
-	ID    INT IDENTITY (1,1) NOT NULL ,
-	Name  VARCHAR (255) NOT NULL ,
-	Clean bit  NOT NULL ,
+	ID   INT IDENTITY (1,1) NOT NULL ,
+	Name VARCHAR (255) NOT NULL ,
 	CONSTRAINT prk_constraint_Dishes PRIMARY KEY NONCLUSTERED (ID)
 );
 
@@ -109,9 +105,8 @@ CREATE TABLE Dishes(
 -- Table: Textils
 ------------------------------------------------------------*/
 CREATE TABLE Textils(
-	ID    INT IDENTITY (1,1) NOT NULL ,
-	Name  VARCHAR (255) NOT NULL ,
-	Clean bit  NOT NULL ,
+	ID   INT IDENTITY (1,1) NOT NULL ,
+	Name VARCHAR (255) NOT NULL ,
 	CONSTRAINT prk_constraint_Textils PRIMARY KEY NONCLUSTERED (ID)
 );
 
@@ -120,10 +115,10 @@ CREATE TABLE Textils(
 -- Table: Food_Stock
 ------------------------------------------------------------*/
 CREATE TABLE Food_Stock(
-	Quantity     INT  NOT NULL ,
-	Arrival_Date DATETIME NOT NULL ,
-	ID_Foods     INT  NOT NULL ,
-	ID_Stocks    INT  NOT NULL ,
+	Quantity    INT  NOT NULL ,
+	Expiry_Date DATETIME NOT NULL ,
+	ID_Foods    INT  NOT NULL ,
+	ID_Stocks   INT  NOT NULL ,
 	CONSTRAINT prk_constraint_Food_Stock PRIMARY KEY NONCLUSTERED (ID_Foods,ID_Stocks)
 );
 
@@ -156,6 +151,7 @@ CREATE TABLE Utensil_Action(
 ------------------------------------------------------------*/
 CREATE TABLE Textil_Stock(
 	Quantity   INT  NOT NULL ,
+	Clean      bit  NOT NULL ,
 	ID_Textils INT  NOT NULL ,
 	ID_Stocks  INT  NOT NULL ,
 	CONSTRAINT prk_constraint_Textil_Stock PRIMARY KEY NONCLUSTERED (ID_Textils,ID_Stocks)
@@ -178,9 +174,22 @@ CREATE TABLE Recipe_Dish(
 ------------------------------------------------------------*/
 CREATE TABLE Dish_Stock(
 	Quantity  INT  NOT NULL ,
+	Clean     bit  NOT NULL ,
 	ID_Stocks INT  NOT NULL ,
 	ID_Dishes INT  NOT NULL ,
 	CONSTRAINT prk_constraint_Dish_Stock PRIMARY KEY NONCLUSTERED (ID_Stocks,ID_Dishes)
+);
+
+
+/*------------------------------------------------------------
+-- Table: Utensil_Stock
+------------------------------------------------------------*/
+CREATE TABLE Utensil_Stock(
+	Quantity    INT  NOT NULL ,
+	Clean       bit  NOT NULL ,
+	ID_Utensils INT  NOT NULL ,
+	ID_Stocks   INT  NOT NULL ,
+	CONSTRAINT prk_constraint_Utensil_Stock PRIMARY KEY NONCLUSTERED (ID_Utensils,ID_Stocks)
 );
 
 
@@ -201,3 +210,5 @@ ALTER TABLE Recipe_Dish ADD CONSTRAINT FK_Recipe_Dish_ID_Dishes FOREIGN KEY (ID_
 ALTER TABLE Recipe_Dish ADD CONSTRAINT FK_Recipe_Dish_ID_Recipes FOREIGN KEY (ID_Recipes) REFERENCES Recipes(ID);
 ALTER TABLE Dish_Stock ADD CONSTRAINT FK_Dish_Stock_ID_Stocks FOREIGN KEY (ID_Stocks) REFERENCES Stocks(ID);
 ALTER TABLE Dish_Stock ADD CONSTRAINT FK_Dish_Stock_ID_Dishes FOREIGN KEY (ID_Dishes) REFERENCES Dishes(ID);
+ALTER TABLE Utensil_Stock ADD CONSTRAINT FK_Utensil_Stock_ID_Utensils FOREIGN KEY (ID_Utensils) REFERENCES Utensils(ID);
+ALTER TABLE Utensil_Stock ADD CONSTRAINT FK_Utensil_Stock_ID_Stocks FOREIGN KEY (ID_Stocks) REFERENCES Stocks(ID);
