@@ -122,3 +122,59 @@ VALUES
 (150,1,1,(SELECT ID FROM Dishes WHERE Name='Verre à vin')),
 (150,1,1,(SELECT ID FROM Dishes WHERE Name='Flûte à champagne')),
 (50,1,1,(SELECT ID FROM Dishes WHERE Name='Jeu de tasse et assiette à café'));
+
+/* RECIPE_CATEGORIES */
+
+INSERT INTO Recipe_Categories 
+VALUES ('Entrée'),('Plat'),('Dessert');
+
+/* RECIPES */
+
+INSERT INTO Recipes (Name,Preparation,Cook,Rest,Description,Side,Number_Persons,ID_Recipe_Categories)
+VALUES
+('Oeufs Mimosa','00:10:00','00:10:00',NULL,'Oeufs avec de la mayonnaise',NULL,2,(SELECT ID FROM Recipe_Categories WHERE Name='Entrée')),
+('Crevettes citronnees','00:10:00',NULL,'01:00:00','Crevettes parfumees au jus de citron','Sauce yahourt',10,(SELECT ID FROM Recipe_Categories WHERE Name='Entrée')),
+('Salade Alsacienne','00:20:00',NULL,NULL,'Salade de la region avec cervelas et gruyere',NULL,4,(SELECT ID FROM Recipe_Categories WHERE Name='Entrée')),
+('Boeuf Bourguignon','00:30:00','02:00:00','01:00:00','Plat phare du restaurant','Patates à l''eau',20,(SELECT ID FROM Recipe_Categories WHERE Name='Plat')),
+('Steak Frites',NULL,'00:10:00',NULL,'Plat simple et delicieux',NULL,1,(SELECT ID FROM Recipe_Categories WHERE Name='Plat')),
+('Saumon Riz',NULL,'00:20:00',NULL,'Plat simple et delicieux',NULL,1,(SELECT ID FROM Recipe_Categories WHERE Name='Plat')),
+('Salade de fruits','00:20:00',NULL,'01:00:00','Salade de fruits jolie jolie jolie',NULL,10,(SELECT ID FROM Recipe_Categories WHERE Name='Dessert')),
+('Mousse au chocolat','00:30:00',NULL,'02:00:00','Chocolat en mousse','Ecorces d''orange',4,(SELECT ID FROM Recipe_Categories WHERE Name='Dessert')),
+('Crème brûlée','00:10:00','00:30:00','00:10:00','Le dessert de notre chef cuisinier',NULL,4,(SELECT ID FROM Recipe_Categories WHERE Name='Dessert'));
+
+/* FOODS */
+
+INSERT INTO Foods (Name,ID_Food_Types)
+VALUES
+('Oeuf',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Mayonnaise',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Crevette',(SELECT ID FROM Food_Types WHERE Name='Surgelé')),
+('Citron',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Salade Verte',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Cervelas',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Gruyère',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Boeuf',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Carotte',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Oignon',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Frites',(SELECT ID FROM Food_Types WHERE Name='Surgelé')),
+('Saumon',(SELECT ID FROM Food_Types WHERE Name='Surgelé')),
+('Riz',(SELECT ID FROM Food_Types WHERE Name='Sec')),
+('Pomme',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Orange',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Kiwi',(SELECT ID FROM Food_Types WHERE Name='Frais')),
+('Chocolat',(SELECT ID FROM Food_Types WHERE Name='Sec')),
+('Lait',(SELECT ID FROM Food_Types WHERE Name='Sec'));
+
+/* RECIPE_DISH */
+
+INSERT INTO Recipe_Dish (Quantity,ID_Dishes,ID_Recipes)
+VALUES
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette entrée'),(SELECT ID FROM Recipes WHERE Name='Oeufs Mimosa')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette entrée'),(SELECT ID FROM Recipes WHERE Name='Crevettes citronnees')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette entrée'),(SELECT ID FROM Recipes WHERE Name='Salade Alsacienne')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette creuse'),(SELECT ID FROM Recipes WHERE Name='Boeuf Bourguignon')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette plate'),(SELECT ID FROM Recipes WHERE Name='Steak Frites')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette plate'),(SELECT ID FROM Recipes WHERE Name='Saumon Riz')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette dessert'),(SELECT ID FROM Recipes WHERE Name='Salade de fruits')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette dessert'),(SELECT ID FROM Recipes WHERE Name='Mousse au chocolat')),
+(1,(SELECT ID FROM Dishes WHERE Name='Assiette dessert'),(SELECT ID FROM Recipes WHERE Name='Crème brûlée'));
