@@ -1,0 +1,124 @@
+/* ACTIONS */
+
+INSERT INTO Actions
+VALUES ('Emincer'),('Saisir'),('Battre'),('Mélanger'),('Frire'),('Mijoter'),('Chauffer'),('Presser'),('Mixer');
+
+/* FOOD TYPES */
+
+INSERT INTO Food_Types
+VALUES ('Frais'), ('Surgelé'), ('Sec');
+
+/* SIZE */
+
+INSERT INTO Size
+VALUES ('Petit'),('Grand');
+
+/* UTENSILS */
+
+INSERT INTO Utensils (Name, ID_Size) 
+VALUES
+('Feu de cuisson',(SELECT ID FROM Size WHERE Name='Grand')),
+('Casserole',(SELECT ID FROM Size WHERE Name='Grand')),
+('Poêle',(SELECT ID FROM Size WHERE Name='Grand')),
+('Four',(SELECT ID FROM Size WHERE Name='Grand')),
+('Cuillère en bois',(SELECT ID FROM Size WHERE Name='Petit')),
+('Mixeur',(SELECT ID FROM Size WHERE Name='Grand')),
+('Bol à salade',(SELECT ID FROM Size WHERE Name='Petit')),
+('Autocuiseur',(SELECT ID FROM Size WHERE Name='Grand')),
+('Presse-agrume',(SELECT ID FROM Size WHERE Name='Petit')),
+('Tamis',(SELECT ID FROM Size WHERE Name='Petit')),
+('Entonnoir',(SELECT ID FROM Size WHERE Name='Petit')),
+('Couteau de cuisine',(SELECT ID FROM Size WHERE Name='Petit')),
+('Frigo de travail',(SELECT ID FROM Size WHERE Name='Grand')),
+('Lave-vaisselle',(SELECT ID FROM Size WHERE Name='Grand')), 
+('Machine à laver',(SELECT ID FROM Size WHERE Name='Grand')),
+('Evier de grande capacité',(SELECT ID FROM Size WHERE Name='Grand')),
+('Fouet',(SELECT ID FROM Size WHERE Name='Petit')),
+('Friteuse',(SELECT ID FROM Size WHERE Name='Grand'));
+
+/* UTENSIL_ACTION */
+
+INSERT INTO Utensil_Action (ID_Actions,ID_Utensils)
+VALUES 
+((SELECT ID FROM Actions WHERE Name='Emincer'),(SELECT ID FROM Utensils WHERE Name='Couteau de cuisine')),
+((SELECT ID FROM Actions WHERE Name='Saisir'),(SELECT ID FROM Utensils WHERE Name='Poêle')),
+((SELECT ID FROM Actions WHERE Name='Battre'),(SELECT ID FROM Utensils WHERE Name='Fouet')),
+((SELECT ID FROM Actions WHERE Name='Mélanger'),(SELECT ID FROM Utensils WHERE Name='Cuillère en bois')),
+((SELECT ID FROM Actions WHERE Name='Frire'),(SELECT ID FROM Utensils WHERE Name='Friteuse')),
+((SELECT ID FROM Actions WHERE Name='Mijoter'),(SELECT ID FROM Utensils WHERE Name='Casserole')),
+((SELECT ID FROM Actions WHERE Name='Chauffer'),(SELECT ID FROM Utensils WHERE Name='Four')),
+((SELECT ID FROM Actions WHERE Name='Presser'),(SELECT ID FROM Utensils WHERE Name='Presse-agrume')),
+((SELECT ID FROM Actions WHERE Name='Mixer'),(SELECT ID FROM Utensils WHERE Name='Mixeur'));
+
+/* STOCKS */
+
+INSERT INTO Stocks default values;
+
+/* UTENSIL_STOCK */
+
+INSERT INTO Utensil_Stock (Quantity, Clean, ID_Stocks, ID_Utensils)
+VALUES 
+(5,1,1,(SELECT ID FROM Utensils WHERE Name='Feu de cuisson')),
+(10,1,1,(SELECT ID FROM Utensils WHERE Name='Casserole')),
+(10,1,1,(SELECT ID FROM Utensils WHERE Name='Poêle')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Four')),
+(10,1,1,(SELECT ID FROM Utensils WHERE Name='Cuillère en bois')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Mixeur')),
+(5,1,1,(SELECT ID FROM Utensils WHERE Name='Bol à salade')),
+(2,1,1,(SELECT ID FROM Utensils WHERE Name='Autocuiseur')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Presse-agrume')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Tamis')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Entonnoir')),
+(5,1,1,(SELECT ID FROM Utensils WHERE Name='Couteau de cuisine')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Frigo de travail')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Lave-vaisselle')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Machine à laver')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Evier de grande capacité')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Fouet')),
+(1,1,1,(SELECT ID FROM Utensils WHERE Name='Friteuse'));
+
+/* TEXTILS */
+
+INSERT INTO Textils
+VALUES ('Serviette en tissu'),('Nappe');
+
+/* TEXTIL_STOCK */
+
+INSERT INTO Textil_Stock (Quantity, Clean, ID_Stocks, ID_Textils)
+VALUES 
+(150,1,1,(SELECT ID FROM Textils WHERE Name='Serviette en tissu')),
+(40,1,1,(SELECT ID FROM Textils WHERE Name='Nappe'));
+
+/* DISHES */
+
+INSERT INTO Dishes
+VALUES 
+('Assiette entrée'),
+('Assiette plate'),
+('Assiette creuse'),
+('Assiette dessert'),
+('Fourchette'),
+('Couteau'),
+('Cuillère à soupe'),
+('Cuillère à café'),
+('Verre à eau'),
+('Verre à vin'),
+('Flûte à champagne'),
+('Jeu de tasse et assiette à café');
+
+/* DISH_STOCK */
+
+INSERT INTO Dish_Stock (Quantity, Clean, ID_Stocks, ID_Dishes)
+VALUES 
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Assiette entrée')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Assiette plate')),
+(30,1,1,(SELECT ID FROM Dishes WHERE Name='Assiette creuse')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Assiette dessert')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Fourchette')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Couteau')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Cuillère à soupe')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Cuillère à café')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Verre à eau')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Verre à vin')),
+(150,1,1,(SELECT ID FROM Dishes WHERE Name='Flûte à champagne')),
+(50,1,1,(SELECT ID FROM Dishes WHERE Name='Jeu de tasse et assiette à café'));
