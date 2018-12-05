@@ -83,8 +83,6 @@
     <Compile Include="Model\SalleElements\ClientFactory.cs" />
     <Compile Include="Model\SalleElements\IClient.cs" />
     <Compile Include="Model\SalleElements\Salle.cs" />
-    <Compile Include="Model\Tables\Action.cs" />
-    <Compile Include="Model\Tables\Aliment.cs" />
     <Compile Include="Model\CuisineElements\ChefCuisine.cs" />
     <Compile Include="Model\CuisineElements\ChefPartie.cs" />
     <Compile Include="Model\SalleElements\ChefRang.cs" />
@@ -95,10 +93,8 @@
     <Compile Include="Model\CuisineElements\LaveVaisselle.cs" />
     <Compile Include="Model\SalleElements\MaitreHotel.cs" />
     <Compile Include="Model\CuisineElements\Plongeur.cs" />
-    <Compile Include="Model\Tables\Recette.cs" />
     <Compile Include="Model\Restaurant.cs" />
     <Compile Include="Model\SalleElements\Serveur.cs" />
-    <Compile Include="Model\Tables\Ustensil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +122,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\Tables\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
