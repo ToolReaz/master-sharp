@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 namespace MasterSharp.Model.Stock.Tests
 {
     [TestClass()]
-    public class AlimentTests
+    public class CouvertsTests
     {
-        private Aliment Aliment { get; set; }
-
         [TestMethod()]
-        public void AlimentTest()
+        public void CouvertsTest()
         {
-            Aliment = new Aliment(TypeAliment.SEC);
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void IsFreshTest()
+        public void WashTest()
         {
-            Assert.Equals(Aliment.IsFresh(), true);
+            Assert.Fail();
         }
     }
 }

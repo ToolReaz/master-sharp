@@ -8,5 +8,7 @@ namespace MasterSharp.Model.Stock
 {
     interface IVaisselle
     {
+
+        void Wash();
     }
 }

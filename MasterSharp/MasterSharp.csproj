@@ -74,6 +74,7 @@
     <Compile Include="Model\Stock\Frigo.cs" />
     <Compile Include="Model\Stock\IStock.cs" />
     <Compile Include="Model\Stock\ITextille.cs" />
+    <Compile Include="Model\Stock\IUstencile.cs" />
     <Compile Include="Model\Stock\IUstencilLavable.cs" />
     <Compile Include="Model\Stock\IUstencilNonLavable.cs" />
     <Compile Include="Model\Stock\IVaisselle.cs" />

@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    class Couverts : IVaisselle
+    public class Couverts : IVaisselle
     {
 
         private TypeCouverts Type { get; }
 
+        private bool Clean { get; }
+
 
         public Couverts(TypeCouverts type) {
             Type = type;
+        }
+
+
+        public void Wash()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -15,5 +15,11 @@ namespace MasterSharp.Model.Stock
         public Assiette(TypeAssiette type) {
             Type = type;
         }
+
+
+        public void Wash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
