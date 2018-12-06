@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Salle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class FactoryClient
+   abstract class FactoryClient
     {
 
-        public void CreateCoolClient()
+        public static IClient CreateCoolClient()
         {
-
+            return new Client(TypeClient.COOL);
         }
 
-        public void CreateBusyClient()
+        public static IClient CreateBusyClient()
         {
-
+            return new Client(TypeClient.BUSY);
         }
 
-        public void CreateStandardClient()
+        public static IClient CreateStandardClient()
         {
-
+            return new Client(TypeClient.STANDARD);
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class Table
+    public class Table
     {
-        private int GroupeClient;
+        private int GroupeClient { get; }
 
-        public Table()
+        public Table(int GroupeClient)
         {
 
         }

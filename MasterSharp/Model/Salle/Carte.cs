@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterSharp.Model.Stock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class Carte
+    public class Carte
     {
-        private List<Recette>;
-        private List<Vin>;
+        private List<Recette> Recette;
+        //private List<Vin> Vin;
 
         public Carte()
         {
-
+           
         }
     }
 }

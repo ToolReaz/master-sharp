@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class Salle
+    public class Salle
     {
         private List<Carre> Carre;
 

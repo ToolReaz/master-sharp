@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class GroupeClient
+    public class GroupeClient
     {
         private List<Client> Groupe;
 

@@ -65,6 +65,7 @@
     <Compile Include="Model\Salle\Salle.cs" />
     <Compile Include="Model\Salle\Serveur.cs" />
     <Compile Include="Model\Salle\Table.cs" />
+    <Compile Include="Model\Salle\TypeClient.cs" />
     <Compile Include="Model\Stock\Aliment.cs" />
     <Compile Include="Model\Stock\Assiette.cs" />
     <Compile Include="Model\Stock\Couverts.cs" />
