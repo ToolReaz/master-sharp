@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    interface ITextile
+    interface ITextille
     {
     }
 }

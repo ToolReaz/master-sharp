@@ -70,31 +70,36 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\ISimulation.cs" />
-    <Compile Include="Controller\Simulation.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CuisineElements\Cuisine.cs" />
-    <Compile Include="Model\CuisineElements\IEmploye.cs" />
-    <Compile Include="Model\SalleElements\ClientFactory.cs" />
-    <Compile Include="Model\SalleElements\IClient.cs" />
-    <Compile Include="Model\SalleElements\Salle.cs" />
-    <Compile Include="Model\CuisineElements\ChefCuisine.cs" />
-    <Compile Include="Model\CuisineElements\ChefPartie.cs" />
-    <Compile Include="Model\SalleElements\ChefRang.cs" />
-    <Compile Include="Model\SalleElements\Client.cs" />
-    <Compile Include="Model\CuisineElements\CommisCuisine.cs" />
-    <Compile Include="Model\SalleElements\CommisSalle.cs" />
-    <Compile Include="Model\CuisineElements\LaveLinge.cs" />
-    <Compile Include="Model\CuisineElements\LaveVaisselle.cs" />
-    <Compile Include="Model\SalleElements\MaitreHotel.cs" />
-    <Compile Include="Model\CuisineElements\Plongeur.cs" />
-    <Compile Include="Model\Restaurant.cs" />
-    <Compile Include="Model\SalleElements\Serveur.cs" />
+    <Compile Include="Model\Stock\Aliment.cs" />
+    <Compile Include="Model\Stock\Assiette.cs" />
+    <Compile Include="Model\Stock\Couverts.cs" />
+    <Compile Include="Model\Stock\FactoryVaisselle.cs" />
+    <Compile Include="Model\Stock\Four.cs" />
+    <Compile Include="Model\Stock\Frigo.cs" />
+    <Compile Include="Model\Stock\IStock.cs" />
+    <Compile Include="Model\Stock\ITextille.cs" />
+    <Compile Include="Model\Stock\IUstencilLavable.cs" />
+    <Compile Include="Model\Stock\IUstencilNonLavable.cs" />
+    <Compile Include="Model\Stock\IVaisselle.cs" />
+    <Compile Include="Model\Stock\Recette.cs" />
+    <Compile Include="Model\Stock\StockAliment.cs" />
+    <Compile Include="Model\Stock\StockUstencil.cs" />
+    <Compile Include="Model\Stock\StockVaisselle.cs" />
+    <Compile Include="Model\Stock\Textille.cs" />
+    <Compile Include="Model\Stock\TypeAliment.cs" />
+    <Compile Include="Model\Stock\TypeAssiette.cs" />
+    <Compile Include="Model\Stock\TypeCouverts.cs" />
+    <Compile Include="Model\Stock\TypeTextille.cs" />
+    <Compile Include="Model\Stock\TypeVerres.cs" />
+    <Compile Include="Model\Stock\Ustencil.cs" />
+    <Compile Include="Model\Stock\VaisselleFactory.cs" />
+    <Compile Include="Model\Stock\Verre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,7 +127,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\Tables\" />
+    <Folder Include="Controller\" />
     <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
