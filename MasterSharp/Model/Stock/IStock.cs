@@ -9,6 +9,6 @@ namespace MasterSharp.Model.Stock
     interface IStock
     {
 
-        int GetItemQuantity()
+        int GetItemQuantity();
     }
 }
