@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class MaitreHotel : IEmployeSalle
+    public class MaitreHotel : IEmployeSalle
     {
         public void DoWork()
         {

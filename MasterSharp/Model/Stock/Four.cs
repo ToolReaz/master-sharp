@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    class Four
+    class Four : IUstencilNonLavable
     {
+
+        /// <inheritdoc />
+        public int IsFull() {
+            throw new NotImplementedException();
+        }
     }
 }

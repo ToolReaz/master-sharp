@@ -11,9 +11,17 @@ namespace MasterSharp.Model.Stock
 
         private TypeVerres Type { get; }
 
+        private bool Clean { get; set; }
+
 
         public Verre(TypeVerres type) {
             Type = type;
+            Clean = true;
+        }
+
+
+        public void Wash() {
+            throw new NotImplementedException();
         }
     }
 }

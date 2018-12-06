@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MasterSharp.Model.Stock;
+using Model.Salle;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +8,27 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    class Client
+     class Client : IClient
     {
         private List<Recette> Command { get; }
-        
-        public Client(int EatTime, List<Recette> Command)
-        {
-            this.Command = Command;
+        private int EatTime { get; set; }
 
+       private TypeClient type { get; }
+        
+        public Client(TypeClient type, List<Recette> Command) 
+        {
+            this.type = type;
+            this.Command = Command;
         }
 
+        public void OrderMeal()
+        {
+            throw new NotImplementedException();
+        }
 
+        public void PayBill()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
