@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    class Aliment
+    public class Aliment
     {
 
         private TypeAliment Type { get; }
@@ -14,6 +14,10 @@ namespace MasterSharp.Model.Stock
 
         public Aliment(TypeAliment type) {
             Type = type;
+        }
+
+        public bool IsFresh() {
+            throw new NotImplementedException();
         }
     }
 }

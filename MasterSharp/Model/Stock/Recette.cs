@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    class Recette
+    public class Recette
     {
 
         private List<IVaisselle> vaisselles { get; }
