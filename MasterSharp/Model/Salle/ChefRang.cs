@@ -15,12 +15,12 @@ namespace MasterSharp.Model.Salle
 
         public void GiveMenu()
         {
-
+            throw new NotImplementedException();
         }
 
         public void TakeCommand()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

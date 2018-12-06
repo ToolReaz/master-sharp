@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-     class Client : IClient
+     public class Client : IClient
     {
         private List<Recette> Command { get; }
         private int EatTime { get; set; }
 
        private TypeClient type { get; }
         
-        public Client(TypeClient type, List<Recette> Command) 
+        public Client(TypeClient type) 
         {
             this.type = type;
-            this.Command = Command;
         }
 
         public void OrderMeal()

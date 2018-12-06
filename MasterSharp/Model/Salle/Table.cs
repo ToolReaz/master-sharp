@@ -12,7 +12,7 @@ namespace MasterSharp.Model.Salle
 
         public Table(int GroupeClient)
         {
-
+            this.GroupeClient = GroupeClient;
         }
     }
 }

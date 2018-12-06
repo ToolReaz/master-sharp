@@ -15,7 +15,7 @@ namespace MasterSharp.Model.Salle
 
         public void ServeWaterBread()
         {
-
+            throw new NotImplementedException();
         }
 
     }
