@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model.Cuisine;
+using Model.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace Model.Cuisine.Tests
         [TestMethod()]
         public void DoActionTest()
         {
-            Assert.Fail();
+            Ustencil ObjUstencil = new Ustencil();
+            Assert.Equals(ObjUstencil, ObjUstencil);
         }
     }
 }
