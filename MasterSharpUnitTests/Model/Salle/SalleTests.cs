@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace MasterSharpUnitTests.Model.Salle
 {
+    [TestClass()]
     class SalleTests
     {
+        List<Carre> Carre = new List<Carre>();
+
+        [TestMethod()]
+        public SalleTests()
+        {
+            Carre.add(2);
+            Assert.Equals(Carre, 2);
+            //Assert.Fail();
+        }
     }
 }

@@ -11,10 +11,15 @@ namespace Model.Salle.Tests
     [TestClass()]
     public class GroupeClientTests
     {
+
+
         [TestMethod()]
-        public void GroupeClientTest()
+        public void GroupeClientTest(List<Client> Groupe)
         {
-            Assert.Fail();
+            List<Client> Groupe = new List<Client>();
+            Groupe.Add(new Client(), new Client());
+            Assert.Equals(Groupe, 2);
+        //Assert.Fail();
         }
     }
 }
