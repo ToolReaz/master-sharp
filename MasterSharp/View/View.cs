@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 
-/* test */
 
 namespace View
 {
@@ -12,22 +11,22 @@ namespace View
 
         public View()
         {
-
+            throw new NotImplementedException();
         }
 
         public void UpdateView()
         {
-
+            throw new NotImplementedException();
         }
 
         public void GridView()
         {
-
+            throw new NotImplementedException();
         }
 
         public void GetViewInstance()
         {
-
+            throw new NotImplementedException();
         }
  
     }
