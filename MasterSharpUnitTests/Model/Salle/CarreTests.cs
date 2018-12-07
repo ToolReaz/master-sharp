@@ -11,10 +11,14 @@ namespace MasterSharp.Model.Salle.Tests
     [TestClass()]
     public class CarreTests
     {
+        List<Rang> Rang = new List<Rang>();
+
         [TestMethod()]
         public void CarreTest()
         {
-            Assert.Fail();
+            Rang.Add(new Rang(), new Rang());
+            Assert.Equals(Rang, 2);
+            //Assert.Fail();
         }
     }
 }
