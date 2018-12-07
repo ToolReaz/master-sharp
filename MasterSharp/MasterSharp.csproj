@@ -29,6 +29,9 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WpfApplication1.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
@@ -121,6 +124,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\App.g.i.cs" />
     <Compile Include="Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
