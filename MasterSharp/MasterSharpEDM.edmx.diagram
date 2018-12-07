@@ -5,37 +5,37 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6c6af16caf6f4d6f92ad479232715601" Name="Diagram1" >
-        <EntityTypeShape EntityType="MasterSharpModel.Action" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Dish" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Dish_Stock" Width="1.5" PointX="5.625" PointY="4.625" />
+        <EntityTypeShape EntityType="MasterSharpModel.Action" Width="1.5" PointX="1.5" PointY="15.875" />
+        <EntityTypeShape EntityType="MasterSharpModel.Dish" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MasterSharpModel.Dish_Stock" Width="1.5" PointX="6" PointY="6.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Dish_Stock_ID_Dishes" />
-        <EntityTypeShape EntityType="MasterSharpModel.Food" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Food_Stock" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="MasterSharpModel.Food" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="MasterSharpModel.Food_Stock" Width="1.5" PointX="3" PointY="3.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Food_Stock_ID_Foods" />
-        <EntityTypeShape EntityType="MasterSharpModel.Food_Types" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="MasterSharpModel.Food_Types" Width="1.5" PointX="1.5" PointY="0.875" />
         <AssociationConnector Association="MasterSharpModel.FK_Foods_ID_Food_Types" />
-        <EntityTypeShape EntityType="MasterSharpModel.Recipe" Width="1.5" PointX="3.375" PointY="7.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Categories" Width="1.5" PointX="1.125" PointY="9.625" />
+        <EntityTypeShape EntityType="MasterSharpModel.Recipe" Width="1.5" PointX="3.5" PointY="22" />
+        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Categories" Width="1.5" PointX="1.25" PointY="22.875" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipes_ID_Recipe_Categories" />
-        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Dish" Width="1.5" PointX="5.625" PointY="1.875" />
+        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Dish" Width="1.5" PointX="6" PointY="14" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Dish_ID_Dishes" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Dish_ID_Recipes" />
-        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Step" Width="1.5" PointX="5.625" PointY="7.625" />
+        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Step" Width="1.5" PointX="5.75" PointY="10.375" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Actions" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Foods" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Recipes" />
-        <EntityTypeShape EntityType="MasterSharpModel.Size" Width="1.5" PointX="8.375" PointY="0.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Stock" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="MasterSharpModel.Size" Width="1.5" PointX="1.5" PointY="13.625" />
+        <EntityTypeShape EntityType="MasterSharpModel.Stock" Width="1.5" PointX="0.75" PointY="6.625" />
         <AssociationConnector Association="MasterSharpModel.FK_Dish_Stock_ID_Stocks" />
         <AssociationConnector Association="MasterSharpModel.FK_Food_Stock_ID_Stocks" />
-        <EntityTypeShape EntityType="MasterSharpModel.Textil" Width="1.5" PointX="8.375" PointY="3.75" />
-        <EntityTypeShape EntityType="MasterSharpModel.Textil_Stock" Width="1.5" PointX="10.625" PointY="3.875" />
+        <EntityTypeShape EntityType="MasterSharpModel.Textil" Width="1.5" PointX="0.75" PointY="18.875" />
+        <EntityTypeShape EntityType="MasterSharpModel.Textil_Stock" Width="1.5" PointX="3" PointY="9.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Textil_Stock_ID_Stocks" />
         <AssociationConnector Association="MasterSharpModel.FK_Textil_Stock_ID_Textils" />
-        <EntityTypeShape EntityType="MasterSharpModel.Utensil" Width="1.5" PointX="10.625" PointY="0.75" />
+        <EntityTypeShape EntityType="MasterSharpModel.Utensil" Width="1.5" PointX="0.75" PointY="10.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Utensils_ID_Size" />
         <AssociationConnector Association="MasterSharpModel.Utensil_Action" />
-        <EntityTypeShape EntityType="MasterSharpModel.Utensil_Stock" Width="1.5" PointX="12.875" PointY="2.75" />
+        <EntityTypeShape EntityType="MasterSharpModel.Utensil_Stock" Width="1.5" PointX="3" PointY="6.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Utensils_Stock_ID_Stocks" />
         <AssociationConnector Association="MasterSharpModel.FK_Utensils_Stock_ID_Utensils" />
       </Diagram>
