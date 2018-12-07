@@ -7,21 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+using System;
+using System.Collections.Generic;
+
+public partial class Dish_Stock
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Recipe_Step
-    {
-        public int Food_Quantity { get; set; }
-        public int Number_Step { get; set; }
-        public int ID_Foods { get; set; }
-        public int ID_Recipes { get; set; }
-        public int ID_Actions { get; set; }
-    
-        public virtual Action Action { get; set; }
-        public virtual Food Food { get; set; }
-        public virtual Recipe Recipe { get; set; }
-    }
+    public int Quantity { get; set; }
+    public bool Clean { get; set; }
+    public int ID_Stocks { get; set; }
+    public int ID_Dishes { get; set; }
+
+    public virtual Dish Dish { get; set; }
+    public virtual Stock Stock { get; set; }
 }

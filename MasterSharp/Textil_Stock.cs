@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+using System;
+using System.Collections.Generic;
+
+public partial class Textil_Stock
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Utensil_Stock
-    {
-        public int Quantity { get; set; }
-        public bool Clean { get; set; }
-        public int ID_Utensils { get; set; }
-        public int ID_Stocks { get; set; }
-    
-        public virtual Stock Stock { get; set; }
-        public virtual Utensil Utensil { get; set; }
-    }
+    public int Quantity { get; set; }
+    public bool Clean { get; set; }
+    public int ID_Textils { get; set; }
+    public int ID_Stocks { get; set; }
+
+    public virtual Stock Stock { get; set; }
+    public virtual Textil Textil { get; set; }
 }

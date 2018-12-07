@@ -7,19 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+using System;
+using System.Collections.Generic;
+
+public partial class Recipe_Dish
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Food_Stock
-    {
-        public int Quantity { get; set; }
-        public System.DateTime Expiry_Date { get; set; }
-        public int ID_Foods { get; set; }
-        public int ID_Stocks { get; set; }
-    
-        public virtual Food Food { get; set; }
-        public virtual Stock Stock { get; set; }
-    }
+    public int Quantity { get; set; }
+    public int ID_Dishes { get; set; }
+    public int ID_Recipes { get; set; }
+
+    public virtual Dish Dish { get; set; }
+    public virtual Recipe Recipe { get; set; }
 }
