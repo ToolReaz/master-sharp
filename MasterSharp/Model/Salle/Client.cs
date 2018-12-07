@@ -1,12 +1,11 @@
-﻿using MasterSharp.Model.Stock;
-using Model.Salle;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Salle;
+using MasterSharp.Model.Stock;
+using Model.Stock;
 
-namespace MasterSharp.Model.Salle
+namespace Model.Salle
 {
      public class Client : IClient
     {

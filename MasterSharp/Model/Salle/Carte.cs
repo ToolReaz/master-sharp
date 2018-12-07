@@ -1,11 +1,10 @@
-﻿using MasterSharp.Model.Stock;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Stock;
+using Model.Stock;
 
-namespace MasterSharp.Model.Salle
+namespace Model.Salle
 {
     public class Carte
     {
