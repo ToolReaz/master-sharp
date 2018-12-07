@@ -1,19 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Stock;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
-    class Textille : ITextille
+    public class Textille : ITextille
     {
 
         private TypeTextille Type { get; }
 
 
         public Textille(TypeTextille type) {
-            Type = type;
+            throw new NotImplementedException();
         }
     }
 }

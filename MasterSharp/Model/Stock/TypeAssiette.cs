@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    enum TypeAssiette
+    public enum TypeAssiette
     {
         PETITE,
         PLATE,

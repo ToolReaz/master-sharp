@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharpUnitTests.Model.Stock
+namespace MasterSharpUnitTests.Model.Salle
 {
-    class AlimentTests
+    class TableTests
     {
     }
 }

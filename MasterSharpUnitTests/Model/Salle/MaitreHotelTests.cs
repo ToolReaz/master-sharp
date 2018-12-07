@@ -1,24 +1,24 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.Stock;
+using Model.Salle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Stock.Tests
+namespace Model.Salle.Tests
 {
     [TestClass()]
-    public class CouvertsTests
+    public class MaitreHotelTests
     {
         [TestMethod()]
-        public void CouvertsTest()
+        public void DoWorkTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void WashTest()
+        public void WelcomeTest()
         {
             Assert.Fail();
         }

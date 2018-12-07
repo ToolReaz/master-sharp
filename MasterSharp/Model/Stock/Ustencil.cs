@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
-    class Ustencil
+    public class Ustencil : IUstencile
     {
+
+        public Ustencil() {
+            throw new NotImplementedException();
+        }
     }
 }

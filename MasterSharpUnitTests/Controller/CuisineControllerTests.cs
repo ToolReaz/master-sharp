@@ -1,24 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.Stock;
+using Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Stock.Tests
+namespace Controller.Tests
 {
     [TestClass()]
-    public class CouvertsTests
+    public class CuisineControllerTests
     {
         [TestMethod()]
-        public void CouvertsTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void WashTest()
+        public void ClientSocketTest()
         {
             Assert.Fail();
         }

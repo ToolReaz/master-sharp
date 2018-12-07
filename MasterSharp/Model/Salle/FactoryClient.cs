@@ -1,13 +1,10 @@
-﻿using Model.Salle;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Salle;
 
-namespace MasterSharp.Model.Salle
+namespace Model.Salle
 {
-   abstract class FactoryClient
+    public abstract class FactoryClient
     {
 
         public static IClient CreateCoolClient()

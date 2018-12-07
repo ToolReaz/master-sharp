@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Stock;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
     public class Aliment
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharp.Model.Stock
+namespace MasterSharpUnitTests.Model.Stock
 {
-    class FactoryVaisselle
+    class StockVaisselleTests
     {
     }
 }

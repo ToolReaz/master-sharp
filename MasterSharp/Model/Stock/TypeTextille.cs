@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Stock
 {
-    enum TypeTextille
+    public enum TypeTextille
     {
         SERVIETTE,
         NAPPE

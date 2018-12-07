@@ -1,12 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Stock;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
-    class Frigo
+    public class Frigo : IUstencilNonLavable
     {
+        public int IsFull() {
+            throw new NotImplementedException();
+        }
+
+        public Frigo() {
+            throw new NotImplementedException();
+        }
     }
 }

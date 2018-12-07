@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharpUnitTests.Model.Stock
 {
-    class AlimentTests
+    class AssietteTests
     {
     }
 }

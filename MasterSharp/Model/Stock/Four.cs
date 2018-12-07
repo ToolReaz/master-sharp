@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MasterSharp.Model.Stock;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
-    class Four : IUstencilNonLavable
+    public class Four : IUstencilNonLavable
     {
 
-        /// <inheritdoc />
         public int IsFull() {
+            throw new NotImplementedException();
+        }
+
+        public Four() {
             throw new NotImplementedException();
         }
     }

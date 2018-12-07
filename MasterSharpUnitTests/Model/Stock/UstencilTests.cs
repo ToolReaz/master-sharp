@@ -9,16 +9,10 @@ using System.Threading.Tasks;
 namespace Model.Stock.Tests
 {
     [TestClass()]
-    public class CouvertsTests
+    public class UstencilTests
     {
         [TestMethod()]
-        public void CouvertsTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void WashTest()
+        public void UstencilTest()
         {
             Assert.Fail();
         }

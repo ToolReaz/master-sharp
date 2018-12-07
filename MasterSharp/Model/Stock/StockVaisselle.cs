@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model.Stock;
 
 namespace MasterSharp.Model.Stock
 {
-    class StockVaisselle
+    public class StockVaisselle : IStock
     {
 
-        private List<IVaisselle> Vaisselle { get; };
+        private List<IVaisselle> Vaisselle { get; }
 
         public StockVaisselle(List<IVaisselle> vaisselle) {
-            Vaisselle = vaisselle;
+            throw new NotImplementedException();
         }
 
 
 
         public IVaisselle GetItem() {
-            return 
+            throw new NotImplementedException();
+        }
+
+        public int GetItemQuantity() {
+            throw new NotImplementedException();
         }
     }
 }

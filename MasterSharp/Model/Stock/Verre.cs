@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MasterSharp.Model.Stock
+namespace Model.Stock
 {
-    class Verre : IVaisselle
+    public class Verre : IVaisselle
     {
 
         private TypeVerres Type { get; }
@@ -15,8 +12,7 @@ namespace MasterSharp.Model.Stock
 
 
         public Verre(TypeVerres type) {
-            Type = type;
-            Clean = true;
+            throw new NotImplementedException();
         }
 
 

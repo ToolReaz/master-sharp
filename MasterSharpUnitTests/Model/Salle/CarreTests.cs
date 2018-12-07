@@ -1,24 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model.Stock;
+using MasterSharp.Model.Salle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Stock.Tests
+namespace MasterSharp.Model.Salle.Tests
 {
     [TestClass()]
-    public class CouvertsTests
+    public class CarreTests
     {
         [TestMethod()]
-        public void CouvertsTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void WashTest()
+        public void CarreTest()
         {
             Assert.Fail();
         }
