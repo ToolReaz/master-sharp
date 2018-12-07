@@ -6,7 +6,7 @@ using System.Text;
 namespace Model.Salle
 {
 
-    enum TypeClient
+   public enum TypeClient
     {
         COOL,
         BUSY,

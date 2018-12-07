@@ -15,18 +15,18 @@ namespace MasterSharp.Model.Salle
 
         public void ServeClient()
         {
-
+            throw new NotImplementedException();
         }
 
         //debarrasser la table
         public void RidOff()
         {
-
+            throw new NotImplementedException();
         }
 
         public void BringFood()
         {
-
+            throw new NotImplementedException();
         }
     }
 

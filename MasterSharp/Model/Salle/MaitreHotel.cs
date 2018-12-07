@@ -15,7 +15,7 @@ namespace MasterSharp.Model.Salle
 
         public void Welcome()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

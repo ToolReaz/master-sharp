@@ -43,9 +43,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Comptoir\ComptoirPlatSalle.cs" />
-    <Compile Include="Comptoir\ComptoirPlatsPreparer.cs" />
-    <Compile Include="Comptoir\IComptoir.cs" />
+    <Compile Include="Model\Comptoir\ComptoirPlatSalle.cs" />
+    <Compile Include="Model\Comptoir\ComptoirPlatsPreparer.cs" />
+    <Compile Include="Model\Comptoir\IComptoir.cs" />
     <Compile Include="Controller\CuisineController.cs" />
     <Compile Include="Controller\SalleController.cs" />
     <Compile Include="Controller\Simulation.cs" />

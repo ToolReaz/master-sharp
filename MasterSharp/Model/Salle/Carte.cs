@@ -12,9 +12,9 @@ namespace MasterSharp.Model.Salle
         private List<Recette> Recette;
         //private List<Vin> Vin;
 
-        public Carte()
+        public Carte(List<Recette> Rectte)
         {
-           
+            this.Recette = Recette;
         }
     }
 }
