@@ -6,21 +6,21 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    class Cuisine
+    public class Cuisine
     {
         public Cuisine()
         {
-            
+            throw new NotImplementedException();
         }
 
         public void AddCommandRecette(Recette _Recette)
         {
-
+            throw new NotImplementedException();
         }
 
         public void FinishCommand(Recette _Recette)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

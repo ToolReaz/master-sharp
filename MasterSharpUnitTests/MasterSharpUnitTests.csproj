@@ -49,6 +49,23 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Cuisine\BattreTests.cs" />
+    <Compile Include="Model\Cuisine\ChaufferTests.cs" />
+    <Compile Include="Model\Cuisine\ChefCuisineTests.cs" />
+    <Compile Include="Model\Cuisine\ChefPartieTests.cs" />
+    <Compile Include="Model\Cuisine\CommisCuisineTests.cs" />
+    <Compile Include="Model\Cuisine\CouperTests.cs" />
+    <Compile Include="Model\Cuisine\CuisineTests.cs" />
+    <Compile Include="Model\Cuisine\EmincerTests.cs" />
+    <Compile Include="Model\Cuisine\FrireTests.cs" />
+    <Compile Include="Model\Cuisine\LaveLingeTests.cs" />
+    <Compile Include="Model\Cuisine\LaveVaisselleTests.cs" />
+    <Compile Include="Model\Cuisine\MelangerTests.cs" />
+    <Compile Include="Model\Cuisine\MijoterTests.cs" />
+    <Compile Include="Model\Cuisine\MixerTests.cs" />
+    <Compile Include="Model\Cuisine\PlongeurTests.cs" />
+    <Compile Include="Model\Cuisine\PresserTests.cs" />
+    <Compile Include="Model\Cuisine\SaisirTests.cs" />
     <Compile Include="Model\Stock\AlimentTests.cs" />
     <Compile Include="Model\Stock\CouvertsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

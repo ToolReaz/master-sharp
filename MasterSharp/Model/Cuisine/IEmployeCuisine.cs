@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    interface IEmployeCuisine
+    public interface IEmployeCuisine
     {
         void DoWork();
     }

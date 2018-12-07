@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    class ChefPartie : IEmployeCuisine
+    public class ChefPartie : IEmployeCuisine
     {
         public void DoAction(IAction _Action, Aliment _ObjAliment)
         {
-
+            throw new NotImplementedException();
         }
 
         public void DoWork()

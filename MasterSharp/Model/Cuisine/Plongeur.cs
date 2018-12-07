@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    class Plongeur : IEmployeCuisine
+    public class Plongeur : IEmployeCuisine
     {
         public void DoWork()
         {
@@ -15,7 +15,7 @@ namespace Model.Cuisine
 
         public void Wash()
         {
-
+            throw new NotImplementedException();
         }
     }
 }
