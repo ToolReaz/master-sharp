@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Model.Salle
 {
-    interface IClient
+    public interface IClient
     {
          void OrderMeal();
          void PayBill();

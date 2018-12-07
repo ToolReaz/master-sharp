@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MasterSharp.Model.Salle;
 
 namespace Model.Salle
 {
