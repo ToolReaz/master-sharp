@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    public interface IAction
+    public interface IAction<Ustencil>
     {
-        /*Ustencil ObjUstencil { get; set; }        //va de paire avec : interface IAction<Ustencil>   */
-
         void DoAction();
     }
 }
