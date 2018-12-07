@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.Salle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,12 @@ namespace MasterSharpUnitTests.Model.Salle
     class TableTests
     {
         int GroupeClient = 1;
-        Table TableClient = new Table();
+        Table TableClient = new Table(1);
 
-        [TestMethod()]
+        //[TestMethod()]
         public TableTests()
         {
-            TableClient.add(GroupeClient);
+            //TableClient.add();
             Assert.Equals(TableClient, 1);
             //Assert.Fail();
         }

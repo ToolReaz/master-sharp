@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +13,26 @@ namespace MasterSharpUnitTests.Model.Salle
     {
         List<Recette> Recette = new List<Recette>();
         
-        [TestMethod()]
+        //[TestMethod()]
         public ServeurTests()
         {
             Assert.Fail();
         }
         
        
-        public ServeClient()
+        public void ServeClient()
         {
-            Recette.Add("Salade", "Boeuf Bourgignon", "Mousse chocolat");
+           // Recette.Add("Salade", "Boeuf Bourgignon", "Mousse chocolat");
         }
 
-        public RideOff()
+        public void RideOff()
         {
-            Recette.RemoveAll();
+            Recette.RemoveAt(1);
             Assert.Equals(Recette, 0);
 
         }
 
-        public BringFood()
+        public void BringFood()
         {
 
         }

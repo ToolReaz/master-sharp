@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.Comptoir;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,16 @@ namespace MasterSharpUnitTests.Model.Comptoir
         List<ComptoirPlatSalle> Comptoir = new List<ComptoirPlatSalle>();
 
         [TestMethod()]
-        public AddElement()
+        public void AddElement()
         {
-            Comptoir.Add(new ComptoirPlatSalle(), new ComptoirPlatSalle());
-            Assert.Equals(Comptoir, 2);
+            Comptoir.Add(new ComptoirPlatSalle());
+            Assert.Equals(Comptoir, 1);
         }
 
         [TestMethod()]
-        public RemoveElement()
+        public  void RemoveElement()
         {
-            Comptoir.RemoveAll();
+            Comptoir.RemoveAt(1);
             Assert.Equals(Comptoir, 0);
         }
     }

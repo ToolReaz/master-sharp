@@ -16,9 +16,8 @@ namespace Model.Salle.Tests
         [TestMethod()]
         public void GroupeClientTest(List<Client> Groupe)
         {
-            List<Client> Groupe = new List<Client>();
-            Groupe.Add(new Client(), new Client());
-            Assert.Equals(Groupe, 2);
+            ((List<Client>)new List<Client>()).Add(new Client(TypeClient.BUSY));
+            Assert.Equals(new List<Client>(), 1);
         //Assert.Fail();
         }
     }

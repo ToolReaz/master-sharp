@@ -10,28 +10,23 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class ChefRangTests
     {
-        Menu MenuTable = new Menu(List<Recette>);
+        //Menu MenuTable = new Menu(List<Recette>);
+       
 
         [TestMethod()]
-        public ChefRangTests()
+        public void DoWork()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public DoWork()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public GiveMenu()
+        public void GiveMenu()
         {
            Assert.Fail();
         }
 
         [TestMethod()]
-        public TakeCommand()
+        public void TakeCommand()
         {
             Assert.Fail();
         }

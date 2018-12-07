@@ -10,10 +10,5 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class CarteTests
     {
-        [TestMethod()]
-        public void CarteTests()
-        {
-            Assert.Fail();
-        }
     }
 }
