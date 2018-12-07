@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MasterSharp.Comptoir
 {
-    class ComptoirPlatSalle : IComptoir
+     public class ComptoirPlatSalle : IComptoir
     {
         public void AddElement()
         {
