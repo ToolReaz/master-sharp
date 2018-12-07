@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MasterSharp.Model.Salle;
+using Model.Salle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,13 @@ namespace MasterSharp.Model.Salle.Tests
     [TestClass()]
     public class CarreTests
     {
-        List<Rang> Rang = new List<Rang>();
+        List<Table> Table;
 
         [TestMethod()]
         public void CarreTest()
         {
-            Rang.Add(new Rang(), new Rang());
-            Assert.Equals(Rang, 2);
+            Table.Add(new Table(5));
+            Assert.Equals(Table, 1);
             //Assert.Fail();
         }
     }

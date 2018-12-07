@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.Salle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace MasterSharpUnitTests.Model.Salle
     {
         List<Carre> Carre = new List<Carre>();
 
-        [TestMethod()]
+        //[TestMethod()]
         public SalleTests()
         {
-            Carre.add(2);
+            //Carre.add();
             Assert.Equals(Carre, 2);
             //Assert.Fail();
         }

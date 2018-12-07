@@ -22,7 +22,7 @@ namespace Model.Salle.Tests
         [TestMethod()]
         public void WelcomeTest()
         {
-            GroupeCLient.Add(1);
+            GroupeCLient.Add(new GroupeClient(new List<Client>()));
             Assert.Equals(GroupeCLient, 1);
             //Assert.Fail();
         }
