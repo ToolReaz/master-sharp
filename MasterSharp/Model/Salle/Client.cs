@@ -12,11 +12,11 @@ namespace Model.Salle
         private List<Recette> Command { get; }
         private int EatTime { get; set; }
 
-       private TypeClient type { get; }
+       private TypeClient Type { get; }
         
-        public Client(TypeClient type) 
+        public Client(TypeClient Type) 
         {
-            this.type = type;
+            this.Type = Type;
         }
 
         public void OrderMeal()

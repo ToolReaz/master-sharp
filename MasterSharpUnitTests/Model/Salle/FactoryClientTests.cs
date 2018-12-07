@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MasterSharpUnitTests.Model.Salle
 {
+    [TestClass()]
     class FactoryClientTests
     {
+        [TestMethod()]
+        public FactoryClientTests()
+        {
+            Assert.Fail();
+        }
     }
 }
