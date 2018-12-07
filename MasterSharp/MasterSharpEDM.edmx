@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MasterSharpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="MasterSharpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actions">
           <Key>
             <PropertyRef Name="ID" />
@@ -463,12 +463,12 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MasterSharpModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+      <Schema Namespace="MasterSharpModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="Action">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Recipe_Step" Relationship="Self.FK_Recipe_Step_ID_Actions" FromRole="Actions" ToRole="Recipe_Step" />
           <NavigationProperty Name="Utensils" Relationship="Self.Utensil_Action" FromRole="Actions" ToRole="Utensils" />
@@ -489,7 +489,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Dish_Stock" Relationship="Self.FK_Dish_Stock_ID_Dishes" FromRole="Dishes" ToRole="Dish_Stock" />
           <NavigationProperty Name="Recipe_Dish" Relationship="Self.FK_Recipe_Dish_ID_Dishes" FromRole="Dishes" ToRole="Recipe_Dish" />
@@ -510,7 +510,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Foods" Relationship="Self.FK_Foods_ID_Food_Types" FromRole="Food_Types" ToRole="Foods" />
         </EntityType>
@@ -518,7 +518,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Food_Types" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Food_Stock" Relationship="Self.FK_Food_Stock_ID_Foods" FromRole="Foods" ToRole="Food_Stock" />
@@ -529,7 +529,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Recipes" Relationship="Self.FK_Recipes_ID_Recipe_Categories" FromRole="Recipe_Categories" ToRole="Recipes" />
         </EntityType>
@@ -563,7 +563,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Preparation" Type="Time" Precision="2" />
           <Property Name="Cook" Type="Time" Precision="2" />
@@ -580,7 +580,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Utensils" Relationship="Self.FK_Utensils_ID_Size" FromRole="Size" ToRole="Utensils" />
         </EntityType>
@@ -588,7 +588,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <NavigationProperty Name="Dish_Stock" Relationship="Self.FK_Dish_Stock_ID_Stocks" FromRole="Stocks" ToRole="Dish_Stock" />
           <NavigationProperty Name="Food_Stock" Relationship="Self.FK_Food_Stock_ID_Stocks" FromRole="Stocks" ToRole="Food_Stock" />
           <NavigationProperty Name="Textil_Stock" Relationship="Self.FK_Textil_Stock_ID_Stocks" FromRole="Stocks" ToRole="Textil_Stock" />
@@ -610,7 +610,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Textil_Stock" Relationship="Self.FK_Textil_Stock_ID_Textils" FromRole="Textils" ToRole="Textil_Stock" />
         </EntityType>
@@ -630,7 +630,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Size" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Size" Relationship="Self.FK_Utensils_ID_Size" FromRole="Utensils" ToRole="Size" />
@@ -833,7 +833,7 @@
           <End Role="Actions" Type="Self.Action" Multiplicity="*" />
           <End Role="Utensils" Type="Self.Utensil" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="MasterSharpEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MasterSharpEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Actions" EntityType="Self.Action" />
           <EntitySet Name="Dish_Stock" EntityType="Self.Dish_Stock" />
           <EntitySet Name="Dishes" EntityType="Self.Dish" />
@@ -923,7 +923,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MasterSharpModelStoreContainer" CdmEntityContainer="MasterSharpEntities">
           <EntitySetMapping Name="Actions">
             <EntityTypeMapping TypeName="MasterSharpModel.Action">
