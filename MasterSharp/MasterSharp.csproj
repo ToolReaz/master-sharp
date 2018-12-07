@@ -30,11 +30,20 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +51,9 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Action.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Comptoir\ComptoirPlatSalle.cs" />
     <Compile Include="Model\Comptoir\ComptoirPlatsPreparer.cs" />
@@ -71,6 +83,48 @@
     <Compile Include="Model\Cuisine\Plongeur.cs" />
     <Compile Include="Model\Cuisine\Presser.cs" />
     <Compile Include="Model\Cuisine\Saisir.cs" />
+    <Compile Include="Dish.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dish_Stock.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food_Stock.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Food_Types.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterSharpEDM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterSharpEDM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterSharpEDM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterSharpEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe_Categories.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe_Dish.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recipe_Step.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Salle\Carre.cs" />
     <Compile Include="Model\Salle\Carte.cs" />
     <Compile Include="Model\Salle\ChefRang.cs" />
@@ -85,6 +139,12 @@
     <Compile Include="Model\Salle\Serveur.cs" />
     <Compile Include="Model\Salle\Table.cs" />
     <Compile Include="Model\Salle\TypeClient.cs" />
+    <Compile Include="Size.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Stock\Aliment.cs" />
     <Compile Include="Model\Stock\Assiette.cs" />
     <Compile Include="Model\Stock\Couverts.cs" />
@@ -110,9 +170,26 @@
     <Compile Include="Model\Stock\Ustencil.cs" />
     <Compile Include="Model\Stock\VaisselleFactory.cs" />
     <Compile Include="Model\Stock\Verre.cs" />
+    <Compile Include="Textil.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Textil_Stock.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utensil.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utensil_Stock.cs">
+      <DependentUpon>MasterSharpEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="View\View.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,13 +197,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="MasterSharpEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MasterSharpEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MasterSharpEDM.edmx.diagram">
+      <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
+    </None>
     <None Include="obj\Debug\MasterSharp.csproj.CoreCompileInputs.cache" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\MasterSharp.csproj.CoreCompileInputs.cache" />
     <None Include="obj\x86\Debug\MasterSharp.csprojAssemblyReference.cache" />
     <None Include="obj\x86\Release\MasterSharp.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="App.xaml">
@@ -142,6 +229,21 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterSharpEDM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MasterSharpEDM.Context.cs</LastGenOutput>
+      <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
+    </Content>
+    <Content Include="MasterSharpEDM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
+      <LastGenOutput>MasterSharpEDM.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>
