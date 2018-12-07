@@ -1,4 +1,5 @@
 ﻿using MasterSharp.Model.Stock;
+using Model.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;

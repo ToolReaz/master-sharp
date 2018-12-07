@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MasterSharp.Controller
+namespace Controller
 {
-    class Simulation
+    public class Simulation
     {
         public int TimeScale;
         //public Restaurant restaurant;
