@@ -9,7 +9,7 @@ namespace Model.Cuisine
 {
     public class ChefPartie : IEmployeCuisine
     {
-        public void DoAction(IAction _Action, Aliment _ObjAliment)
+        public void DoAction(IAction<Ustencil> _Action, Aliment _ObjAliment)
         {
             throw new NotImplementedException();
         }
