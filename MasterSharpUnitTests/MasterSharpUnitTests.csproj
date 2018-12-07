@@ -49,6 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CuisineControllerTests.cs" />
+    <Compile Include="Controller\SalleControllerTests.cs" />
+    <Compile Include="Controller\SimulationTests.cs" />
+    <Compile Include="Model\Comptoir\ComptoirPlatSalleTests.cs" />
+    <Compile Include="Model\Comptoir\ComptoirPlatsPreparerTests.cs" />
     <Compile Include="Model\Cuisine\BattreTests.cs" />
     <Compile Include="Model\Cuisine\ChaufferTests.cs" />
     <Compile Include="Model\Cuisine\ChefCuisineTests.cs" />
@@ -66,11 +71,41 @@
     <Compile Include="Model\Cuisine\PlongeurTests.cs" />
     <Compile Include="Model\Cuisine\PresserTests.cs" />
     <Compile Include="Model\Cuisine\SaisirTests.cs" />
+    <Compile Include="Model\Salle\CarreTests.cs" />
+    <Compile Include="Model\Salle\CarteTests.cs" />
+    <Compile Include="Model\Salle\ChefRangTests.cs" />
+    <Compile Include="Model\Salle\ClientTests.cs" />
+    <Compile Include="Model\Salle\CommisSallleTests.cs" />
+    <Compile Include="Model\Salle\FactoryClientTests.cs" />
+    <Compile Include="Model\Salle\GroupeClientTests.cs" />
+    <Compile Include="Model\Salle\MaitreHotelTests.cs" />
+    <Compile Include="Model\Salle\SalleTests.cs" />
+    <Compile Include="Model\Salle\ServeurTests.cs" />
+    <Compile Include="Model\Salle\TableTests.cs" />
     <Compile Include="Model\Stock\AlimentTests.cs" />
+    <Compile Include="Model\Stock\AssietteTests.cs" />
     <Compile Include="Model\Stock\CouvertsTests.cs" />
+    <Compile Include="Model\Stock\FourTests.cs" />
+    <Compile Include="Model\Stock\FrigoTests.cs" />
+    <Compile Include="Model\Stock\RecetteTests.cs" />
+    <Compile Include="Model\Stock\StockAlimentTests.cs" />
+    <Compile Include="Model\Stock\StockUstencilTests.cs" />
+    <Compile Include="Model\Stock\StockVaisselleTests.cs" />
+    <Compile Include="Model\Stock\TextilleTests.cs" />
+    <Compile Include="Model\Stock\UstencilTests.cs" />
+    <Compile Include="Model\Stock\VaisselleFactoryTests.cs" />
+    <Compile Include="Model\Stock\VerreTests.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\ViewTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\MasterSharpUnitTests.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\MasterSharpUnitTests.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +113,14 @@
       <Project>{B20C3DA6-2276-4DBC-94D3-F7C0F06BE39C}</Project>
       <Name>MasterSharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="obj\Debug\MasterSharpUnitTests.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
