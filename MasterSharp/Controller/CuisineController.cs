@@ -8,7 +8,7 @@ namespace Controller
 
         public void ClientSocket()
         {
-
+            throw new NotImplementedException();
         }
     }
 }
