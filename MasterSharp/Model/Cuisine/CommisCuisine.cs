@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    class CommisCuisine : IEmployeCuisine
+    public class CommisCuisine : IEmployeCuisine
     {
         public void DoWork()
         {
@@ -15,12 +15,12 @@ namespace Model.Cuisine
 
         public void Cut(Aliment _Aliment)
         {
-
+            throw new NotImplementedException();
         }
 
         public void Find(Aliment _Aliment)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

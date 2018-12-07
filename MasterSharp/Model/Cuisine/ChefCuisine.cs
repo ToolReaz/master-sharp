@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Model.Cuisine
 {
-    class ChefCuisine : IEmployeCuisine
+    public class ChefCuisine : IEmployeCuisine
     {
         public void DoWork()
         {

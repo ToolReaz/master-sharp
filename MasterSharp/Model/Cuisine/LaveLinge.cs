@@ -9,12 +9,12 @@ namespace Model.Cuisine
     {
         public void IsClean()
         {
-
+            throw new NotImplementedException();
         }
 
         public void Queue()
         {
-
+            throw new NotImplementedException();
         }
     }
 }
