@@ -63,6 +63,7 @@
     <Compile Include="Action.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Main\ClassMain.cs" />
     <Compile Include="Model\Comptoir\ComptoirPlatSalle.cs" />
     <Compile Include="Model\Comptoir\ComptoirPlatsPreparer.cs" />
     <Compile Include="Model\Comptoir\IComptoir.cs" />
