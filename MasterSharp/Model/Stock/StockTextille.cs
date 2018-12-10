@@ -11,13 +11,6 @@ namespace Model.Stock
         private List<ITextille> Textille { get; set; }
 
 
-
-        public StockTextille() {
-
-        }
-
-
-
         public int GetItemQuantity() {
             throw new NotImplementedException();
         }

@@ -42,7 +42,7 @@ namespace Controller
             byte[] bytesToRead = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
             Console.WriteLine("(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
-            //client.Close();
+            client.Close();
         }
 
         //TEXT FILE (command history)

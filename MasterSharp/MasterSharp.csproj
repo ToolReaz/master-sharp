@@ -1,10 +1,13 @@
 ﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{B20C3DA6-2276-4DBC-94D3-F7C0F06BE39C}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>WinExe</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>MasterSharp</RootNamespace>
     <AssemblyName>WindowsApplication</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -30,7 +33,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>WpfApplication1.App</StartupObject>
+    <StartupObject>MasterSharp.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -126,9 +129,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Stock\IStockItem.cs" />
-    <Compile Include="Model\Stock\StockTextille.cs" />
-    <Compile Include="obj\Debug\App.g.i.cs" />
     <Compile Include="Model\EDM\Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
@@ -167,6 +167,7 @@
     <Compile Include="Model\Stock\Four.cs" />
     <Compile Include="Model\Stock\Frigo.cs" />
     <Compile Include="Model\Stock\IStock.cs" />
+    <Compile Include="Model\Stock\IStockItem.cs" />
     <Compile Include="Model\Stock\ITextille.cs" />
     <Compile Include="Model\Stock\IUstencile.cs" />
     <Compile Include="Model\Stock\IUstencilLavable.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Model\Stock\IVaisselle.cs" />
     <Compile Include="Model\Stock\Recette.cs" />
     <Compile Include="Model\Stock\StockAliment.cs" />
+    <Compile Include="Model\Stock\StockTextille.cs" />
     <Compile Include="Model\Stock\StockUstencil.cs" />
     <Compile Include="Model\Stock\StockVaisselle.cs" />
     <Compile Include="Model\Stock\Textille.cs" />
@@ -219,7 +221,6 @@
     <None Include="Model\EDM\MasterSharpEDM.edmx.diagram">
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </None>
-    <None Include="obj\Debug\MasterSharp.csproj.CoreCompileInputs.cache" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\x86\Debug\MasterSharp.csproj.CoreCompileInputs.cache" />
     <None Include="obj\x86\Debug\MasterSharp.csprojAssemblyReference.cache" />
@@ -248,22 +249,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" Exclude="App.xaml" />
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MsBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CommandLog.txt" />
     <Content Include="Model\EDM\MasterSharpEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MasterSharpEDM.Context.cs</LastGenOutput>
@@ -426,6 +424,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>

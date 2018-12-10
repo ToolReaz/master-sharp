@@ -67,8 +67,8 @@ namespace Controller
             Console.WriteLine("(server)Sending back : " + dataReceived);
             nwStream.Write(buffer, 0, bytesRead);
             */
-            //client.Close();
-            //listener.Stop();
+            client.Close();
+            listener.Stop();
         }
 
     }
