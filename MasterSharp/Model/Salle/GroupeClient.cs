@@ -19,13 +19,17 @@ namespace Model.Salle
 
                 switch (version)
                 {
-                    case 1: Groupe.Add(FactoryClient.CreateBusyClient());
+                    case 1: Groupe.Add(new Client(Model.Salle.TypeClient.COOL));
+                        NewClient();
                         break;
-                    case 2: Groupe.Add(FactoryClient.CreateCoolClient());
+                    case 2: Groupe.Add(new Client(Model.Salle.TypeClient.BUSY));
+                        NewClient();
                         break;
-                    case 3: Groupe.Add(FactoryClient.CreateStandardClient);
+                    case 3: Groupe.Add(new Client(Model.Salle.TypeClient.STANDARD));
+                        NewClient();
                         break;
-                    default: Groupe.Add(FactoryClient.CreateStandardClient);
+                    default: Groupe.Add(new Client(Model.Salle.TypeClient.STANDARD));
+                        NewClient();
                         break;
                 }
 
@@ -33,9 +37,9 @@ namespace Model.Salle
         }
 
         //MARK-- need to check
-        public void AddClient(Client client)
+        public bool NewClient()
         {
-            Groupe.Add(client);
+            return true;
         }
 
         public void RemoveClient(Client client)

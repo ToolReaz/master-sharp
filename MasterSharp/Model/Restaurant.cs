@@ -24,12 +24,13 @@ namespace Model
 
         }
 
-       public int ClientArrived()
+       public bool ClientArrived(GroupeClient Groupe)
         {
-            /* Random randomClient = new Random();
-             int NbClient = randomClient.Next(1, 10);
-             return NbClient;*/
-            return 1;
+            if(Groupe.NewClient() == true)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
