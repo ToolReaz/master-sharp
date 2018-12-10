@@ -9,9 +9,24 @@ namespace Model.Stock
 
         private TypeTextille Type { get; }
 
+        public bool Clean;
+
 
         public Textille(TypeTextille type) {
-            throw new NotImplementedException();
+            this.Type = type;
+            this.Clean = true;
+        }
+
+        public void Wash() {
+            this.Clean = true;
+        }
+
+        public void Use() {
+            this.Clean = false;
+        }
+
+        public bool IsClean() {
+            return Clean;
         }
     }
 }

@@ -11,10 +11,18 @@ namespace Model.Cuisine.Tests
     [TestClass()]
     public class LaveVaisselleTests
     {
+
         [TestMethod()]
         public void IsCleanTest()
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void Queue()
+        {
+            Assert.Fail();
+        }
+
     }
 }

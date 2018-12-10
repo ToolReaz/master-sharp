@@ -16,9 +16,7 @@ namespace MasterSharpUnitTests.Model.Salle
         //[TestMethod()]
         public SalleTests()
         {
-            //Carre.add();
-            Assert.Equals(Carre, 2);
-            //Assert.Fail();
+           
         }
     }
 }

@@ -10,7 +10,8 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class CommisSallleTests
     {
-  
+        public int  Water = 40;
+        public int Bread = 40;
 
         [TestMethod()]
         public void DoWork()
@@ -19,9 +20,15 @@ namespace MasterSharpUnitTests.Model.Salle
         }
 
         [TestMethod()]
-        public void ServeWaterBread()
+        public void ServeWaterBread(int NbWater, int NbBread)
         {
-            Assert.Fail();
+            if(NbWater == 0 ||NbBread == 0 || Bread == 0 || Water== 0)
+            {
+                Assert.Fail();
+            }
+            Water -= NbWater;
+            Bread -= NbBread;
+            
         }
     }
 }

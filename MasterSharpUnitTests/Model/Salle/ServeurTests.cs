@@ -11,7 +11,6 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class ServeurTests
     {
-        List<Recette> Recette = new List<Recette>();
         
         //[TestMethod()]
         public ServeurTests()
@@ -20,21 +19,19 @@ namespace MasterSharpUnitTests.Model.Salle
         }
         
        
-        public void ServeClient()
+        public void ServeClient(List<Recette> Recette)
         {
-           // Recette.Add("Salade", "Boeuf Bourgignon", "Mousse chocolat");
+            Assert.Fail();
         }
 
-        public void RideOff()
+        public void RideOff(List<Recette> Recette)
         {
-            Recette.RemoveAt(1);
-            Assert.Equals(Recette, 0);
-
+            Assert.Fail();
         }
 
-        public void BringFood()
+        public void BringFood(List<Recette> Recette)
         {
-
+            Assert.Fail();
         }
     }
 }

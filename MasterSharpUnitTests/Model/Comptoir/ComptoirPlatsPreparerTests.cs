@@ -11,20 +11,31 @@ namespace MasterSharpUnitTests.Model.Comptoir
     [TestClass()]
     class ComptoirPlatsPreparerTests
     {
+        int NbPlatsSalle;
+
         List<ComptoirPlatsPreparer> Comptoir = new List<ComptoirPlatsPreparer>();
 
         [TestMethod()]
-        public void AddElement()
+        public void AddElement(int NbPlatsSalle)
         {
-            Comptoir.Add(new ComptoirPlatsPreparer());
-            Assert.Equals(Comptoir, 1);
+            for (int i =0; i<= NbPlatsSalle; i++)
+            {
+                Comptoir.Add(new ComptoirPlatsPreparer());
+            }
+           
+            Assert.Equals(NbPlatsSalle, Comptoir.Count);
         }
 
         [TestMethod()]
-        public  void RemoveElement()
+        public  void RemoveElement(int NbRemoveElement)
         {
-            Comptoir.RemoveAt(1);
-            Assert.Equals(Comptoir, 0);
+            for (int i = 0; i <= NbRemoveElement; i++)
+            {
+                NbPlatsSalle -= 1;
+                Comptoir.RemoveAt(1);
+            }
+            Assert.Equals(NbRemoveElement, Comptoir.Count);
+
         }
     }
 }

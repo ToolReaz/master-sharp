@@ -16,5 +16,11 @@ namespace Model.Cuisine.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void Queue()
+        {
+            Assert.Fail();
+        }
     }
 }

@@ -4,14 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Model.Cuisine
 {
     public class CommisCuisine : IEmployeCuisine
     {
-        public void DoWork()
-        {
-            throw new NotImplementedException();
+
+        private Thread thread;
+        bool ShouldRun = true;
+
+
+        public CommisCuisine() {
+            this.thread = new Thread(new ThreadStart(this.DoWork));
+        }
+
+        public void DoWork() {
+            while (ShouldRun) {
+
+            }
         }
 
         public void Cut(Aliment _Aliment)
