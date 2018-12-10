@@ -260,6 +260,7 @@
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CommandLog.txt" />
     <Content Include="Model\EDM\MasterSharpEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MasterSharpEDM.Context.cs</LastGenOutput>

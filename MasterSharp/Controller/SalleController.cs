@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.EDM;
+using System;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -11,18 +12,22 @@ namespace Controller
     {
         public SalleController()
         {
-            Console.WriteLine("SalleController instancié Fils instancié :");
+            //Console.WriteLine("SalleController instancié Fils instancié :");
         }
 
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
+
 
         public void ClientSock()
         {
             Console.WriteLine("Chibre client lancé :");
 
             //---data to send to the server---
-            string textToSend = DateTime.Now.ToString();
+            //PROViSOIRE
+            MenuOfTheDay menu = new MenuOfTheDay();
+            Recipe recette = menu.ofTheDay("Entrée");
+            string textToSend = recette.Name;
 
             //---create a TCPClient object at the IP and port no.---
             TcpClient client = new TcpClient(SERVER_IP, PORT_NO);
@@ -37,7 +42,7 @@ namespace Controller
             byte[] bytesToRead = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(bytesToRead, 0, client.ReceiveBufferSize);
             Console.WriteLine("(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
-            client.Close();
+            //client.Close();
         }
 
         //TEXT FILE (command history)

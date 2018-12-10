@@ -9,12 +9,23 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200px"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200px"/>
+            <ColumnDefinition Width="200px"></ColumnDefinition>
+            <ColumnDefinition Width="200px"/>
         </Grid.ColumnDefinitions>
 
 
-        <Label Grid.Column="0" Content="Options" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Grid.Column="0" Content="Options" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Height="26"/>
         <Button x:Name="MenuOfTheDay" Content="Menu du jour" HorizontalAlignment="Left" Margin="10,383,0,0" VerticalAlignment="Top" Width="180" Click="Button_Click" Height="27"/>
+        <Label Grid.Column="1" Content="Client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Height="26" Background="#FFF0E877"/>
+        <Label Grid.Column="2" Content="Salle" Margin="10,10,0,0" Width="180" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFC9319"/>
+        <Label Grid.Column="3" Content="Cuisine" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Height="26" Background="#FFD6493E"/>
+        <Button Content="Transmettre" Grid.Column="2" HorizontalAlignment="Left" Margin="56,100,0,0" VerticalAlignment="Center" Width="75"/>
+        <Button Content="Prêt" Grid.Column="3" HorizontalAlignment="Left" Margin="67,100,0,0" VerticalAlignment="Center" Width="75"/>
+        <Button Content="Commander" Grid.Column="1" HorizontalAlignment="Left" Margin="62,105,0,0" VerticalAlignment="Center" Width="75" Click="Button_Click_1"/>
+        <CheckBox x:Name="CheckBox1" Content="entrée" Grid.Column="1" HorizontalAlignment="Left" Margin="62,186,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBox2" Content="plat" Grid.Column="1" HorizontalAlignment="Left" Margin="62,206,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBox3" Content="dessert" Grid.Column="1" HorizontalAlignment="Left" Margin="62,227,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

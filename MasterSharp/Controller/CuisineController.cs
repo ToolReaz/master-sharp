@@ -1,11 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading;
 using System.Text;
 using System.Threading;
-
+using Model.EDM;
 
 namespace Controller
 {
@@ -13,7 +13,7 @@ namespace Controller
     {
         public CuisineController()
         {
-            Console.WriteLine("CuisineController instancié !");
+            //Console.WriteLine("CuisineController instancié !");
         }
 
         const int PORT_NO = 5000;
@@ -43,11 +43,32 @@ namespace Controller
             string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
             Console.WriteLine("(server)Received : " + dataReceived);
 
+            //---Recover it in object
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                var objRecipe = (from f in db.Recipes
+                             where f.Name == dataReceived
+                             select f
+                             ).First();
+
+                string txtDesc = objRecipe.Description;
+                Console.WriteLine("(server)Desc of object received : " + txtDesc);
+
+                // Write the text asynchronously to a new file
+                string mydocpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
+
+                File.AppendAllText(Path.Combine(mydocpath, "CommandLog.txt"), line);
+            }
+
+
             //---write back the text to the client---
+            /*
             Console.WriteLine("(server)Sending back : " + dataReceived);
             nwStream.Write(buffer, 0, bytesRead);
-            client.Close();
-            listener.Stop();
+            */
+            //client.Close();
+            //listener.Stop();
         }
 
     }
