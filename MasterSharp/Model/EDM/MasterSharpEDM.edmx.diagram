@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6c6af16caf6f4d6f92ad479232715601" Name="Diagram1" >
-        <EntityTypeShape EntityType="MasterSharpModel.Action" Width="1.5" PointX="1.5" PointY="15.875" />
+        <EntityTypeShape EntityType="MasterSharpModel.Action" Width="1.5" PointX="8.875" PointY="10.75" />
         <EntityTypeShape EntityType="MasterSharpModel.Dish" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="MasterSharpModel.Dish_Stock" Width="1.5" PointX="6" PointY="6.5" />
         <AssociationConnector Association="MasterSharpModel.FK_Dish_Stock_ID_Dishes" />
@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="MasterSharpModel.Recipe_Dish" Width="1.5" PointX="6" PointY="14" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Dish_ID_Dishes" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Dish_ID_Recipes" />
-        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Step" Width="1.5" PointX="5.75" PointY="10.375" />
+        <EntityTypeShape EntityType="MasterSharpModel.Recipe_Step" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Actions" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Foods" />
         <AssociationConnector Association="MasterSharpModel.FK_Recipe_Step_ID_Recipes" />
