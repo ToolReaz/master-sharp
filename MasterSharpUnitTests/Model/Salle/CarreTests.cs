@@ -14,11 +14,9 @@ namespace MasterSharp.Model.Salle.Tests
         List<Table> Table;
 
         [TestMethod()]
-        public void CarreTest()
+        public void CarreTest(int NbTable)
         {
-            Table.Add(new Table(5));
-            Assert.Equals(Table, 1);
-            //Assert.Fail();
+            Assert.Equals(NbTable, Table.Count);
         }
     }
 }

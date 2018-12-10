@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Model.Salle;
+using Model.Stock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +12,25 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class ChefRangTests
     {
-        //Menu MenuTable = new Menu(List<Recette>);
-       
+        //Carte MenuTable = new Carte(List<Recette>);
 
-        [TestMethod()]
+        int NbCarteDonner;
+        public Carte carte;
+
+    [TestMethod()]
         public void DoWork()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void GiveMenu()
+        public void GiveMenu(int NbCarteDonner)
         {
-           Assert.Fail();
+            if(NbCarteDonner == 0)
+            {
+                Assert.Fail();
+            }
+            carte.GiveCard(0);
         }
 
         [TestMethod()]
