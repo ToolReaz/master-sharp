@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +24,14 @@ namespace MasterSharp
     {
         public MainWindow()
         {
-            InitializeComponent();
+            Console.WriteLine("Création des sockets :");
+            CuisineController CuisineSock = new CuisineController();
+            Thread SockServer = new Thread(new ThreadStart(CuisineSock.ServerSock));
+            SockServer.Start();
+
+            SalleController SalleSock = new SalleController();
+            Thread SalleServer = new Thread(new ThreadStart(SalleSock.ClientSock));
+            SalleServer.Start();
         }
     }
 }
