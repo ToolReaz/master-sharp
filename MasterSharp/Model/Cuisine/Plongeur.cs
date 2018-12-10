@@ -49,14 +49,14 @@ namespace Model.Cuisine
                 List<IStockItem> DirtyTextille = cuisine.StockTextille.GetDirtyItems();
 
                 // Add dirty textile to the LaveLinge's queue
-                if (DirtyTextille?.Count > 0)
+                /*if (DirtyTextille?.Count > 0)
                 {
                     DirtyTextille.ForEach(
                         item => {
                             laveLinge.Queue(item);
                         });
                 }
-
+                */
 
             }
         }

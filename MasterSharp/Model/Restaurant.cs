@@ -11,7 +11,7 @@ namespace Model
     public class Restaurant
     {
         private int queue;
-        private Salle salle;
+        /*private Salle salle;
         private Cuisine cuisine;
 
         public Cuisine Cuisine { get; set; }
@@ -23,7 +23,7 @@ namespace Model
             this.cuisine = new Cuisine();
 
         }
-
+        */
        public bool ClientArrived(GroupeClient Groupe)
         {
             if(Groupe.NewClient() == true)
