@@ -47,6 +47,10 @@ namespace Model.Cuisine
             })));
         }
 
+        internal void Queue(IStockItem item)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool IsWorking() {
             return _working;

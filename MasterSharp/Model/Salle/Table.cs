@@ -5,7 +5,7 @@ namespace Model.Salle
 {
     public class Table
     {
-        private int GroupeClient { get; }
+        private int GroupeClient { get; set; }
 
         public Table(int GroupeClient)
         {
