@@ -10,20 +10,16 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class CommisSallleTests
     {
+  
+
         [TestMethod()]
-        public CommisSallleTests()
+        public void DoWork()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public DoWork()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public ServeWaterBread()
+        public void ServeWaterBread()
         {
             Assert.Fail();
         }
