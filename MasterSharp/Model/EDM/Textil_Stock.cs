@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class Food_Stock
+namespace Model.EDM
 {
-    public int Quantity { get; set; }
-    public System.DateTime Expiry_Date { get; set; }
-    public int ID_Foods { get; set; }
-    public int ID_Stocks { get; set; }
-
-    public virtual Food Food { get; set; }
-    public virtual Stock Stock { get; set; }
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Textil_Stock
+    {
+        public int Quantity { get; set; }
+        public bool Clean { get; set; }
+        public int ID_Textils { get; set; }
+        public int ID_Stocks { get; set; }
+    
+        public virtual Stock Stock { get; set; }
+        public virtual Textil Textil { get; set; }
+    }
 }
