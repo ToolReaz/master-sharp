@@ -9,9 +9,14 @@ namespace Model.Cuisine
 {
     public class Cuisine
     {
+        public IStock StockVaisselle { get; set; }
+        public IStock StockTextille { get; set; }
+
+
         public Cuisine()
         {
-            throw new NotImplementedException();
+            this.StockVaisselle = new StockVaisselle();
+            this.StockTextille = new StockTextille();
         }
 
         public void AddCommandRecette(Recette _Recette)

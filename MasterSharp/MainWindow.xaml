@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterSharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200px"></ColumnDefinition>
@@ -14,7 +14,7 @@
 
 
         <Label Grid.Column="0" Content="Options" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="123,76,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button x:Name="MenuOfTheDay" Content="Menu du jour" HorizontalAlignment="Left" Margin="10,383,0,0" VerticalAlignment="Top" Width="180" Click="Button_Click" Height="27"/>
 
 
     </Grid>

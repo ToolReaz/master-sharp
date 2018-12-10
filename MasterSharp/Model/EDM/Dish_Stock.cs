@@ -7,15 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-
-public partial class Recipe_Dish
+namespace Model.EDM
 {
-    public int Quantity { get; set; }
-    public int ID_Dishes { get; set; }
-    public int ID_Recipes { get; set; }
-
-    public virtual Dish Dish { get; set; }
-    public virtual Recipe Recipe { get; set; }
+    using System;
+    using System.Collections.Generic;
+    
+    public partial class Dish_Stock
+    {
+        public int Quantity { get; set; }
+        public bool Clean { get; set; }
+        public int ID_Stocks { get; set; }
+        public int ID_Dishes { get; set; }
+    
+        public virtual Dish Dish { get; set; }
+        public virtual Stock Stock { get; set; }
+    }
 }

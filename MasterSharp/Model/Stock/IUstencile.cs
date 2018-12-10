@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Model.Stock
 {
-    interface IUstencile
+    interface IUstencile : IStockItem
+
     {
     }
 }
