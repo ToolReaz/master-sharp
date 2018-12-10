@@ -9,9 +9,17 @@ namespace Model.Stock
 
         private TypeAssiette Type { get; }
 
+        private bool Clean { get; set; }
+
 
         public Assiette(TypeAssiette type) {
             Type = type;
+            Clean = true;
+        }
+
+
+        public bool IsClean() {
+            return this.Clean;
         }
 
 

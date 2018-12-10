@@ -5,38 +5,37 @@ using MasterSharp.Model.Stock;
 
 namespace Model.Stock
 {
-    public class StockVaisselle : IStock
+    public class StockTextille : IStock
     {
 
-        private List<IVaisselle> Vaisselle { get; }
+        private List<ITextille> Textille { get; set; }
 
 
-        public StockVaisselle()
+
+        public StockTextille() {
+
+        }
+
+
+
+        public int GetItemQuantity() {
+            throw new NotImplementedException();
+        }
+
+        public List<IStockItem> GetDirtyItems()
         {
-        }
-
-        public StockVaisselle(List<IVaisselle> vaisselle) {
-            throw new NotImplementedException();
-        }
-
-
-
-        public IVaisselle GetItem() {
-            throw new NotImplementedException();
-        }
-
-        public List<IStockItem> GetDirtyItems() {
             List<IStockItem> o = new List<IStockItem>();
-            Vaisselle?.ForEach(
+            Textille?.ForEach(
                 item => {
-                    if (!item.IsClean()) {
+                    if (!item.IsClean())
+                    {
                         o.Add(item);
                     }
                 });
             return o;
         }
 
-        public int GetItemQuantity() {
+        public StockTextille() {
             throw new NotImplementedException();
         }
     }

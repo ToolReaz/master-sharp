@@ -124,6 +124,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Stock\IStockItem.cs" />
+    <Compile Include="Model\Stock\StockTextille.cs" />
     <Compile Include="obj\Debug\App.g.i.cs" />
     <Compile Include="Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
