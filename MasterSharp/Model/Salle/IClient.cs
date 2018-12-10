@@ -9,6 +9,6 @@ namespace MasterSharp.Model.Salle
     public interface IClient
     {
          void OrderMeal();
-         void PayBill();
+         void PayBill(int Bill);
     }
 }

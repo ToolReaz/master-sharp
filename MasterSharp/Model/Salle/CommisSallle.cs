@@ -1,19 +1,34 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using MasterSharp.Model.Salle;
 
 namespace Model.Salle
 {
     public class CommisSallle : IEmployeSalle
     {
+        private Salle salle;
+        private Thread thread;
+        private int watter = 40;
+        private int bread = 40;
+
+        public CommisSallle(Salle salle)
+        {
+            this.salle = salle;
+            this.thread = new Thread(new ThreadStart(this.DoWork));
+            thread.Start();
+        }
         public void DoWork()
         {
-            throw new NotImplementedException();
+            while (true)
+            {
+
+            }
         }
 
         public void ServeWaterBread()
         {
-            throw new NotImplementedException();
+          
         }
 
     }

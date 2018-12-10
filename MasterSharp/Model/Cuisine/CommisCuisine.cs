@@ -10,12 +10,13 @@ namespace Model.Cuisine
 {
     public class CommisCuisine : IEmployeCuisine
     {
-
+        private Cuisine cuisine;
         private Thread thread;
         bool ShouldRun = true;
 
 
-        public CommisCuisine() {
+        public CommisCuisine(Cuisine cuisine) {
+            this.cuisine = cuisine;
             this.thread = new Thread(new ThreadStart(this.DoWork));
         }
 

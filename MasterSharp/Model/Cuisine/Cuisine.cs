@@ -10,7 +10,7 @@ namespace Model.Cuisine
     public class Cuisine
     {
         public IStock StockVaisselle { get; set; }
-        public IStock StockTextille { get; set; }
+        public IStock StockTextille { get; set; } 
 
 
         public Cuisine()
