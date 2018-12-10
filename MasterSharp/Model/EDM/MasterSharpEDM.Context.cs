@@ -12,6 +12,8 @@ namespace Model.EDM
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class MasterSharpEntities : DbContext
     {
@@ -41,5 +43,10 @@ namespace Model.EDM
         public virtual DbSet<Textil> Textils { get; set; }
         public virtual DbSet<Utensil_Stock> Utensil_Stock { get; set; }
         public virtual DbSet<Utensil> Utensils { get; set; }
+    
+        public virtual int DeleteAllFoodStock()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteAllFoodStock");
+        }
     }
 }

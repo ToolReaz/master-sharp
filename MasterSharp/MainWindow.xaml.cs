@@ -34,11 +34,11 @@ namespace MasterSharp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             starterOfTheDay = motd.ofTheDay("Entrée");
             plateOfTheDay = motd.ofTheDay("Plat");
             dessertOfTheDay = motd.ofTheDay("Dessert");
 
+            InitializeDB.Food_Stock();
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
@@ -48,7 +48,7 @@ namespace MasterSharp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Entrée : "+starterOfTheDay.Name+" \nPlat : "+plateOfTheDay.Name+" \nDessert : "+dessertOfTheDay.Name);
+            MessageBox.Show("Entrée : " + starterOfTheDay.Name + " \nPlat : " + plateOfTheDay.Name + " \nDessert : " + dessertOfTheDay.Name);
         }
     }
 }

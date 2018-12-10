@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MasterSharpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MasterSharpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actions">
           <Key>
             <PropertyRef Name="ID" />
@@ -368,24 +368,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="DeleteAllFoodStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MasterSharpModelStoreContainer">
-          <EntitySet Name="Actions" EntityType="Self.Actions" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Dish_Stock" EntityType="Self.Dish_Stock" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Food_Types" EntityType="Self.Food_Types" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Foods" EntityType="Self.Foods" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Recipe_Categories" EntityType="Self.Recipe_Categories" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Recipe_Dish" EntityType="Self.Recipe_Dish" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Recipe_Step" EntityType="Self.Recipe_Step" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Textil_Stock" EntityType="Self.Textil_Stock" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Textils" EntityType="Self.Textils" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Utensil_Action" EntityType="Self.Utensil_Action" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Utensil_Stock" EntityType="Self.Utensil_Stock" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Utensils" EntityType="Self.Utensils" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Actions" EntityType="Self.Actions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dish_Stock" EntityType="Self.Dish_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Food_Types" EntityType="Self.Food_Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foods" EntityType="Self.Foods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe_Categories" EntityType="Self.Recipe_Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe_Dish" EntityType="Self.Recipe_Dish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe_Step" EntityType="Self.Recipe_Step" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipes" EntityType="Self.Recipes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Textil_Stock" EntityType="Self.Textil_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Textils" EntityType="Self.Textils" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utensil_Action" EntityType="Self.Utensil_Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utensil_Stock" EntityType="Self.Utensil_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utensils" EntityType="Self.Utensils" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Dish_Stock_ID_Dishes" Association="Self.FK_Dish_Stock_ID_Dishes">
             <End Role="Dishes" EntitySet="Dishes" />
             <End Role="Dish_Stock" EntitySet="Dish_Stock" />
@@ -459,8 +460,7 @@
             <End Role="Utensil_Stock" EntitySet="Utensil_Stock" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MasterSharpModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
@@ -918,6 +918,7 @@
             <End Role="Actions" EntitySet="Actions" />
             <End Role="Utensils" EntitySet="Utensils" />
           </AssociationSet>
+          <FunctionImport Name="DeleteAllFoodStock" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1081,6 +1082,7 @@
               <ScalarProperty Name="ID" ColumnName="ID_Utensils" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteAllFoodStock" FunctionName="MasterSharpModel.Store.DeleteAllFoodStock" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
