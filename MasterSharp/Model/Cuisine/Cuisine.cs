@@ -25,12 +25,13 @@ namespace Model.Cuisine
         private Plongeur _plongeurCuisine;
 
 
-        private Queue<Recette> _commands;
+        // Recettes queue
+        private Queue<Recette> _commandsToDo;
 
         private Thread _thread;
 
 
-        public Cuisine() {
+        public Cuisine(Queue<Recette> recettesToDo) {
             init();
 
 
@@ -38,8 +39,8 @@ namespace Model.Cuisine
                 new ThreadStart(
                     () => {
                         while (true) {
-                            if (_commands.Count > 0) {
-                                _chefCuisine.Dispatch(_commands.Dequeue());
+                            if (_commandsToDo.Count > 0) {
+                                _chefCuisine.Dispatch(_commandsToDo.Dequeue());
                             }
 
                             // Sleep to avoid processor saturation
@@ -50,17 +51,17 @@ namespace Model.Cuisine
         }
 
         public void AddCommand(Recette r) {
-            _commands?.Enqueue(r);
+            _commandsToDo?.Enqueue(r);
         }
 
         public Queue<Recette> GetCommandQueue() {
-            return _commands;
+            return _commandsToDo;
         }
 
 
 
         private void init() {
-            _commands = new Queue<Recette>();
+            _commandsToDo = new Queue<Recette>();
             StockVaisselle = new StockVaisselle();
             StockTextille = new StockTextille();
             StockAliment = new StockAliment();

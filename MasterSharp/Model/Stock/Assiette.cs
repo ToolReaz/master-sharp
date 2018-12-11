@@ -23,9 +23,8 @@ namespace Model.Stock
         }
 
 
-        public void Wash()
-        {
-            throw new NotImplementedException();
+        public void Wash() {
+            this.Clean = true;
         }
     }
 }

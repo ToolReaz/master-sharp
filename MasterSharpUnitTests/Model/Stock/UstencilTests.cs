@@ -11,9 +11,12 @@ namespace Model.Stock.Tests
     [TestClass()]
     public class UstencilTests
     {
+        private Ustencil ustencilTest;
+
         [TestMethod()]
         public void UstencilTest()
         {
+            //ustencilTest = new Ustencil();
             Assert.Fail();
         }
     }
