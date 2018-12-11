@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MasterSharpModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ActionRecettes">
+        <EntityType Name="Actions">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -74,13 +74,13 @@
           <Key>
             <PropertyRef Name="ID_Foods" />
             <PropertyRef Name="ID_Recipes" />
-            <PropertyRef Name="ID_ActionRecettes" />
+            <PropertyRef Name="ID_Actions" />
           </Key>
           <Property Name="Food_Quantity" Type="int" Nullable="false" />
           <Property Name="Number_Step" Type="int" Nullable="false" />
           <Property Name="ID_Foods" Type="int" Nullable="false" />
           <Property Name="ID_Recipes" Type="int" Nullable="false" />
-          <Property Name="ID_ActionRecettes" Type="int" Nullable="false" />
+          <Property Name="ID_Actions" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Recipes">
           <Key>
@@ -126,12 +126,12 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityType Name="Utensil_ActionRecette">
+        <EntityType Name="Utensil_Action">
           <Key>
-            <PropertyRef Name="ID_ActionRecettes" />
+            <PropertyRef Name="ID_Actions" />
             <PropertyRef Name="ID_Utensils" />
           </Key>
-          <Property Name="ID_ActionRecettes" Type="int" Nullable="false" />
+          <Property Name="ID_Actions" Type="int" Nullable="false" />
           <Property Name="ID_Utensils" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Utensil_Stock">
@@ -236,15 +236,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Recipe_Step_ID_ActionRecettes">
-          <End Role="ActionRecettes" Type="Self.ActionRecettes" Multiplicity="1" />
+        <Association Name="FK_Recipe_Step_ID_Actions">
+          <End Role="Actions" Type="Self.Actions" Multiplicity="1" />
           <End Role="Recipe_Step" Type="Self.Recipe_Step" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ActionRecettes">
+            <Principal Role="Actions">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Recipe_Step">
-              <PropertyRef Name="ID_ActionRecettes" />
+              <PropertyRef Name="ID_Actions" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -308,26 +308,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Utensil_ActionRecette_ID_ActionRecettes">
-          <End Role="ActionRecettes" Type="Self.ActionRecettes" Multiplicity="1" />
-          <End Role="Utensil_ActionRecette" Type="Self.Utensil_ActionRecette" Multiplicity="*" />
+        <Association Name="FK_Utensil_Action_ID_Actions">
+          <End Role="Actions" Type="Self.Actions" Multiplicity="1" />
+          <End Role="Utensil_Action" Type="Self.Utensil_Action" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ActionRecettes">
+            <Principal Role="Actions">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Utensil_ActionRecette">
-              <PropertyRef Name="ID_ActionRecettes" />
+            <Dependent Role="Utensil_Action">
+              <PropertyRef Name="ID_Actions" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Utensil_ActionRecette_ID_Utensils">
+        <Association Name="FK_Utensil_Action_ID_Utensils">
           <End Role="Utensils" Type="Self.Utensils" Multiplicity="1" />
-          <End Role="Utensil_ActionRecette" Type="Self.Utensil_ActionRecette" Multiplicity="*" />
+          <End Role="Utensil_Action" Type="Self.Utensil_Action" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Utensils">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Utensil_ActionRecette">
+            <Dependent Role="Utensil_Action">
               <PropertyRef Name="ID_Utensils" />
             </Dependent>
           </ReferentialConstraint>
@@ -370,7 +370,7 @@
         </Association>
         <Function Name="DeleteAllFoodStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MasterSharpModelStoreContainer">
-          <EntitySet Name="ActionRecettes" EntityType="Self.ActionRecettes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Actions" EntityType="Self.Actions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dish_Stock" EntityType="Self.Dish_Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" Schema="dbo" store:Type="Tables" />
@@ -384,7 +384,7 @@
           <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Textil_Stock" EntityType="Self.Textil_Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Textils" EntityType="Self.Textils" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Utensil_ActionRecette" EntityType="Self.Utensil_ActionRecette" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utensil_Action" EntityType="Self.Utensil_Action" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utensil_Stock" EntityType="Self.Utensil_Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utensils" EntityType="Self.Utensils" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Dish_Stock_ID_Dishes" Association="Self.FK_Dish_Stock_ID_Dishes">
@@ -415,8 +415,8 @@
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="Recipe_Dish" EntitySet="Recipe_Dish" />
           </AssociationSet>
-          <AssociationSet Name="FK_Recipe_Step_ID_ActionRecettes" Association="Self.FK_Recipe_Step_ID_ActionRecettes">
-            <End Role="ActionRecettes" EntitySet="ActionRecettes" />
+          <AssociationSet Name="FK_Recipe_Step_ID_Actions" Association="Self.FK_Recipe_Step_ID_Actions">
+            <End Role="Actions" EntitySet="Actions" />
             <End Role="Recipe_Step" EntitySet="Recipe_Step" />
           </AssociationSet>
           <AssociationSet Name="FK_Recipe_Step_ID_Foods" Association="Self.FK_Recipe_Step_ID_Foods">
@@ -439,13 +439,13 @@
             <End Role="Textils" EntitySet="Textils" />
             <End Role="Textil_Stock" EntitySet="Textil_Stock" />
           </AssociationSet>
-          <AssociationSet Name="FK_Utensil_ActionRecette_ID_ActionRecettes" Association="Self.FK_Utensil_ActionRecette_ID_ActionRecettes">
-            <End Role="ActionRecettes" EntitySet="ActionRecettes" />
-            <End Role="Utensil_ActionRecette" EntitySet="Utensil_ActionRecette" />
+          <AssociationSet Name="FK_Utensil_Action_ID_Actions" Association="Self.FK_Utensil_Action_ID_Actions">
+            <End Role="Actions" EntitySet="Actions" />
+            <End Role="Utensil_Action" EntitySet="Utensil_Action" />
           </AssociationSet>
-          <AssociationSet Name="FK_Utensil_ActionRecette_ID_Utensils" Association="Self.FK_Utensil_ActionRecette_ID_Utensils">
+          <AssociationSet Name="FK_Utensil_Action_ID_Utensils" Association="Self.FK_Utensil_Action_ID_Utensils">
             <End Role="Utensils" EntitySet="Utensils" />
-            <End Role="Utensil_ActionRecette" EntitySet="Utensil_ActionRecette" />
+            <End Role="Utensil_Action" EntitySet="Utensil_Action" />
           </AssociationSet>
           <AssociationSet Name="FK_Utensils_ID_Size" Association="Self.FK_Utensils_ID_Size">
             <End Role="Size" EntitySet="Size" />
@@ -464,14 +464,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MasterSharpModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityType Name="ActionRecette">
+        <EntityType Name="Action">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Recipe_Step" Relationship="Self.FK_Recipe_Step_ID_ActionRecettes" FromRole="ActionRecettes" ToRole="Recipe_Step" />
-          <NavigationProperty Name="Utensils" Relationship="Self.Utensil_ActionRecette" FromRole="ActionRecettes" ToRole="Utensils" />
+          <NavigationProperty Name="Recipe_Step" Relationship="Self.FK_Recipe_Step_ID_Actions" FromRole="Actions" ToRole="Recipe_Step" />
+          <NavigationProperty Name="Utensils" Relationship="Self.Utensil_Action" FromRole="Actions" ToRole="Utensils" />
         </EntityType>
         <EntityType Name="Dish_Stock">
           <Key>
@@ -548,14 +548,14 @@
           <Key>
             <PropertyRef Name="ID_Foods" />
             <PropertyRef Name="ID_Recipes" />
-            <PropertyRef Name="ID_ActionRecettes" />
+            <PropertyRef Name="ID_Actions" />
           </Key>
           <Property Name="Food_Quantity" Type="Int32" Nullable="false" />
           <Property Name="Number_Step" Type="Int32" Nullable="false" />
           <Property Name="ID_Foods" Type="Int32" Nullable="false" />
           <Property Name="ID_Recipes" Type="Int32" Nullable="false" />
-          <Property Name="ID_ActionRecettes" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ActionRecette" Relationship="Self.FK_Recipe_Step_ID_ActionRecettes" FromRole="Recipe_Step" ToRole="ActionRecettes" />
+          <Property Name="ID_Actions" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Action" Relationship="Self.FK_Recipe_Step_ID_Actions" FromRole="Recipe_Step" ToRole="Actions" />
           <NavigationProperty Name="Food" Relationship="Self.FK_Recipe_Step_ID_Foods" FromRole="Recipe_Step" ToRole="Foods" />
           <NavigationProperty Name="Recipe" Relationship="Self.FK_Recipe_Step_ID_Recipes" FromRole="Recipe_Step" ToRole="Recipes" />
         </EntityType>
@@ -635,17 +635,17 @@
           <Property Name="ID_Size" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Size" Relationship="Self.FK_Utensils_ID_Size" FromRole="Utensils" ToRole="Size" />
           <NavigationProperty Name="Utensil_Stock" Relationship="Self.FK_Utensils_Stock_ID_Utensils" FromRole="Utensils" ToRole="Utensil_Stock" />
-          <NavigationProperty Name="ActionRecettes" Relationship="Self.Utensil_ActionRecette" FromRole="Utensils" ToRole="ActionRecettes" />
+          <NavigationProperty Name="Actions" Relationship="Self.Utensil_Action" FromRole="Utensils" ToRole="Actions" />
         </EntityType>
-        <Association Name="FK_Recipe_Step_ID_ActionRecettes">
-          <End Role="ActionRecettes" Type="Self.ActionRecette" Multiplicity="1" />
+        <Association Name="FK_Recipe_Step_ID_Actions">
+          <End Role="Actions" Type="Self.Action" Multiplicity="1" />
           <End Role="Recipe_Step" Type="Self.Recipe_Step" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ActionRecettes">
+            <Principal Role="Actions">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Recipe_Step">
-              <PropertyRef Name="ID_ActionRecettes" />
+              <PropertyRef Name="ID_Actions" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -829,12 +829,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Utensil_ActionRecette">
-          <End Role="ActionRecettes" Type="Self.ActionRecette" Multiplicity="*" />
+        <Association Name="Utensil_Action">
+          <End Role="Actions" Type="Self.Action" Multiplicity="*" />
           <End Role="Utensils" Type="Self.Utensil" Multiplicity="*" />
         </Association>
         <EntityContainer Name="MasterSharpEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-          <EntitySet Name="ActionRecettes" EntityType="Self.ActionRecette" />
+          <EntitySet Name="Actions" EntityType="Self.Action" />
           <EntitySet Name="Dish_Stock" EntityType="Self.Dish_Stock" />
           <EntitySet Name="Dishes" EntityType="Self.Dish" />
           <EntitySet Name="Food_Stock" EntityType="Self.Food_Stock" />
@@ -850,8 +850,8 @@
           <EntitySet Name="Textils" EntityType="Self.Textil" />
           <EntitySet Name="Utensil_Stock" EntityType="Self.Utensil_Stock" />
           <EntitySet Name="Utensils" EntityType="Self.Utensil" />
-          <AssociationSet Name="FK_Recipe_Step_ID_ActionRecettes" Association="Self.FK_Recipe_Step_ID_ActionRecettes">
-            <End Role="ActionRecettes" EntitySet="ActionRecettes" />
+          <AssociationSet Name="FK_Recipe_Step_ID_Actions" Association="Self.FK_Recipe_Step_ID_Actions">
+            <End Role="Actions" EntitySet="Actions" />
             <End Role="Recipe_Step" EntitySet="Recipe_Step" />
           </AssociationSet>
           <AssociationSet Name="FK_Dish_Stock_ID_Dishes" Association="Self.FK_Dish_Stock_ID_Dishes">
@@ -914,8 +914,8 @@
             <End Role="Utensils" EntitySet="Utensils" />
             <End Role="Utensil_Stock" EntitySet="Utensil_Stock" />
           </AssociationSet>
-          <AssociationSet Name="Utensil_ActionRecette" Association="Self.Utensil_ActionRecette">
-            <End Role="ActionRecettes" EntitySet="ActionRecettes" />
+          <AssociationSet Name="Utensil_Action" Association="Self.Utensil_Action">
+            <End Role="Actions" EntitySet="Actions" />
             <End Role="Utensils" EntitySet="Utensils" />
           </AssociationSet>
           <FunctionImport Name="DeleteAllFoodStock" />
@@ -926,9 +926,9 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MasterSharpModelStoreContainer" CdmEntityContainer="MasterSharpEntities">
-          <EntitySetMapping Name="ActionRecettes">
-            <EntityTypeMapping TypeName="MasterSharpModel.ActionRecette">
-              <MappingFragment StoreEntitySet="ActionRecettes">
+          <EntitySetMapping Name="Actions">
+            <EntityTypeMapping TypeName="MasterSharpModel.Action">
+              <MappingFragment StoreEntitySet="Actions">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
@@ -1003,7 +1003,7 @@
                 <ScalarProperty Name="Number_Step" ColumnName="Number_Step" />
                 <ScalarProperty Name="ID_Foods" ColumnName="ID_Foods" />
                 <ScalarProperty Name="ID_Recipes" ColumnName="ID_Recipes" />
-                <ScalarProperty Name="ID_ActionRecettes" ColumnName="ID_ActionRecettes" />
+                <ScalarProperty Name="ID_Actions" ColumnName="ID_Actions" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1074,9 +1074,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Utensil_ActionRecette" TypeName="MasterSharpModel.Utensil_ActionRecette" StoreEntitySet="Utensil_ActionRecette">
-            <EndProperty Name="ActionRecettes">
-              <ScalarProperty Name="ID" ColumnName="ID_ActionRecettes" />
+          <AssociationSetMapping Name="Utensil_Action" TypeName="MasterSharpModel.Utensil_Action" StoreEntitySet="Utensil_Action">
+            <EndProperty Name="Actions">
+              <ScalarProperty Name="ID" ColumnName="ID_Actions" />
             </EndProperty>
             <EndProperty Name="Utensils">
               <ScalarProperty Name="ID" ColumnName="ID_Utensils" />
