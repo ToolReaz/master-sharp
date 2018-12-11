@@ -45,6 +45,12 @@ namespace MasterSharp
             SockClient.Start();
         }
 
+        private void ButtonStock_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayStock disp = new DisplayStock();
+            disp.Show();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeDB.Food_Stock();
