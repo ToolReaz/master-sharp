@@ -8,32 +8,43 @@ using System.Threading;
 
 namespace Model.Cuisine
 {
-    public class CommisCuisine : IEmployeCuisine
+    /*
+     * Action: Couper, eplucher, trouver l'aliment
+     */
+    public class CommisCuisine
     {
-        private Cuisine cuisine;
-        private Thread thread;
-        bool ShouldRun = true;
+        public Queue<Aliment> ToFindAliments { get; }
+        public Queue<Aliment> ToCutAliments { get; }
 
+        private Thread _thread;
 
-        public CommisCuisine(Cuisine cuisine) {
-            this.cuisine = cuisine;
-            this.thread = new Thread(new ThreadStart(this.DoWork));
+        public CommisCuisine() {
+            ToFindAliments = new Queue<Aliment>();
+            ToCutAliments = new Queue<Aliment>();
+
+            _thread = new Thread(
+                new ThreadStart(
+                    () => {
+                        while (true) {
+                            if (ToFindAliments.Count > 0) {
+                                // Go find aliment in stock
+                                
+                            } else if (ToCutAliments.Count > 0) {
+                                // Cut the aliment
+                            }
+
+                            // Sleep to prevent high usage of processor
+                            Thread.Sleep(2);
+                        }
+                    }));
         }
 
-        public void DoWork() {
-            while (ShouldRun) {
-
-            }
+        public void Cut(Aliment a) {
+            ToCutAliments.Enqueue(a);
         }
 
-        public void Cut(Aliment _Aliment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Find(Aliment _Aliment)
-        {
-            throw new NotImplementedException();
+        public void Find(Aliment a) {
+            ToFindAliments.Enqueue(a);
         }
     }
 }

@@ -26,6 +26,7 @@
         <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
         <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
         <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,207,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
+        <Button x:Name="StockConsult" Content="Consulter le stock" Grid.Column="3" HorizontalAlignment="Left" Margin="10,373,0,10" VerticalAlignment="Center" Width="180" Click="ButtonStock_Click" Height="37" FontWeight="Bold"/>
 
 
     </Grid>

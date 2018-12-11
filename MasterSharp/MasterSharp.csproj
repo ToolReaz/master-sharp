@@ -68,6 +68,10 @@
     </Compile>
     <Compile Include="Controller\InitializeDB.cs" />
     <Compile Include="Controller\MenuOfTheDay.cs" />
+    <Compile Include="DisplayStock.xaml.cs">
+      <DependentUpon>DisplayStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cuisine\ActionRecette.cs" />
     <Compile Include="Model\EDM\Action.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
@@ -80,25 +84,14 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Cuisine\Battre.cs" />
-    <Compile Include="Model\Cuisine\Chauffer.cs" />
     <Compile Include="Model\Cuisine\ChefCuisine.cs" />
     <Compile Include="Model\Cuisine\ChefPartie.cs" />
     <Compile Include="Model\Cuisine\CommisCuisine.cs" />
-    <Compile Include="Model\Cuisine\Couper.cs" />
     <Compile Include="Model\Cuisine\Cuisine.cs" />
-    <Compile Include="Model\Cuisine\Emincer.cs" />
-    <Compile Include="Model\Cuisine\Frire.cs" />
-    <Compile Include="Model\Cuisine\IAction.cs" />
     <Compile Include="Model\Cuisine\IEmployeCuisine.cs" />
     <Compile Include="Model\Cuisine\LaveLinge.cs" />
     <Compile Include="Model\Cuisine\LaveVaisselle.cs" />
-    <Compile Include="Model\Cuisine\Melanger.cs" />
-    <Compile Include="Model\Cuisine\Mijoter.cs" />
-    <Compile Include="Model\Cuisine\Mixer.cs" />
     <Compile Include="Model\Cuisine\Plongeur.cs" />
-    <Compile Include="Model\Cuisine\Presser.cs" />
-    <Compile Include="Model\Cuisine\Saisir.cs" />
     <Compile Include="Model\EDM\Dish.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
@@ -263,6 +256,7 @@
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="CommandLog.txt" />
     <Content Include="Model\EDM\MasterSharpEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MasterSharpEDM.Context.cs</LastGenOutput>
