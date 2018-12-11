@@ -16,6 +16,83 @@ namespace Controller
             //Console.WriteLine("CuisineController instancié !");
         }
 
+        const int PORT_NO = 5000;
+        const string SERVER_IP = "127.0.0.1";
+        
+
+        public void ServerSockLaunch()
+        {
+            TcpListener serverListener = null;
+
+            try
+            {
+                //---listen at the specified IP and port no.---
+                IPAddress localAdd = IPAddress.Parse(SERVER_IP);
+                serverListener = new TcpListener(localAdd, PORT_NO);
+
+                while (true)
+                {
+                    Console.WriteLine("(server)Listening for a client command ...");
+                    serverListener.Start();
+
+                    //---incoming client connected---
+                    TcpClient client = serverListener.AcceptTcpClient();
+                    Console.WriteLine("Server socket launched !");
+
+                    //---get the incoming data through a network stream---
+                    NetworkStream nwStream = client.GetStream();
+                    byte[] buffer = new byte[client.ReceiveBufferSize];
+
+                    //---read incoming stream (loop version)---
+                    int bytesRead;
+                    while ((bytesRead = nwStream.Read(buffer, 0, buffer.Length)) != 0)
+                    {
+
+                        //---convert the data received into a string then int---
+                        string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                        int receivedID = int.Parse(dataReceived);
+                        Console.WriteLine("(server)Received : {0}", dataReceived);
+
+                        //---Recover it in object
+                        using (MasterSharpEntities db = new MasterSharpEntities())
+                        {
+                            var objRecipe = (from f in db.Recipes
+                                             where f.ID == receivedID
+                                             select f
+                                         ).First();
+
+                            Console.WriteLine("(server)Desc of object received : " + objRecipe.Description);
+
+                            //Write into the command history
+                            string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
+                            CommandLogWrite(line);
+
+                            //Remove recipes from stock
+                            RecipeTakeStock(receivedID);
+                        }
+
+                        //---write back text to the client---
+                        string text = "(server) 5/5";
+                        byte[] bytesResponse = ASCIIEncoding.ASCII.GetBytes(text);
+                        nwStream.Write(bytesResponse, 0, bytesResponse.Length);
+
+                        //serverListener.Stop();
+                        client.Close();
+                        Console.WriteLine("Client socket closed.");
+                    }
+                }
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("SocketException: {0}", e);
+            }
+            finally
+            {
+                // Stop listening for new clients.
+                serverListener.Stop();
+            }
+        }
+
         public void RecipeTakeStock(int recipeID)
         {
             using (MasterSharpEntities db = new MasterSharpEntities())
@@ -32,60 +109,15 @@ namespace Controller
             }
         }
 
-        const int PORT_NO = 5000;
-        const string SERVER_IP = "127.0.0.1";
-        
-        public void ServerSock()
+        private void CommandLogWrite(string _line)
         {
-            Console.WriteLine("Chibre server lancé !");
-
-            //---listen at the specified IP and port no.---
-            IPAddress localAdd = IPAddress.Parse(SERVER_IP);
-            TcpListener listener = new TcpListener(localAdd, PORT_NO);
-            Console.WriteLine("Listening...");
-            listener.Start();
-
-            //---incoming client connected---
-            TcpClient client = listener.AcceptTcpClient();
-
-            //---get the incoming data through a network stream---
-            NetworkStream nwStream = client.GetStream();
-            byte[] buffer = new byte[client.ReceiveBufferSize];
-
-            //---read incoming stream---
-            int bytesRead = nwStream.Read(buffer, 0, client.ReceiveBufferSize);
-
-            //---convert the data received into a string---
-            string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-            Console.WriteLine("(server)Received : " + dataReceived);
-
-            //---Recover it in object
-            using (MasterSharpEntities db = new MasterSharpEntities())
-            {
-                var objRecipe = (from f in db.Recipes
-                             where f.Name == dataReceived
-                             select f
-                             ).First();
-
-                string txtDesc = objRecipe.Description;
-                Console.WriteLine("(server)Desc of object received : " + txtDesc);
-
-                // Write the text asynchronously to a new file
-                string mydocpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-                string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
-
-                File.AppendAllText(Path.Combine(mydocpath, "CommandLog.txt"), line);
-            }
-
-
-            //---write back the text to the client---
-            /*
-            Console.WriteLine("(server)Sending back : " + dataReceived);
-            nwStream.Write(buffer, 0, bytesRead);
-            */
-            client.Close();
-            listener.Stop();
+            // Write the text asynchronously to a new file
+            string mydocpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            File.AppendAllText(Path.Combine(mydocpath, "CommandLog.txt"), _line);
         }
-
     }
 }
+
+
+//TCPListener loop : "https://docs.microsoft.com/fr-fr/dotnet/api/system.net.sockets.tcplistener?view=netframework-4.7.2"
+
