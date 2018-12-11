@@ -11,53 +11,51 @@ namespace Model.Cuisine
     {
 
         private Thread _thread;
-        private Queue<IVaisselle> _queue;
-        private List<IVaisselle> _content;
-        private List<IVaisselle> _output;
+        private Queue<IStockItem> _queue;
+        private List<IStockItem> _content;
+        private List<IStockItem> _output;
         private bool _working = false;
         private const int TimeToWash = 600000;
 
 
 
-        public LaveVaisselle() {
-            _queue = new Queue<IVaisselle>();
-            _content = new List<IVaisselle>();
-
-            _thread = new Thread(new ThreadStart((() => {
-                while (true) {
-                    for (int i = 0; i < 25; i++) {
-                        if (_queue.Count > 0) {
-                            _content.Add(_queue.Dequeue());
-                        } else {
-                            break;
-                        }
-                    }
-
-                    if (_content.Count > 0) {
-                        _working = true;
-                        _content.ForEach(
-                            item => {
-                                item.Wash();
-                                _output.Add(item);
-                            });
-                        _content.Clear();
-                        Thread.Sleep(TimeToWash);
-                    }
-                }
-            })));
-        }
-
-        internal void Queue(IStockItem item)
+        public LaveVaisselle()
         {
-            throw new NotImplementedException();
+            _queue = new Queue<IStockItem>();
+            _content = new List<IStockItem>();
+
+            _thread = new Thread(
+                new ThreadStart(
+                    () => {
+                        while (true) {
+                            for (int i = 0; i < 25; i++) {
+                                if (_queue.Count > 0) {
+                                    _content.Add(_queue.Dequeue());
+                                } else {
+                                    break;
+                                }
+                            }
+
+                            if (_content.Count > 0) {
+                                _working = true;
+                                _content.ForEach(
+                                    item => {
+                                        item.Wash();
+                                        _output.Add(item);
+                                    });
+                                _content.Clear();
+                                Thread.Sleep(TimeToWash);
+                            }
+                        }
+                    }));
         }
+
 
         public bool IsWorking() {
             return _working;
         }
 
-        public void Queue(IVaisselle v)
-        {
+        public void Queue(IStockItem v) {
             _queue?.Enqueue(v);
         }
     }
