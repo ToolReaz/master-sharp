@@ -68,6 +68,9 @@
     </Compile>
     <Compile Include="Controller\InitializeDB.cs" />
     <Compile Include="Controller\MenuOfTheDay.cs" />
+    <Compile Include="DisplayStock.xaml.cs">
+      <DependentUpon>DisplayStock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\EDM\Action.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>

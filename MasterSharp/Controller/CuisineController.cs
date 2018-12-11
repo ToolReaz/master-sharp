@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -29,6 +30,23 @@ namespace Controller
                     oneFood.Quantity = oneFood.Quantity - f.Food_Quantity;
                     db.SaveChanges();
                 }
+            }
+        }
+
+        public List<dynamic> GetStock()
+        {
+            using (MasterSharpEntities dbcontext = new MasterSharpEntities())
+            {
+                var stock = from h in dbcontext.Foods join f in dbcontext.Food_Stock on h.ID equals f.ID_Foods
+                             select new
+                {
+                    ID = h.ID,
+                    Name = h.Name,
+                    Quantity = f.Quantity,
+                    Expiry_Date = f.Expiry_Date
+                };
+                
+                return stock.ToList<dynamic>();
             }
         }
 
