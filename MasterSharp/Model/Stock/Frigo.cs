@@ -13,5 +13,10 @@ namespace Model.Stock
         public Frigo() {
             throw new NotImplementedException();
         }
+
+        public void Wash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -14,5 +14,10 @@ namespace Model.Stock
         public Four() {
             throw new NotImplementedException();
         }
+
+        public void Wash()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

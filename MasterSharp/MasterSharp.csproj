@@ -71,7 +71,7 @@
     <Compile Include="DisplayStock.xaml.cs">
       <DependentUpon>DisplayStock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Cuisine\Action.cs" />
+    <Compile Include="Model\Cuisine\ActionRecette.cs" />
     <Compile Include="Model\EDM\Action.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
