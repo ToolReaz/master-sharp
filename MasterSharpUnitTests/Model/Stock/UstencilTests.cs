@@ -14,10 +14,23 @@ namespace Model.Stock.Tests
         private Ustencil ustencilTest;
 
         [TestMethod()]
-        public void UstencilTest()
-        {
-            //ustencilTest = new Ustencil();
-            Assert.Fail();
+        public void UstencilTest() {
+            ustencilTest = new Ustencil("Fouet", "Petit", true);
+            Assert.AreEqual("Fouet", ustencilTest.Name);
+            Assert.AreEqual("Petit", ustencilTest.Size);
+            Assert.AreEqual(true, ustencilTest.Clean);
+        }
+
+        [TestMethod()]
+        public void UseTest() {
+            ustencilTest.Use();
+            Assert.AreEqual(false, ustencilTest.Clean);
+        }
+
+        [TestMethod()]
+        public void WashTest() {
+            ustencilTest.Wash();
+            Assert.AreEqual(true, ustencilTest.Clean);
         }
     }
 }
