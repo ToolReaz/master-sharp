@@ -6,7 +6,7 @@ namespace Model.Stock
     public class Verre : IVaisselle
     {
 
-        private TypeVerres Type { get; }
+        public TypeVerres Type { get; }
 
         private bool Clean { get; set; }
 
