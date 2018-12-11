@@ -11,9 +11,9 @@ namespace Model.Cuisine
     {
 
         private Thread _thread;
-        private Queue<IVaisselle> _queue;
-        private List<IVaisselle> _content;
-        private List<IVaisselle> _output;
+        private Queue<IStockItem> _queue;
+        private List<IStockItem> _content;
+        private List<IStockItem> _output;
         private bool _working = false;
         private const int TimeToWash = 600000;
 
@@ -21,8 +21,8 @@ namespace Model.Cuisine
 
         public LaveVaisselle()
         {
-            _queue = new Queue<IVaisselle>();
-            _content = new List<IVaisselle>();
+            _queue = new Queue<IStockItem>();
+            _content = new List<IStockItem>();
 
             _thread = new Thread(
                 new ThreadStart(
@@ -55,7 +55,7 @@ namespace Model.Cuisine
             return _working;
         }
 
-        public void Queue(IVaisselle v) {
+        public void Queue(IStockItem v) {
             _queue?.Enqueue(v);
         }
     }

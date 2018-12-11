@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using MasterSharp.Model.Stock;
+using Model.Stock;
 
 namespace Model.Cuisine
 {
@@ -11,17 +12,17 @@ namespace Model.Cuisine
     {
         private Thread thread;
         private bool ShouldRun = true;
-        private Queue<ITextille> _queue;
-        private List<ITextille> _content;
-        private List<ITextille> _output;
+        private Queue<IStockItem> _queue;
+        private List<IStockItem> _content;
+        private List<IStockItem> _output;
         private bool _working = false;
 
         private const int TimeToWash = 900000;
 
 
         public LaveLinge() {
-            this._content = new List<ITextille>();
-            this._output = new List<ITextille>();
+            this._content = new List<IStockItem>();
+            this._output = new List<IStockItem>();
 
             this.thread = new Thread(
                 () => {
@@ -49,7 +50,7 @@ namespace Model.Cuisine
             return _working;
         }
 
-        public void Queue(ITextille t) {
+        public void Queue(IStockItem t) {
             _queue?.Enqueue(t);
         }
     }
