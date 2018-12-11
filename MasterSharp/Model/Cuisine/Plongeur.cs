@@ -10,7 +10,6 @@ namespace Model.Cuisine
 {
     public class Plongeur : IEmployeCuisine
     {
-
         private Thread thread;
 
         private Cuisine cuisine;
@@ -27,9 +26,7 @@ namespace Model.Cuisine
         }
 
 
-
-        public void DoWork()
-        {
+        public void DoWork() {
             while (true) {
                 // Dirty vaisselle contained in the stock
                 List<IStockItem> DirtyVaisselle = cuisine.StockVaisselle.GetDirtyItems();
@@ -43,27 +40,19 @@ namespace Model.Cuisine
                 }
 
 
-
-
                 // Dirty textile contained in the stock
                 List<IStockItem> DirtyTextille = cuisine.StockTextille.GetDirtyItems();
 
                 // Add dirty textile to the LaveLinge's queue
-                /*if (DirtyTextille?.Count > 0)
-                {
+                if (DirtyTextille?.Count > 0) {
                     DirtyTextille.ForEach(
                         item => {
                             laveLinge.Queue(item);
                         });
                 }
-                */
-
             }
         }
 
-        public void Wash()
-        {
-
-        }
+        public void Wash() { }
     }
 }
