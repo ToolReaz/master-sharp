@@ -19,45 +19,43 @@ namespace Model.Cuisine
 
 
 
-        public LaveVaisselle() {
+        public LaveVaisselle()
+        {
             _queue = new Queue<IVaisselle>();
             _content = new List<IVaisselle>();
 
-            _thread = new Thread(new ThreadStart((() => {
-                while (true) {
-                    for (int i = 0; i < 25; i++) {
-                        if (_queue.Count > 0) {
-                            _content.Add(_queue.Dequeue());
-                        } else {
-                            break;
+            _thread = new Thread(
+                new ThreadStart(
+                    () => {
+                        while (true) {
+                            for (int i = 0; i < 25; i++) {
+                                if (_queue.Count > 0) {
+                                    _content.Add(_queue.Dequeue());
+                                } else {
+                                    break;
+                                }
+                            }
+
+                            if (_content.Count > 0) {
+                                _working = true;
+                                _content.ForEach(
+                                    item => {
+                                        item.Wash();
+                                        _output.Add(item);
+                                    });
+                                _content.Clear();
+                                Thread.Sleep(TimeToWash);
+                            }
                         }
-                    }
-
-                    if (_content.Count > 0) {
-                        _working = true;
-                        _content.ForEach(
-                            item => {
-                                item.Wash();
-                                _output.Add(item);
-                            });
-                        _content.Clear();
-                        Thread.Sleep(TimeToWash);
-                    }
-                }
-            })));
+                    }));
         }
 
-        internal void Queue(IStockItem item)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool IsWorking() {
             return _working;
         }
 
-        public void Queue(IVaisselle v)
-        {
+        public void Queue(IVaisselle v) {
             _queue?.Enqueue(v);
         }
     }

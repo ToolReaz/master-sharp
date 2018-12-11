@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MasterSharp.Model.Cuisine;
 using MasterSharp.Model.Stock;
 
 namespace Model.Stock
 {
     public class Recette
     {
+        public List<IVaisselle> Vaisselles { get; }
 
-        private List<IVaisselle> vaisselles { get; }
+        public List<Aliment> Aliments { get; }
 
-        private List<Aliment> aliments { get; }
+        public List<ActionRecette> Actions { get; }
 
-        private List<Action> actions { get; }
-
-
-        public Recette() {
-
+        public Recette(List<IVaisselle> vaisselles, List<Aliment> aliments, List<ActionRecette> actions) {
+            Vaisselles = vaisselles;
+            Aliments = aliments;
+            Actions = actions;
         }
     }
 }
