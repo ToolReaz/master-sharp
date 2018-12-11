@@ -12,7 +12,7 @@ namespace Model.Salle
         private Table table;
         private Restaurant restaurant;
 
-        public MaitreHotel()
+        public MaitreHotel(Salle salle)
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
@@ -30,7 +30,7 @@ namespace Model.Salle
                     {
                         Welcome();
                         //selection de la table + les placer 
-
+                        
 
                         //puis dequeue
                         restaurant._queueClient.Dequeue();

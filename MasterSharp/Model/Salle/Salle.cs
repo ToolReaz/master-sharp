@@ -7,8 +7,9 @@ namespace Model.Salle
 {
     public class Salle
     {
-        private List<Carre> Carre;
+        private List<Carre> Carres;
         private Restaurant restaurant;
+        private Salle salle;
 
         //Employees
         private ChefRang chefRang;
@@ -19,9 +20,9 @@ namespace Model.Salle
         public Salle(List<Carre> Carre)
         {
             initSalle();
-            this.Carre = Carre;
-            Carre.Add(new Carre(new List<Table>()));
-            Carre.Add(new Carre(new List<Table>()));
+            this.Carres = Carres;
+            Carres.Add(new Carre(new List<Table>()));
+            Carres.Add(new Carre(new List<Table>()));
         }
 
 
@@ -29,7 +30,7 @@ namespace Model.Salle
         {
             commisSallle = new CommisSallle();
             serveur = new Serveur();
-            maitreHotel = new MaitreHotel();
+            maitreHotel = new MaitreHotel(salle);
             chefRang = new ChefRang();
         }
     }
