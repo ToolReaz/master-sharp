@@ -17,9 +17,27 @@ namespace Controller
             //Console.WriteLine("CuisineController instancié !");
         }
 
+        public List<dynamic> GetStock()
+        {
+            using (MasterSharpEntities dbcontext = new MasterSharpEntities())
+            {
+                var stock = from h in dbcontext.Foods
+                            join f in dbcontext.Food_Stock on h.ID equals f.ID_Foods
+                            select new
+                            {
+                                ID = h.ID,
+                                Name = h.Name,
+                                Quantity = f.Quantity,
+                                Expiry_Date = f.Expiry_Date
+                            };
+
+                return stock.ToList<dynamic>();
+            }
+        }
+
+
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
-        
 
         public void ServerSockLaunch()
         {
