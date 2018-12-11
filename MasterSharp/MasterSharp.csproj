@@ -130,7 +130,6 @@
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Restaurant.cs" />
-    <Compile Include="obj\Debug\App.g.i.cs" />
     <Compile Include="Model\EDM\Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
