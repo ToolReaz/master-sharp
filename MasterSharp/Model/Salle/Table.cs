@@ -8,10 +8,9 @@ namespace Model.Salle
         private int GroupeClient { get; set; }
         private GroupeClient Client;
 
-        public Table(int GroupeClient, int Place)
+        public Table( int Place)
         {
             this.GroupeClient = GroupeClient;
-            Client = new GroupeClient(GroupeClient);
         }
     }
 }

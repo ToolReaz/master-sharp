@@ -19,9 +19,11 @@ namespace Model
         public Queue<GroupeClient> _queueClient { get; set; }
 
         private MaitreHotel maitreHotel;
+
         public Restaurant()
         {
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
+            thread.Start();
 
         }
         

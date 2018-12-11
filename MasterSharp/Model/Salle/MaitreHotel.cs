@@ -12,7 +12,7 @@ namespace Model.Salle
         private Table table;
         private Restaurant restaurant;
 
-        public MaitreHotel(Salle salle)
+        public MaitreHotel()
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
