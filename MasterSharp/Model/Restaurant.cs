@@ -14,7 +14,11 @@ namespace Model
 
         private GroupeClient client;
         private Thread thread;
-        
+        private const int NextClient = 1200000;
+        private Random randomClient = new Random();
+        public Queue<GroupeClient> _queueClient { get; set; }
+
+        private MaitreHotel maitreHotel;
         public Restaurant()
         {
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
@@ -25,11 +29,11 @@ namespace Model
         {
             while (true)
             {
-                int NextClient = 1200000;
-                Random randomClient = new Random();
                 int HowManyClient = randomClient.Next(1, 10);
                 client = new GroupeClient(HowManyClient);
+                _queueClient.Enqueue(client);
                 Thread.Sleep(NextClient);
+
             }
            
 
