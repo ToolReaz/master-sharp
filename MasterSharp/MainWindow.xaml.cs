@@ -24,9 +24,7 @@ namespace MasterSharp
     public partial class MainWindow : Window
     {
         MenuOfTheDay motd = new MenuOfTheDay();
-        Recipe starterOfTheDay;
-        Recipe plateOfTheDay;
-        Recipe dessertOfTheDay;
+        Recipe starterOfTheDay,plateOfTheDay,dessertOfTheDay;
 
         /*---SOCKETS---*/
         SalleController SalleSock;
@@ -49,26 +47,22 @@ namespace MasterSharp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            InitializeDB.Food_Stock();
             starterOfTheDay = motd.ofTheDay("Entrée");
+            Starter.Text = starterOfTheDay.Name;
             plateOfTheDay = motd.ofTheDay("Plat");
+            Plate.Text = plateOfTheDay.Name;
             dessertOfTheDay = motd.ofTheDay("Dessert");
-
-            CheckBox1.Content = starterOfTheDay.Name;
-            CheckBox2.Content = plateOfTheDay.Name;
-            CheckBox3.Content = dessertOfTheDay.Name;
-
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Entrée : "+starterOfTheDay.Name+" \nPlat : "+plateOfTheDay.Name+" \nDessert : "+dessertOfTheDay.Name);
+            Dessert.Text = dessertOfTheDay.Name;
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            CuisineSock.RecipeTakeStock(starterOfTheDay.ID);
+            CuisineSock.RecipeTakeStock(plateOfTheDay.ID);
+            CuisineSock.RecipeTakeStock(dessertOfTheDay.ID);
         }
+
     }
 }
