@@ -6,12 +6,12 @@ namespace Model.Comptoir
 {
      public class ComptoirPlatSalle : IComptoir
     {
-        public void AddElement()
+        public void AddElement(int NbPlatsSalle)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveElement()
+        public void RemoveElement(int NbPlatsSalle)
         {
             throw new NotImplementedException();
         }

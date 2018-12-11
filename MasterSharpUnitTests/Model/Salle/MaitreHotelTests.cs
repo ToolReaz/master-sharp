@@ -11,7 +11,7 @@ namespace Model.Salle.Tests
     [TestClass()]
     public class MaitreHotelTests
     {
-        List<GroupeClient> GroupeCLient = new List<GroupeClient>();
+        //List<GroupeClient> GroupeCLient = new List<GroupeClient>();
 
         [TestMethod()]
         public void DoWorkTest()
@@ -20,11 +20,12 @@ namespace Model.Salle.Tests
         }
 
         [TestMethod()]
-        public void WelcomeTest()
+        public void WelcomeTest(GroupeClient Client)
         {
-            GroupeCLient.Add(new GroupeClient(new List<Client>()));
-            Assert.Equals(GroupeCLient, 1);
-            //Assert.Fail();
+            if(Client == null)
+            {
+                Assert.Fail();
+            }
         }
     }
 }

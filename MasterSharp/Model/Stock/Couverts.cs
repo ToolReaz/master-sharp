@@ -14,6 +14,12 @@ namespace Model.Stock
 
         public Couverts(TypeCouverts type) {
             Type = type;
+            Clean = true;
+        }
+
+
+        public bool IsClean() {
+            return this.Clean;
         }
 
 

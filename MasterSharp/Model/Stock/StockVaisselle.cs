@@ -10,6 +10,11 @@ namespace Model.Stock
 
         private List<IVaisselle> Vaisselle { get; }
 
+
+        public StockVaisselle()
+        {
+        }
+
         public StockVaisselle(List<IVaisselle> vaisselle) {
             throw new NotImplementedException();
         }
@@ -18,6 +23,17 @@ namespace Model.Stock
 
         public IVaisselle GetItem() {
             throw new NotImplementedException();
+        }
+
+        public List<IStockItem> GetDirtyItems() {
+            List<IStockItem> o = new List<IStockItem>();
+            Vaisselle?.ForEach(
+                item => {
+                    if (!item.IsClean()) {
+                        o.Add(item);
+                    }
+                });
+            return o;
         }
 
         public int GetItemQuantity() {

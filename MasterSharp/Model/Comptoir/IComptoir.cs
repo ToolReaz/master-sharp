@@ -8,7 +8,8 @@ namespace MasterSharp.Comptoir
 {
     interface IComptoir
     {
-        void AddElement();
-        void RemoveElement();
+        
+        void AddElement(int NbPlatsSalle);
+        void RemoveElement(int NbRemoveElement);
     }
 }

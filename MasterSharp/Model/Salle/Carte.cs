@@ -10,10 +10,16 @@ namespace Model.Salle
     {
         private List<Recette> Recette;
         //private List<Vin> Vin;
+        private int NbCarte = 40;
 
-        public Carte(List<Recette> Rectte)
+        public Carte(List<Recette> Recette)
         {
             this.Recette = Recette;
+        }
+        
+        public void GiveCard(int NbCarteDonner)
+        {
+            NbCarte = NbCarte - NbCarteDonner;
         }
     }
 }

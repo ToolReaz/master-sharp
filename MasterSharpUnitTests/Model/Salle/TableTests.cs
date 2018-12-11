@@ -11,15 +11,11 @@ namespace MasterSharpUnitTests.Model.Salle
     [TestClass()]
     class TableTests
     {
-        int GroupeClient = 1;
-        Table TableClient = new Table(1);
-
+      
         //[TestMethod()]
         public TableTests()
         {
-            //TableClient.add();
-            Assert.Equals(TableClient, 1);
-            //Assert.Fail();
+            Assert.Fail();
         }
     }
 }

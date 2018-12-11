@@ -129,6 +129,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Restaurant.cs" />
+    <Compile Include="obj\Debug\App.g.i.cs" />
     <Compile Include="Model\EDM\Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
@@ -167,6 +169,7 @@
     <Compile Include="Model\Stock\Four.cs" />
     <Compile Include="Model\Stock\Frigo.cs" />
     <Compile Include="Model\Stock\IStock.cs" />
+    <Compile Include="Model\Stock\IStockItem.cs" />
     <Compile Include="Model\Stock\ITextille.cs" />
     <Compile Include="Model\Stock\IUstencile.cs" />
     <Compile Include="Model\Stock\IUstencilLavable.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Model\Stock\IVaisselle.cs" />
     <Compile Include="Model\Stock\Recette.cs" />
     <Compile Include="Model\Stock\StockAliment.cs" />
+    <Compile Include="Model\Stock\StockTextille.cs" />
     <Compile Include="Model\Stock\StockUstencil.cs" />
     <Compile Include="Model\Stock\StockVaisselle.cs" />
     <Compile Include="Model\Stock\Textille.cs" />
@@ -247,10 +251,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Page Include="**\*.xaml" SubType="Designer" Generator="MSBuild:Compile" Exclude="App.xaml" />
     <ApplicationDefinition Include="App.xaml">
       <Generator>MsBuild:Compile</Generator>
       <SubType>Designer</SubType>
