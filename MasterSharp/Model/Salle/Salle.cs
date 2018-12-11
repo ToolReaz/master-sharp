@@ -8,10 +8,12 @@ namespace Model.Salle
     public class Salle
     {
         private List<Carre> Carre;
+        private Restaurant restaurant;
 
         public Salle(List<Carre> Carre)
         {
             this.Carre = Carre;
+            Carre.Add(new Carre(new List<Table>()));
         }
     }
 }

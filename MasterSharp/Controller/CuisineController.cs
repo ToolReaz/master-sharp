@@ -16,6 +16,22 @@ namespace Controller
             //Console.WriteLine("CuisineController instancié !");
         }
 
+        public void RecipeTakeStock(int recipeID)
+        {
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                var foods = (from f in db.Recipe_Step
+                             where f.ID_Recipes == recipeID
+                             select f).ToList();
+                foreach (var f in foods)
+                {
+                    var oneFood = (from s in db.Food_Stock where s.ID_Foods == f.ID_Foods select s).First();
+                    oneFood.Quantity = oneFood.Quantity - f.Food_Quantity;
+                    db.SaveChanges();
+                }
+            }
+        }
+
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
         
