@@ -20,31 +20,6 @@ namespace Controller
         TcpClient client;
         NetworkStream nwStream;
 
-        public void ClientSockOpen()
-        {
-            try
-            {
-                //---create a TCPClient object at the IP and port no.---
-                client = new TcpClient(SERVER_IP, PORT_NO);
-                nwStream = client.GetStream();
-                Console.WriteLine("Client socket launched !");
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine("ArgumentNullException: {0}", e);
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine("SocketException: {0}", e);
-            }
-        }
-        public void ClientSockClose()
-        {
-            client.Close();
-            nwStream.Close();
-            Console.WriteLine("Client socket closed.");
-        }
-
         public void SalleCommandSend(int _recipeID)
         {
             ClientSockOpen();
@@ -64,5 +39,29 @@ namespace Controller
             ClientSockClose();
         }
 
+        private void ClientSockOpen()
+        {
+            try
+            {
+                //---create a TCPClient object at the IP and port no.---
+                client = new TcpClient(SERVER_IP, PORT_NO);
+                nwStream = client.GetStream();
+                Console.WriteLine("Client socket launched !");
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("ArgumentNullException: {0}", e);
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("SocketException: {0}", e);
+            }
+        }
+        private void ClientSockClose()
+        {
+            client.Close();
+            nwStream.Close();
+            Console.WriteLine("Client socket closed.");
+        }
     }
 }

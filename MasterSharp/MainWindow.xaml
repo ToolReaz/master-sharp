@@ -19,13 +19,13 @@
         <Button Content="Transmettre" Grid.Column="2" HorizontalAlignment="Left" Margin="56,100,0,0" VerticalAlignment="Center" Width="75"/>
         <Button Content="Prêt" Grid.Column="3" HorizontalAlignment="Left" Margin="67,100,0,0" VerticalAlignment="Center" Width="75"/>
         <Button Content="Commander Menu Du Jour" Grid.Column="1" HorizontalAlignment="Left" Margin="10,46,0,337" VerticalAlignment="Center" Width="180" Click="Button_Click_1" Height="37" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="MENU DU JOUR" VerticalAlignment="Top" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="Black" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="#FF0980B4" FontWeight="Bold"><Run Text="Entrée"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="28" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="#FFE56924"><Run Text="Plat"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="#FF25CD5D" FontWeight="Bold"><Run Text="Desser"/><Run Text="t"/></TextBlock>
-        <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,79,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
-        <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,143,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
-        <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,207,0,0" TextWrapping="Wrap" Text="élaboration en cours..." VerticalAlignment="Top" Width="180" Height="26" TextAlignment="Center" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,96,0,0" TextWrapping="Wrap" Text="MENU DU JOUR" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="Black" Foreground="White" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Entrée"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,192,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Top"><Run Text="Plat"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,256,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Desser"/><Run Text="t"/></TextBlock>
+        <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,161,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,225,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,289,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
         <Button x:Name="StockConsult" Content="Consulter le stock" Grid.Column="3" HorizontalAlignment="Left" Margin="10,373,0,10" VerticalAlignment="Center" Width="180" Click="ButtonStock_Click" Height="37" FontWeight="Bold"/>
 
 
