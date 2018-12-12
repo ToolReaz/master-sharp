@@ -14,6 +14,7 @@
         </EntityType>
         <EntityType Name="Dish_Stock">
           <Key>
+            <PropertyRef Name="Clean" />
             <PropertyRef Name="ID_Stocks" />
             <PropertyRef Name="ID_Dishes" />
           </Key>
@@ -111,6 +112,7 @@
         </EntityType>
         <EntityType Name="Textil_Stock">
           <Key>
+            <PropertyRef Name="Clean" />
             <PropertyRef Name="ID_Textils" />
             <PropertyRef Name="ID_Stocks" />
           </Key>
@@ -478,6 +480,7 @@
           <Key>
             <PropertyRef Name="ID_Stocks" />
             <PropertyRef Name="ID_Dishes" />
+            <PropertyRef Name="Clean" />
           </Key>
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Clean" Type="Boolean" Nullable="false" />
@@ -599,6 +602,7 @@
           <Key>
             <PropertyRef Name="ID_Textils" />
             <PropertyRef Name="ID_Stocks" />
+            <PropertyRef Name="Clean" />
           </Key>
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Clean" Type="Boolean" Nullable="false" />
