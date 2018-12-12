@@ -11,6 +11,7 @@ namespace Model.Salle
         private Thread thread;
         private Table table;
         private Restaurant restaurant;
+        private GroupeClient client;
 
         public MaitreHotel(Salle salle)
         {
@@ -30,7 +31,8 @@ namespace Model.Salle
                     {
                         Welcome();
                         //selection de la table + les placer 
-                        
+                        AssignTable();
+
 
                         //puis dequeue
                         restaurant._queueClient.Dequeue();
@@ -49,6 +51,11 @@ namespace Model.Salle
             Console.WriteLine("Un nouveau groupe de client est arrivé.");
         }
 
+        public void AssignTable()
+        {
+            
+            table.CheckTable(restaurant.HowManyClient);
+        }
         
     }
 }

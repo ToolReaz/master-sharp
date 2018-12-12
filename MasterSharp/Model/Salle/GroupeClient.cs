@@ -10,7 +10,6 @@ namespace Model.Salle
     {
         private List<IClient> Groupe;
         private Thread thread;
-        private bool newClient = true;
 
         public GroupeClient(int NbPersonneGroupe)
         {
