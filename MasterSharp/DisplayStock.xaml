@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterSharp"
         mc:Ignorable="d"
-        Title="Stock" Height="450" Width="800" Background="#FFFFA4A4" Loaded="Window_Loaded">
+        Title="Stock" Height="450" Width="310" Background="#FFFFA4A4" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid x:Name="DataGridViewStock" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="774"/>
+        <DataGrid x:Name="DataGridViewStock" HorizontalAlignment="Left" Height="400" Margin="0,10,0,0" VerticalAlignment="Top" Width="304"/>
 
     </Grid>
 </Window>

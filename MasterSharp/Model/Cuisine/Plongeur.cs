@@ -8,7 +8,7 @@ using Model.Stock;
 
 namespace Model.Cuisine
 {
-    public class Plongeur : IEmployeCuisine
+    public class Plongeur
     {
         private Thread thread;
 
@@ -28,6 +28,12 @@ namespace Model.Cuisine
 
         public void DoWork() {
             while (true) {
+                // Si il y a qqc a laver
+                // Place dans le lave vaissele le plus possible
+                // Uniquement 24 de chaque type (24 assietes, 24 verres, 24 couverts)
+
+
+                // Check if there is dirty vaisselle
                 // Dirty vaisselle contained in the stock
                 List<IStockItem> DirtyVaisselle = cuisine.StockVaisselle.GetDirtyItems();
 
@@ -35,9 +41,20 @@ namespace Model.Cuisine
                 if (DirtyVaisselle?.Count > 0) {
                     DirtyVaisselle.ForEach(
                         item => {
-                            laveVaisselle.Queue(item);
+                            if (item.GetType() == typeof(Assiette)) {
+                                laveVaisselle.AddAssiete(item);
+                            } else if (item.GetType() == typeof(Verre)) {
+                                laveVaisselle.AddVerre(item);
+                            } else if (item.GetType() == typeof(Couverts)) {
+                                laveVaisselle.AddCouvert(item);
+                            }
                         });
                 }
+
+
+
+
+
 
 
                 // Dirty textile contained in the stock
@@ -50,6 +67,12 @@ namespace Model.Cuisine
                             laveLinge.Queue(item);
                         });
                 }
+
+
+                // Wash dirty ustencil
+
+
+                Thread.Sleep(2000);
             }
         }
 

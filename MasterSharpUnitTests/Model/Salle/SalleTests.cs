@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharpUnitTests.Model.Salle
+namespace Model.Salle.Tests
 {
     [TestClass()]
-    class SalleTests
+    public class SalleTests
     {
         List<Carre> Carre = new List<Carre>();
 

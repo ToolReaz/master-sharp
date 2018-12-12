@@ -10,8 +10,7 @@ namespace Model.Cuisine
 {
     public class ChefCuisine
     {
-        public List<CommisCuisine> _commisCuisine { get; set; }
-        public List<ChefPartie> _chefParties { get; set; }
+        private Cuisine _cuisine { get; }
 
         private Thread _thread;
 
@@ -19,33 +18,30 @@ namespace Model.Cuisine
         private int _lastChef = 0;
 
 
-        public ChefCuisine() {
-            // Create commis list and add 2 commis
-            _commisCuisine = new List<CommisCuisine> {new CommisCuisine(), new CommisCuisine()};
-            // Create chef partie list and add 2 chefs
-            _chefParties = new List<ChefPartie> {new ChefPartie(), new ChefPartie()};
+        public ChefCuisine(Cuisine cuisine) {
+            this._cuisine = cuisine;
         }
 
 
-        public void Dispatch(Recette r) {
-            for (int i = 0; i < r.Actions.Count; i++) {
-                if (r.Actions[i].Name == "CUT") {
-                    _commisCuisine?[_lastCommis]?.Cut(r.Aliments[i]);
+        public void Dispatch(Recette recette) {
+            for (int i = 0; i < recette.Etapes.Count; i++) {
+                if (recette.Etapes[i].Action.Name == "CUT") {
+                    this._cuisine.Commis[_lastCommis]?.Cut(recette.Etapes[i].Aliment);
                     _lastCommis++;
-                } else if (r.Actions[i].Name == "FIND") {
-                    _commisCuisine?[_lastCommis]?.Find(r.Aliments[i]);
+                } else if (recette.Etapes[i].Action.Name == "FIND") {
+                    this._cuisine.Commis[_lastCommis]?.Find(recette.Etapes[i].Aliment);
                     _lastCommis++;
                 } else {
-                    _chefParties?[_lastChef]?.AddActionToDo(r.Actions[i], r.Aliments[i]);
+                    this._cuisine.ChefParties[_lastChef]?.AddActionToDo(recette.Etapes[i].Action, recette.Etapes[i].Aliment);
                     _lastChef++;
                 }
 
 
-                if (_lastCommis >= _commisCuisine?.Count) {
+                if (_lastCommis >= this._cuisine.Commis?.Count) {
                     _lastCommis = 0;
                 }
 
-                if (_lastChef >= _commisCuisine?.Count) {
+                if (_lastChef >= this._cuisine.Commis?.Count) {
                     _lastChef = 0;
                 }
             }

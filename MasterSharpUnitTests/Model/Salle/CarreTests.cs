@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharp.Model.Salle.Tests
+namespace Model.Salle.Tests
 {
     [TestClass()]
     public class CarreTests

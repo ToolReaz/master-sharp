@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharpUnitTests.Model.Salle
+namespace Model.Salle.Tests
 {
     [TestClass()]
-    class ClientTests
+    public class ClientTests
     {
 
         [TestMethod()]

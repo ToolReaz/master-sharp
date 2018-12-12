@@ -27,22 +27,19 @@ namespace MasterSharp
         Recipe starterOfTheDay,plateOfTheDay,dessertOfTheDay;
 
         /*---SOCKETS---*/
-        SalleController SalleSock;
-        Thread SockServer;
-        CuisineController CuisineSock;
-        Thread SockClient;
+        CuisineController objCuisine;
+        Thread sockClientCuisine;
+        SalleController objSalle;
+        Thread sockServerSalle;
 
 
         public MainWindow()
         {
-            Console.WriteLine("Création des sockets :");
-            CuisineSock = new CuisineController();
-            SockServer = new Thread(new ThreadStart(CuisineSock.ServerSock));
-            SockServer.Start();
-
-            SalleSock = new SalleController();
-            SockClient = new Thread(new ThreadStart(SalleSock.ClientSock));
-            SockClient.Start();
+            //launch server socket (cuisine)
+            Console.WriteLine("Création du socket server (cuisine) :");
+            objCuisine = new CuisineController();
+            sockClientCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
+            sockClientCuisine.Start();
         }
 
         private void ButtonStock_Click(object sender, RoutedEventArgs e)
@@ -63,14 +60,19 @@ namespace MasterSharp
             Plate.Text = plateOfTheDay.Name;
             dessertOfTheDay = motd.ofTheDay("Dessert");
             Dessert.Text = dessertOfTheDay.Name;
-            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CuisineSock.RecipeTakeStock(starterOfTheDay.ID);
-            CuisineSock.RecipeTakeStock(plateOfTheDay.ID);
-            CuisineSock.RecipeTakeStock(dessertOfTheDay.ID);
+            objSalle = new SalleController();
+
+            //Lambda expression with no arguments (threadstart with parameters methods was impossible) :
+            sockServerSalle = new Thread(() => objSalle.SalleCommandSend(starterOfTheDay.ID));
+            sockServerSalle.Start();
+            
+            /*objSalle.SalleCommandSend(starterOfTheDay.ID);
+            objSalle.SalleCommandSend(plateOfTheDay.ID);
+            objSalle.SalleCommandSend(dessertOfTheDay.ID);*/
         }
 
     }

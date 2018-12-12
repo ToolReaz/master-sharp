@@ -1,23 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MasterSharp.Model.Cuisine;
+﻿using System.Collections.Generic;
 using MasterSharp.Model.Stock;
 
 namespace Model.Stock
 {
     public class Recette
     {
-        public List<IVaisselle> Vaisselles { get; }
+        public List<EtapeRecette> Etapes { get; }
 
-        public List<Aliment> Aliments { get; }
 
-        public List<ActionRecette> Actions { get; }
+        public Recette() {
+            this.Etapes = new List<EtapeRecette>();
+        }
 
-        public Recette(List<IVaisselle> vaisselles, List<Aliment> aliments, List<ActionRecette> actions) {
-            Vaisselles = vaisselles;
-            Aliments = aliments;
-            Actions = actions;
+
+        public Recette(List<EtapeRecette> etapes) {
+            this.Etapes = etapes;
+        }
+
+
+        public void AddEtape(EtapeRecette e) {
+            this.Etapes?.Add(e);
+        }
+
+
+        public bool IsComplet() {
+            foreach (EtapeRecette etape in Etapes) {
+                if (!etape.Completed) {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

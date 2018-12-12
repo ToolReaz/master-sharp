@@ -6,29 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharpUnitTests.Model.Salle
+namespace Model.Salle.Tests
 {
     [TestClass()]
-    class ServeurTests
+    public class ServeurTests
     {
-        
-        //[TestMethod()]
-        public ServeurTests()
-        {
-            Assert.Fail();
-        }
-        
        
+
+        [TestMethod()]
         public void ServeClient(List<Recette> Recette)
         {
             Assert.Fail();
         }
 
+        [TestMethod()]
         public void RideOff(List<Recette> Recette)
         {
             Assert.Fail();
         }
 
+        [TestMethod()]
         public void BringFood(List<Recette> Recette)
         {
             Assert.Fail();

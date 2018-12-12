@@ -7,7 +7,7 @@ namespace Model.Stock
     public class Assiette : IVaisselle
     {
 
-        private TypeAssiette Type { get; }
+        public TypeAssiette Type { get; }
 
         private bool Clean { get; set; }
 

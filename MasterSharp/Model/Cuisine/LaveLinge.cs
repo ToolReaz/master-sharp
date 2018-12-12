@@ -41,8 +41,10 @@ namespace Model.Cuisine
                             _content.Clear();
                             Thread.Sleep(TimeToWash);
                         }
+                        Thread.Sleep(2000);
                     }
                 });
+            this.thread.Start();
         }
 
 

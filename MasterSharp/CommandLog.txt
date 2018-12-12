@@ -34,6 +34,7 @@
 11/12/2018 00:00:00 - (1) Oeufs Mimosa
 >>>>>>> master
 11/12/2018 00:00:00 - (1) Oeufs Mimosa
+<<<<<<< Updated upstream
 11/12/2018 00:00:00 - (1) Oeufs Mimosa
 11/12/2018 00:00:00 - (3) Salade Alsacienne
 11/12/2018 00:00:00 - (3) Salade Alsacienne
@@ -56,30 +57,7 @@
 11/12/2018 00:00:00 - (3) Salade Alsacienne
 11/12/2018 00:00:00 - (1) Oeufs Mimosa
 11/12/2018 00:00:00 - (2) Crevettes citronnees
+11/12/2018 00:00:00 - (3) Salade Alsacienne
+=======
 11/12/2018 00:00:00 - (2) Crevettes citronnees
-12/12/2018 00:00:00 - (2) Crevettes citronnees
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (2) Crevettes citronnees
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (2) Crevettes citronnees
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (2) Crevettes citronnees
-12/12/2018 00:00:00 - (3) Salade Alsacienne
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (1) Oeufs Mimosa
-12/12/2018 00:00:00 - (2) Crevettes citronnees
+>>>>>>> Stashed changes
