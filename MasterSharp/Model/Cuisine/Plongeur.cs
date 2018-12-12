@@ -45,8 +45,7 @@ namespace Model.Cuisine
                                 laveVaisselle.AddAssiete(item);
                             } else if (item.GetType() == typeof(Verre)) {
                                 laveVaisselle.AddVerre(item);
-                            }
-                            else if (item.GetType() == typeof(Couverts)) {
+                            } else if (item.GetType() == typeof(Couverts)) {
                                 laveVaisselle.AddCouvert(item);
                             }
                         });

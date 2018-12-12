@@ -7,6 +7,6 @@ namespace Model.Stock
 {
     public interface IStockItem
     {
-        void Wash()
+        void Wash();
     }
 }

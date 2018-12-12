@@ -18,9 +18,9 @@ namespace Model.Cuisine
 
 
         // Content lists
-        private List<IVaisselle> _assietes;
-        private List<IVaisselle> _verres;
-        private List<IVaisselle> _couverts;
+        private List<IStockItem> _assietes;
+        private List<IStockItem> _verres;
+        private List<IStockItem> _couverts;
 
 
         public LaveVaisselle() {
@@ -29,9 +29,9 @@ namespace Model.Cuisine
             _output = new List<IStockItem>();
 
             // Init content lists
-            _assietes = new List<IVaisselle>();
-            _verres = new List<IVaisselle>();
-            _couverts = new List<IVaisselle>();
+            _assietes = new List<IStockItem>();
+            _verres = new List<IStockItem>();
+            _couverts = new List<IStockItem>();
 
             
         }
@@ -87,7 +87,7 @@ namespace Model.Cuisine
             _queue?.Enqueue(v);
         }
 
-        public bool AddAssiete(Assiette a) {
+        public bool AddAssiete(IStockItem a) {
             if (_assietes.Count < 24) {
                 _assietes.Add(a);
                 return true;
@@ -97,7 +97,7 @@ namespace Model.Cuisine
         }
 
 
-        public bool AddCouvert(Couverts c) {
+        public bool AddCouvert(IStockItem c) {
             if (_couverts.Count < 24) {
                 _couverts.Add(c);
                 return true;
@@ -107,7 +107,7 @@ namespace Model.Cuisine
         }
 
 
-        public bool AddVerre(Verre v) {
+        public bool AddVerre(IStockItem v) {
             if (_verres.Count < 24) {
                 _verres.Add(v);
                 return true;
