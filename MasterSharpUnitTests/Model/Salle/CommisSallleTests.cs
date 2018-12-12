@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MasterSharpUnitTests.Model.Salle
+namespace Model.Salle.Tests
 {
     [TestClass()]
-    class CommisSallleTests
+    public class CommisSallleTests
     {
         public int  Water = 40;
         public int Bread = 40;

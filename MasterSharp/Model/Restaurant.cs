@@ -15,6 +15,7 @@ namespace Model
         private GroupeClient client;
         private Thread thread;
         private const int NextClient = 1200000;
+        public int HowManyClient;
         private Random randomClient = new Random();
         public Queue<GroupeClient> _queueClient { get; set; }
         private Salle.Salle salle;
@@ -37,7 +38,7 @@ namespace Model
         {
             while (true)
             {
-                int HowManyClient = randomClient.Next(1, 10);
+                HowManyClient = randomClient.Next(1, 10);
                 client = new GroupeClient(HowManyClient);
                 _queueClient.Enqueue(client);
                 Thread.Sleep(NextClient);
