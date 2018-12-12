@@ -14,10 +14,22 @@ namespace Model
 
         private GroupeClient client;
         private Thread thread;
-        
-        public Restaurant()
+        private const int NextClient = 1200000;
+        private Random randomClient = new Random();
+        public Queue<GroupeClient> _queueClient { get; set; }
+        private Salle.Salle salle;
+
+        private MaitreHotel maitreHotel;
+
+        public Restaurant(Salle.Salle salle)
         {
+            salle = new Salle.Salle(new List<Carre>());
+
+            //a modifier si necessaire
+            maitreHotel = new MaitreHotel(salle);
+
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
+            thread.Start();
 
         }
         
@@ -25,11 +37,11 @@ namespace Model
         {
             while (true)
             {
-                int NextClient = 1200000;
-                Random randomClient = new Random();
                 int HowManyClient = randomClient.Next(1, 10);
                 client = new GroupeClient(HowManyClient);
+                _queueClient.Enqueue(client);
                 Thread.Sleep(NextClient);
+
             }
            
 

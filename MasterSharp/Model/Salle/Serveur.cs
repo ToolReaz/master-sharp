@@ -12,7 +12,7 @@ namespace Model.Salle
         private Table table;
         private GroupeClient groupe;
 
-        public Serveur(Salle salle)
+        public Serveur()
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));

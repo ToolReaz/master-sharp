@@ -35,14 +35,14 @@ namespace MasterSharp
 
         public MainWindow()
         {
-            Console.WriteLine("Création des sockets :");
+            /*Console.WriteLine("Création des sockets :");
             CuisineSock = new CuisineController();
-            SockServer = new Thread(new ThreadStart(CuisineSock.ServerSock));
+            SockServer = new Thread(new ThreadStart(CuisineSock.ServerSockLaunch));
             SockServer.Start();
 
             SalleSock = new SalleController();
-            SockClient = new Thread(new ThreadStart(SalleSock.ClientSock));
-            SockClient.Start();
+            SockClient = new Thread(new ThreadStart(SalleSock.SalleCommandSend));
+            SockClient.Start();*/
         }
 
         private void ButtonStock_Click(object sender, RoutedEventArgs e)

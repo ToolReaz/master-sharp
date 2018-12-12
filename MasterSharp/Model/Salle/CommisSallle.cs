@@ -12,7 +12,7 @@ namespace Model.Salle
         private int watter = 40;
         private int bread = 40;
 
-        public CommisSallle(Salle salle)
+        public CommisSallle()
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
