@@ -49,56 +49,63 @@ namespace Controller
                 IPAddress localAdd = IPAddress.Parse(SERVER_IP);
                 serverListener = new TcpListener(localAdd, PORT_NO);
 
+                // Start listening for client requests.
+                serverListener.Start();
+
+                // Buffer for reading data
+                Byte[] buffer = new Byte[256];
+                string dataReceived = null;
+
                 while (true)
                 {
                     Console.WriteLine("(server)Listening for a client command ...");
-                    serverListener.Start();
 
                     //---incoming client connected---
                     TcpClient client = serverListener.AcceptTcpClient();
-                    Console.WriteLine("Server socket launched !");
+                    Console.WriteLine("Server socket started !");
+
+                    dataReceived = null;
 
                     //---get the incoming data through a network stream---
                     NetworkStream nwStream = client.GetStream();
-                    byte[] buffer = new byte[client.ReceiveBufferSize];
 
-                    //---read incoming stream (loop version)---
-                    int bytesRead;
-                    while ((bytesRead = nwStream.Read(buffer, 0, buffer.Length)) != 0)
+                    int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
+
+                    //---read incoming stream (loop version don't work)---
+                    //
+                        
+                    //---convert the data received into a string then int---
+                    dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+                    int receivedID = int.Parse(dataReceived);
+                    Console.WriteLine("(server)Received : {0}", dataReceived);
+
+                    //---Recover it in object
+                    using (MasterSharpEntities db = new MasterSharpEntities())
                     {
+                        //Search in the DB the first recipe which correspond to the given ID 
+                        var objRecipe = (from f in db.Recipes
+                                            where f.ID == receivedID
+                                            select f
+                                        ).First();
 
-                        //---convert the data received into a string then int---
-                        string dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                        int receivedID = int.Parse(dataReceived);
-                        Console.WriteLine("(server)Received : {0}", dataReceived);
+                        Console.WriteLine("(server)Desc of object received : " + objRecipe.Description);
 
-                        //---Recover it in object
-                        using (MasterSharpEntities db = new MasterSharpEntities())
-                        {
-                            var objRecipe = (from f in db.Recipes
-                                             where f.ID == receivedID
-                                             select f
-                                         ).First();
+                        //Write into the command history/log file
+                        string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
+                        CommandLogWrite(line);
 
-                            Console.WriteLine("(server)Desc of object received : " + objRecipe.Description);
-
-                            //Write into the command history
-                            string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
-                            CommandLogWrite(line);
-
-                            //Remove recipes from stock
-                            RecipeTakeStock(receivedID);
-                        }
-
-                        //---write back text to the client---
-                        string text = "(server) 5/5";
-                        byte[] bytesResponse = ASCIIEncoding.ASCII.GetBytes(text);
-                        nwStream.Write(bytesResponse, 0, bytesResponse.Length);
-
-                        //serverListener.Stop();
-                        client.Close();
-                        Console.WriteLine("Client socket closed.");
+                        //Remove recipes from stock
+                        RecipeTakeStock(receivedID);
                     }
+
+                    //---write back text to the client---
+                    string text = "(server) 5/5";
+                    byte[] bytesResponse = ASCIIEncoding.ASCII.GetBytes(text);
+                    nwStream.Write(bytesResponse, 0, bytesResponse.Length);
+
+                    //serverListener.Stop();
+                    client.Close();
+                    Console.WriteLine("Client socket closed.");
                 }
             }
             catch (SocketException e)
@@ -112,7 +119,8 @@ namespace Controller
             }
         }
 
-        public void RecipeTakeStock(int recipeID)
+
+        private void RecipeTakeStock(int recipeID)
         {
             using (MasterSharpEntities db = new MasterSharpEntities())
             {
@@ -130,7 +138,7 @@ namespace Controller
 
         private void CommandLogWrite(string _line)
         {
-            // Write the text asynchronously to a new file
+            // Write the text asynchronously to "CommandLog.txt"
             string mydocpath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             File.AppendAllText(Path.Combine(mydocpath, "CommandLog.txt"), _line);
         }
