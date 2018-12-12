@@ -11,8 +11,13 @@ namespace Model.Salle
         private List<IClient> Groupe;
         private Thread thread;
 
-        public GroupeClient(int NbPersonneGroupe)
+        public GroupeClient(int NbPersonneGroupe, int idGroupe)
         {
+
+            //need to create thread?
+
+
+
             //init groupe
             this.Groupe = new List<IClient>();
 
