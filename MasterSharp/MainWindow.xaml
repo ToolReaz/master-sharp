@@ -5,28 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MasterSharp"
         mc:Ignorable="d"
-        Title="MASTER SHARP" Height="450" Width="800" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="MASTER SHARP" Height="502" Width="1004" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200px"></ColumnDefinition>
             <ColumnDefinition Width="200px"/>
             <ColumnDefinition Width="200px"></ColumnDefinition>
-            <ColumnDefinition Width="200px"/>
+            <ColumnDefinition Width="171.8"/>
+            <ColumnDefinition Width="29"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="1" Content="Client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Height="26" Background="#FFF0E877"/>
-        <Label Grid.Column="2" Content="Salle" Margin="10,10,0,0" Width="180" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFC9319"/>
-        <Label Grid.Column="3" Content="Cuisine" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Height="26" Background="#FFD6493E"/>
-        <Button Content="Transmettre" Grid.Column="2" HorizontalAlignment="Left" Margin="56,100,0,0" VerticalAlignment="Center" Width="75"/>
-        <Button Content="Prêt" Grid.Column="3" HorizontalAlignment="Left" Margin="67,100,0,0" VerticalAlignment="Center" Width="75"/>
-        <Button Content="Commander Menu Du Jour" Grid.Column="1" HorizontalAlignment="Left" Margin="10,46,0,337" VerticalAlignment="Center" Width="180" Click="Button_Click_1" Height="37" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,96,0,0" TextWrapping="Wrap" Text="MENU DU JOUR" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="Black" Foreground="White" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Entrée"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,192,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Top"><Run Text="Plat"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,256,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Desser"/><Run Text="t"/></TextBlock>
-        <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,161,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,225,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
-        <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,289,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
-        <Button x:Name="StockConsult" Content="Consulter le stock" Grid.Column="3" HorizontalAlignment="Left" Margin="10,373,0,10" VerticalAlignment="Center" Width="180" Click="ButtonStock_Click" Height="37" FontWeight="Bold"/>
+        <Rectangle Grid.Column="1" Fill="#f9f1cc" HorizontalAlignment="Left" Height="473" Margin="0.2,0,0,-0.2" Stroke="Black" VerticalAlignment="Top" Width="401" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.Column="2" Fill="#f9d2cc" HorizontalAlignment="Left" Height="473" Margin="200.4,0,-194.8,-0.2" Stroke="Black" VerticalAlignment="Top" Width="396" Grid.ColumnSpan="3"/>
+
+        <Label Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,50,0,0" VerticalAlignment="Top" Width="180" Height="16" Background="#FFF0E877"/>
+        <Label Grid.Column="1" Margin="10.2,10,0,0" Width="380" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFFC9319" Grid.ColumnSpan="2"/>
+        <Label Grid.Column="3" HorizontalAlignment="Left" Margin="9.6,10,-188.8,0" VerticalAlignment="Top" Width="380" Height="26" Background="#FFD6493E" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,89,0,0" TextWrapping="Wrap" Text="MENU DU JOUR" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="Black" Foreground="White" VerticalAlignment="Top" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,122,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Entrée"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,186,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="Black" VerticalAlignment="Top"><Run Text="Plat"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Width="180" Height="28" TextAlignment="Center" FontSize="18" Foreground="Black" FontWeight="Bold" VerticalAlignment="Top"><Run Text="Desser"/><Run Text="t"/></TextBlock>
+        <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,219,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
+        <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,283,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
+        <Button x:Name="StockConsult" Content="Consulter le stock" HorizontalAlignment="Left" Margin="10,340,0,95.8" VerticalAlignment="Center" Width="180" Click="ButtonStock_Click" Height="37" FontWeight="Bold"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,50,0,0" TextWrapping="Wrap" Text="Client" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16"/>
+        <Label Grid.Column="2" HorizontalAlignment="Left" Margin="9.4,50,0,0" VerticalAlignment="Top" Width="180" Height="16" Background="#FFF0E877"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="15.4,50,0,0" TextWrapping="Wrap" Text="Commandes" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16"/>
+        <Label Grid.Column="3" HorizontalAlignment="Left" Margin="9.6,50,0,0" VerticalAlignment="Top" Width="180" Height="16" Background="#FFFC9E8E" Grid.ColumnSpan="2"/>
+        <Label Grid.Column="4" HorizontalAlignment="Left" Margin="33.8,50,-184.8,0" VerticalAlignment="Top" Width="180" Height="16" Background="#FFFC9E8E"/>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="33.8,50,-184.8,0" TextWrapping="Wrap" Text="Stock" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16"/>
+        <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="9.6,50,0,0" TextWrapping="Wrap" Text="Commandes" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SALLE" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="FFFC9319" Foreground="White" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" Margin="111.2,10,0,0" Height="26"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CUISINE" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Background="FFFC9319" Foreground="White" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="3" Margin="108.6,10,-87.8,0" Height="26"/>
+        <Button Content="Commander (btn provisoire)" HorizontalAlignment="Left" Margin="10,382,0,65.8" VerticalAlignment="Center" Width="180" Click="Button_Click_1" Height="25" FontWeight="Bold"/>
 
 
     </Grid>
