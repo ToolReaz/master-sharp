@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace MasterSharp
 {
@@ -56,6 +56,7 @@ namespace MasterSharp
             InitializeDB.Food_Stock();
             InitializeDB.Dish_Stock();
             InitializeDB.Textil_Stock();
+            InitializeDB.Utensil_Stock();
             starterOfTheDay = motd.ofTheDay("Entrée");
             Starter.Text = starterOfTheDay.Name;
             plateOfTheDay = motd.ofTheDay("Plat");

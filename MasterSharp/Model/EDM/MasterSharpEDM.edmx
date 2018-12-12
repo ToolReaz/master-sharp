@@ -136,6 +136,7 @@
         </EntityType>
         <EntityType Name="Utensil_Stock">
           <Key>
+            <PropertyRef Name="Clean" />
             <PropertyRef Name="ID_Utensils" />
             <PropertyRef Name="ID_Stocks" />
           </Key>
@@ -618,6 +619,7 @@
           <Key>
             <PropertyRef Name="ID_Utensils" />
             <PropertyRef Name="ID_Stocks" />
+            <PropertyRef Name="Clean" />
           </Key>
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Clean" Type="Boolean" Nullable="false" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace Controller
 {
@@ -103,6 +103,44 @@ namespace Controller
                     textilStock.Add(new Textil_Stock { Quantity = quantity, Clean = true, ID_Stocks = 1, ID_Textils = t.ID });
                 }
                 db.Textil_Stock.AddRange(textilStock);
+                db.SaveChanges();
+            }
+        }
+
+        public static void Utensil_Stock()
+        {
+            Utensil_Stock utensilNotClean;
+            List<Utensil> utensils;
+            int quantityNotClean;
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                utensils = db.Utensils.ToList();
+            }
+
+            foreach (var u in utensils)
+            {
+                using (MasterSharpEntities db = new MasterSharpEntities())
+                {
+                    utensilNotClean = db.Utensil_Stock.SingleOrDefault(g => g.ID_Utensils == u.ID && g.Clean == false);
+                    if (utensilNotClean != null)
+                    {
+                        quantityNotClean = utensilNotClean.Quantity;
+                        db.Utensil_Stock.Remove(utensilNotClean);
+                        db.SaveChanges();
+                        UpdateCleanQuantity(u.ID,quantityNotClean);
+                    }
+                }
+            }
+        }
+
+        public static void UpdateCleanQuantity(int ID, int quantity)
+        {
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                var utensil = (from e in db.Utensil_Stock
+                               where e.ID_Utensils == ID && e.Clean == true
+                               select e).Single();
+                utensil.Quantity = utensil.Quantity + quantity;
                 db.SaveChanges();
             }
         }

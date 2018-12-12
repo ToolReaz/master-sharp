@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model.EDM
+namespace MasterSharp.Model.EDM
 {
     using System;
     using System.Collections.Generic;

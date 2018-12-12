@@ -1,4 +1,4 @@
-﻿using Model.EDM;
+﻿using MasterSharp.Model.EDM;
 using System;
 using System.Linq;
 using System.Net.Sockets;
