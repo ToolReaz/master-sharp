@@ -11,7 +11,7 @@ namespace Model.Salle
         private Thread thread;
         private Table table;
 
-        public ChefRang(Salle salle)
+        public ChefRang()
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));

@@ -28,6 +28,8 @@ namespace Model.Cuisine
         // Recettes queue
         private Queue<Recette> _commandsToDo;
 
+
+        // Cuisine's thread
         private Thread _thread;
 
 

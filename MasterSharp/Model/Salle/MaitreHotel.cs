@@ -30,7 +30,7 @@ namespace Model.Salle
                     {
                         Welcome();
                         //selection de la table + les placer 
-
+                        
 
                         //puis dequeue
                         restaurant._queueClient.Dequeue();

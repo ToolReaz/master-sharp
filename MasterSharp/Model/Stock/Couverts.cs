@@ -7,7 +7,7 @@ namespace Model.Stock
     public class Couverts : IVaisselle
     {
 
-        private TypeCouverts Type { get; }
+        public TypeCouverts Type { get; }
 
         private bool Clean { get; }
 

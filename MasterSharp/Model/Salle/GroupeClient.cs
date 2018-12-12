@@ -8,8 +8,7 @@ namespace Model.Salle
 {
     public class GroupeClient
     {
-        private List<IClient> Groupe = new List<IClient>();
-        private Queue<GroupeClient> _queue;
+        private List<IClient> Groupe;
         private Thread thread;
         private bool newClient = true;
 
