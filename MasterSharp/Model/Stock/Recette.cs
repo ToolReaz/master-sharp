@@ -5,7 +5,7 @@ namespace Model.Stock
 {
     public class Recette
     {
-        private List<EtapeRecette> Etapes { get; }
+        public List<EtapeRecette> Etapes { get; }
 
 
         public Recette() {

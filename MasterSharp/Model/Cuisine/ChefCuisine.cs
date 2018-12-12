@@ -27,16 +27,16 @@ namespace Model.Cuisine
         }
 
 
-        public void Dispatch(Recette r) {
-            for (int i = 0; i < r.Actions.Count; i++) {
-                if (r.Actions[i].Name == "CUT") {
-                    _commisCuisine?[_lastCommis]?.Cut(r.Aliments[i]);
+        public void Dispatch(Recette recette) {
+            for (int i = 0; i < recette.Etapes.Count; i++) {
+                if (recette.Etapes[i].Action.Name == "CUT") {
+                    _commisCuisine?[_lastCommis]?.Cut(recette.Etapes[i].Aliment);
                     _lastCommis++;
-                } else if (r.Actions[i].Name == "FIND") {
-                    _commisCuisine?[_lastCommis]?.Find(r.Aliments[i]);
+                } else if (recette.Etapes[i].Action.Name == "FIND") {
+                    _commisCuisine?[_lastCommis]?.Find(recette.Etapes[i].Aliment);
                     _lastCommis++;
                 } else {
-                    _chefParties?[_lastChef]?.AddActionToDo(r.Actions[i], r.Aliments[i]);
+                    _chefParties?[_lastChef]?.AddActionToDo(recette.Etapes[i].Action, recette.Etapes[i].Aliment);
                     _lastChef++;
                 }
 
