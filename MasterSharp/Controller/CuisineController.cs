@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace Controller
 {
@@ -70,10 +70,7 @@ namespace Controller
                     NetworkStream nwStream = client.GetStream();
 
                     int bytesRead = nwStream.Read(buffer, 0, buffer.Length);
-
-                    //---read incoming stream (loop version don't work)---
-                    //
-                        
+                    
                     //---convert the data received into a string then int---
                     dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     int receivedID = int.Parse(dataReceived);
@@ -88,7 +85,7 @@ namespace Controller
                                             select f
                                         ).First();
 
-                        Console.WriteLine("(server)Desc of object received : " + objRecipe.Description);
+                        Console.WriteLine("(server)Name of object received : " + objRecipe.Name);
 
                         //Write into the command history/log file
                         string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";

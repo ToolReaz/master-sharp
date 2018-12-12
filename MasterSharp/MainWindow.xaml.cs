@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace MasterSharp
 {
@@ -36,7 +36,7 @@ namespace MasterSharp
         public MainWindow()
         {
             //launch server socket (cuisine)
-            Console.WriteLine("Création des sockets :");
+            Console.WriteLine("Création du socket server (cuisine) :");
             objCuisine = new CuisineController();
             sockClientCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
             sockClientCuisine.Start();
@@ -51,6 +51,9 @@ namespace MasterSharp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeDB.Food_Stock();
+            InitializeDB.Dish_Stock();
+            InitializeDB.Textil_Stock();
+            InitializeDB.Utensil_Stock();
             starterOfTheDay = motd.ofTheDay("Entrée");
             Starter.Text = starterOfTheDay.Name;
             plateOfTheDay = motd.ofTheDay("Plat");
@@ -61,12 +64,15 @@ namespace MasterSharp
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //objCuisine.RecipeTakeStock(starterOfTheDay.ID);
-            int recipeID = 5;
             objSalle = new SalleController();
+
             //Lambda expression with no arguments (threadstart with parameters methods was impossible) :
-            sockServerSalle = new Thread(() => objSalle.SalleCommandSend(recipeID));
+            sockServerSalle = new Thread(() => objSalle.SalleCommandSend(starterOfTheDay.ID));
             sockServerSalle.Start();
+            
+            /*objSalle.SalleCommandSend(starterOfTheDay.ID);
+            objSalle.SalleCommandSend(plateOfTheDay.ID);
+            objSalle.SalleCommandSend(dessertOfTheDay.ID);*/
         }
 
     }
