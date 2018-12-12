@@ -6,60 +6,18 @@ namespace Model.Stock
 {
     public abstract class VaisselleFactory
     {
-
-        public static IVaisselle CreateAssietteEntree()
-        {
-            return new Assiette(TypeAssiette.PETITE);
+        public static IVaisselle CreateAssiette(TypeAssiette t) {
+            return new Assiette(t);
         }
 
-        public static IVaisselle CreateAssietePlate()
+        public static IVaisselle CreateVerre(TypeVerres t)
         {
-            return new Assiette(TypeAssiette.PLATE);
+            return new Verre(t);
         }
 
-        public static IVaisselle CreateAssiettePlate()
+        public static IVaisselle CreateCouvert(TypeCouverts t)
         {
-            return new Assiette(TypeAssiette.CREUSE);
-        }
-
-        public static IVaisselle CreateAssietteDessert()
-        {
-            return new Assiette(TypeAssiette.DESSERT);
-        }
-
-        public static IVaisselle CreateVerreEau()
-        {
-            return new Verre(TypeVerres.EAU);
-        }
-
-        public static IVaisselle CreateVerreVin()
-        {
-            return new Verre(TypeVerres.VIN);
-        }
-
-        public static IVaisselle CreateVerreFlute()
-        {
-            return new Verre(TypeVerres.FLUTE);
-        }
-
-        public static IVaisselle CreateCouvertFourchette()
-        {
-            return new Couverts(TypeCouverts.FOURCHETTES);
-        }
-
-        public static IVaisselle CreateCouvertCouteaux()
-        {
-            return new Couverts(TypeCouverts.COUTEAUX);
-        }
-
-        public static IVaisselle CreateCouvertCuillereSoupe()
-        {
-            return new Couverts(TypeCouverts.CUILLERE_SOUPE);
-        }
-
-        public static IVaisselle CreateCouvertCuillereCafe()
-        {
-            return new Couverts(TypeCouverts.CUILLERE_CAFE);
+            return new Couverts(t);
         }
     }
 }
