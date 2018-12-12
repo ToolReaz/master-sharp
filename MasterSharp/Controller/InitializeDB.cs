@@ -75,5 +75,36 @@ namespace Controller
                 db.SaveChanges();
             }
         }
+
+        public static void Textil_Stock()
+        {
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                var dbctx = ((System.Data.Entity.Infrastructure.IObjectContextAdapter)db).ObjectContext;
+                dbctx.ExecuteStoreCommand("DELETE FROM Textil_Stock");
+                var textils = db.Textils;
+                List<Textil_Stock> textilStock = new List<Textil_Stock>();
+                int quantity;
+
+                foreach (var t in textils)
+                {
+                    if (t.Name == "Serviette en tissu")
+                    {
+                        quantity = 150;
+                    }
+                    else if (t.Name == "Nappe")
+                    {
+                        quantity = 40;
+                    }
+                    else
+                    {
+                        quantity = 150;
+                    }
+                    textilStock.Add(new Textil_Stock { Quantity = quantity, Clean = true, ID_Stocks = 1, ID_Textils = t.ID });
+                }
+                db.Textil_Stock.AddRange(textilStock);
+                db.SaveChanges();
+            }
+        }
     }
 }
