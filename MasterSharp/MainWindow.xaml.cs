@@ -54,6 +54,7 @@ namespace MasterSharp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeDB.Food_Stock();
+            InitializeDB.Dish_Stock();
             starterOfTheDay = motd.ofTheDay("Entrée");
             Starter.Text = starterOfTheDay.Name;
             plateOfTheDay = motd.ofTheDay("Plat");

@@ -44,5 +44,36 @@ namespace Controller
                 db.SaveChanges();
             }
         }
+
+        public static void Dish_Stock()
+        {
+            using (MasterSharpEntities db = new MasterSharpEntities())
+            {
+                var dbctx = ((System.Data.Entity.Infrastructure.IObjectContextAdapter)db).ObjectContext;
+                dbctx.ExecuteStoreCommand("DELETE FROM Dish_Stock");
+                var dishes = db.Dishes;
+                List<Dish_Stock> dishStock = new List<Dish_Stock>();
+                int quantity;
+
+                foreach (var d in dishes)
+                {
+                    if (d.Name == "Assiette creuse")
+                    {
+                        quantity = 30;
+                    }
+                    else if (d.Name == "Jeu de tasse et assiette à café")
+                    {
+                        quantity = 50;
+                    }
+                    else
+                    {
+                        quantity = 150;
+                    }
+                    dishStock.Add(new Dish_Stock { Quantity = quantity, Clean = true, ID_Stocks = 1, ID_Dishes = d.ID });
+                }
+                db.Dish_Stock.AddRange(dishStock);
+                db.SaveChanges();
+            }
+        }
     }
 }
