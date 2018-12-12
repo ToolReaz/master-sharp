@@ -7,7 +7,7 @@ namespace Model.Salle
 {
     public class Salle
     {
-        private List<Carre> Carres;
+        public List<Carre> Carres;
         private Restaurant restaurant;
         private Salle salle;
 
@@ -21,8 +21,8 @@ namespace Model.Salle
         {
             initSalle();
             this.Carres = Carres;
-            Carres.Add(new Carre(new List<Table>()));
-            Carres.Add(new Carre(new List<Table>()));
+            Carres.Add(new Carre());
+            Carres.Add(new Carre());
         }
 
 
