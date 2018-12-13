@@ -1,4 +1,5 @@
 ﻿using MasterSharp.Model.EDM;
+using Model;
 using System;
 using System.Linq;
 using System.Net.Sockets;
@@ -10,11 +11,16 @@ namespace Controller
 {
     public class SalleController
     {
+        Restaurant restaurant;
+
         public SalleController()
         {
             //Console.WriteLine("SalleController instancié Fils instancié :");
+            restaurant = new Restaurant();
+
         }
 
+        /*---SOCKET---*/
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
         TcpClient client;

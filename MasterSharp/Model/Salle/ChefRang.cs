@@ -20,7 +20,8 @@ namespace Model.Salle
       
         public void DoWork()
         {
-            throw new NotImplementedException();
+            //A COMPLETER
+            return;
         }
 
         public void GiveMenu()

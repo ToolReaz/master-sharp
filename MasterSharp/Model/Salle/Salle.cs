@@ -17,9 +17,10 @@ namespace Model.Salle
         private Serveur serveur;
         private MaitreHotel maitreHotel;
 
-        public Salle(List<Carre> Carre)
+        public Salle(Restaurant _restaurant, List<Carre> Carres)
         {
             initSalle();
+            this.restaurant = _restaurant;
             this.Carres = Carres;
             Carres.Add(new Carre());
             Carres.Add(new Carre());
@@ -30,7 +31,7 @@ namespace Model.Salle
         {
             commisSallle = new CommisSallle();
             serveur = new Serveur();
-            maitreHotel = new MaitreHotel(salle);
+            maitreHotel = new MaitreHotel(restaurant, salle);
             chefRang = new ChefRang();
         }
     }

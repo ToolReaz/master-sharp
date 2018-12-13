@@ -6,15 +6,24 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Model;
+using Model.Cuisine;
+using Model.EDM;
+using Model.Stock;
 using MasterSharp.Model.EDM;
 
 namespace Controller
 {
     public class CuisineController
     {
+        Queue<Recette> recettesToDo;
+        Cuisine cuisine;
+
         public CuisineController()
         {
             //Console.WriteLine("CuisineController instancié !");
+            recettesToDo = new Queue<Recette>();
+            cuisine = new Cuisine(recettesToDo);
         }
 
         public List<dynamic> GetStock()
@@ -35,7 +44,7 @@ namespace Controller
             }
         }
 
-
+        /*---SOCKET/COMMAND LISTENER---*/
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
 

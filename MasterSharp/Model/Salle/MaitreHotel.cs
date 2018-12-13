@@ -13,15 +13,14 @@ namespace Model.Salle
         private Table table;
         private Carre carre;
         private Restaurant restaurant;
-        private GroupeClient client;
+        //private GroupeClient client;
 
-
-        public MaitreHotel(Salle salle)
+        public MaitreHotel(Restaurant _restaurant, Salle _salle)
         {
-            this.salle = salle;
+            this.salle = _salle;
+            this.restaurant = _restaurant;
             this.thread = new Thread(new ThreadStart(this.DoWork));
             thread.Start();
-            
         }
 
         public void DoWork()
