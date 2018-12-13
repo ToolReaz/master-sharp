@@ -7,7 +7,7 @@ namespace Model.Salle
 {
     public class Salle
     {
-        public List<Carre> Carres { get; set; }
+        public Carre Carre { get; set; }
         private Restaurant restaurant { get; }
         private Salle salle;
 
@@ -17,15 +17,14 @@ namespace Model.Salle
         private Serveur serveur;
         //private MaitreHotel maitreHotel;
 
-        public Salle(Restaurant _restaurant, List<Carre> Carres)
+        public Salle(Restaurant _restaurant, Carre Carre)
         {
-            Console.WriteLine("Salle intanciée");
+            Console.Write("Salle intanciée > ");
             initSalle();
             this.restaurant = _restaurant;
             this.salle = this;
-            this.Carres = Carres;
-            Carres.Add(new Carre());
-            Carres.Add(new Carre());
+            this.Carre = Carre;
+            Carre = new Carre();
         }
 
 

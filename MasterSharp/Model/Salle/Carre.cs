@@ -12,7 +12,7 @@ namespace Model.Salle
 
         public Carre()
         {
-            Console.WriteLine("Carré intancié");
+            Console.Write("Carré intancié > ");
             tables = new List<Table>();
             initTable();
         }

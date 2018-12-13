@@ -29,14 +29,15 @@ namespace Model
 
         public Restaurant()
         {
-            Console.WriteLine("Restaurant intancié");
+            Console.Write("Restaurant intancié > ");
             _queueClient = new Queue<GroupeClient>();
             newClient = false;
 
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
             thread.Start();
 
-            salle = new Salle.Salle(this, new List<Carre>());
+            salle = new Salle.Salle(this, new Carre());
+            carte = new Carte();
             maitreHotel = new MaitreHotel(this, salle);
         }
 
@@ -47,28 +48,11 @@ namespace Model
                 HowManyClient = randomClient.Next(1, 10);
                 clients = new GroupeClient(HowManyClient, idGroupe);
                 _queueClient.Enqueue(clients);
-
-                Console.WriteLine("QueueClient : " + _queueClient);
-
                 idGroupe++;
                 newClient = true;
                 Thread.Sleep(NextClient);
             }
         }
 
-        public void CompositionCarte()
-        {
-            recettes = new List<Recette>();
-
-            MasterSharpEntities db = new MasterSharpEntities();
-            var dbRecipes = db.Recipes.ToList();
-
-            foreach (var recipe in dbRecipes)
-            {
-                Console.WriteLine(recipe);
-            }
-
-            carte = new Carte(recettes);
-        }
     }
 }

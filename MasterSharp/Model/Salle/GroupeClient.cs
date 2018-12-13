@@ -13,7 +13,7 @@ namespace Model.Salle
 
         public GroupeClient(int NbPersonneGroupe, int idGroupe)
         {
-            Console.WriteLine("GroupeClient intancié");
+            Console.Write("GroupeClient intancié > ");
             //need to create thread?
 
 

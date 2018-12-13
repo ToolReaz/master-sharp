@@ -19,7 +19,7 @@ namespace Controller
 
         public CuisineController()
         {
-            Console.WriteLine("CuisineController instancié :");
+            Console.Write("\nCuisineController instancié :");
             cuisine = new Cuisine();
         }
 
@@ -64,11 +64,11 @@ namespace Controller
 
                 while (true)
                 {
-                    Console.WriteLine("(server)Listening for a client command ...");
+                    Console.Write("\n(server)Listening for a client command ...");
 
                     //---incoming client connected---
                     TcpClient client = serverListener.AcceptTcpClient();
-                    Console.WriteLine("Server socket started !");
+                    Console.Write("\nServer socket started !");
 
                     dataReceived = null;
 
@@ -80,7 +80,7 @@ namespace Controller
                     //---convert the data received into a string then int---
                     dataReceived = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                     int receivedID = int.Parse(dataReceived);
-                    Console.WriteLine("(server)Received : {0}", dataReceived);
+                    Console.Write("\n(server)Received : {0}", dataReceived);
 
                     //---Recover it in object
                     using (MasterSharpEntities db = new MasterSharpEntities())
@@ -91,7 +91,7 @@ namespace Controller
                                             select f
                                         ).First();
 
-                        Console.WriteLine("(server)Name of object received : " + objRecipe.Name);
+                        Console.Write("\n(server)Name of object received : " + objRecipe.Name);
 
                         //Write into the command history/log file
                         string line = DateTime.Today.ToString() + " - (" + objRecipe.ID + ") " + objRecipe.Name + "\n";
@@ -108,7 +108,7 @@ namespace Controller
 
                     //serverListener.Stop();
                     client.Close();
-                    Console.WriteLine("Client socket closed.");
+                    Console.Write("\nClient socket closed.");
                 }
             }
             catch (SocketException e)

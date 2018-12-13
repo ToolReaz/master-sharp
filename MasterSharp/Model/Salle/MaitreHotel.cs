@@ -11,15 +11,16 @@ namespace Model.Salle
         private Salle salle;
         private Thread thread;
         private Table table;
-        private Carre carre;
+        private Carre Carre;
         private Restaurant restaurant { get; }
         //private GroupeClient client;
         private Queue<GroupeClient> _queueAttenteClient { get; set; }
 
         public MaitreHotel(Restaurant _restaurant, Salle _salle)
         {
-            Console.WriteLine("Maitre hotel intancié");
+            Console.Write("Maitre hotel intancié > ");
             this.salle = _salle;
+            this.Carre = salle.Carre;
             this.restaurant = _restaurant;
             _queueAttenteClient = new Queue<GroupeClient>();
             this.thread = new Thread(new ThreadStart(this.DoWork));
@@ -63,7 +64,7 @@ namespace Model.Salle
             int i = 0;
             
             // select the first occurence where a table is not assign and the number of client is under minimal size of table 
-            var query = (from e in carre.tables orderby e.Place where e.NumeroGroupe == 0 && e.Place > NbClient select e).FirstOrDefault();
+            var query = (from e in Carre.tables orderby e.Place where e.NumeroGroupe == 0 && e.Place > NbClient select e).FirstOrDefault();
 
 
             if (query != null)
