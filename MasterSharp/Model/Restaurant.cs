@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using MasterSharp.Model.EDM;
 using Model.Cuisine;
 using Model.Salle;
-
+using Model.Stock;
 
 namespace Model
 {
@@ -15,19 +16,20 @@ namespace Model
         private GroupeClient clients;
         private Thread thread;
         private const int NextClient = 1200000;
-        public int HowManyClient;
+        public int HowManyClient { get; private set; }
         private Random randomClient = new Random();
-        public Queue<GroupeClient> _queueClient { get; set; }
+        public Queue<GroupeClient> _queueClient { get; private set; }
         private Salle.Salle salle;
         public Carte carte { get; set; }
+        private List<Recette> recettes;
 
         //private MaitreHotel maitreHotel;
-        public static int idGroupe =1;
+        public static int idGroupe = 1;
 
         public Restaurant()
         {
-            salle = new Salle.Salle(this, new List<Carre>());
             _queueClient = new Queue<GroupeClient>();
+            salle = new Salle.Salle(this, new List<Carre>());
 
             //a modifier si necessaire
             //maitreHotel = new MaitreHotel(salle);
@@ -50,6 +52,21 @@ namespace Model
             }
            
 
+        }
+
+        public void CompositionCarte()
+        {
+            recettes = new List<Recette>();
+
+            MasterSharpEntities db = new MasterSharpEntities();
+            var dbRecipes = db.Recipes.ToList();
+
+            foreach (var recipe in dbRecipes)
+            {
+                Console.WriteLine(recipe);
+            }
+
+            carte = new Carte(recettes);
         }
     }
 }

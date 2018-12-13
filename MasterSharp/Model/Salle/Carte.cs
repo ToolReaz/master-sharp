@@ -8,13 +8,13 @@ namespace Model.Salle
 {
     public class Carte
     {
-        private List<Recette> Recette;
+        private List<Recette> Recettes;
         //private List<Vin> Vin;
         private int NbCarte = 40;
 
-        public Carte(List<Recette> Recette)
+        public Carte(List<Recette> Recettes)
         {
-            this.Recette = Recette;
+            this.Recettes = Recettes;
         }
         
         public void GiveCard(int NbCarteDonner)

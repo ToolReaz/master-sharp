@@ -6,13 +6,13 @@ namespace Model.Salle
 {
     public class Table
     {
-        private int GroupeClient { get; set; }
-        public Salle salle;
-        public Carre carre;
-        public Restaurant resto;
-        public int Place;
-        public int TableNumber;
-        public int NumeroGroupe;
+
+        public Salle salle { get; set; }
+        public Carre carre { get; set; }
+        public Restaurant resto { get; set; }
+        public int Place { get; set; }
+        public int TableNumber { get; set; }
+        public int NumeroGroupe { get; set; }
 
 
         public Table( int Place, int TableNumber, int NumeroGroupe)
