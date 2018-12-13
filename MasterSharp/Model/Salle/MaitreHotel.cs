@@ -56,13 +56,19 @@ namespace Model.Salle
 
         public void AssignTable(int NbClient ,int idGroupe)
         {
-          
+            int n = 0;
+            int i = 0;
+          //  var query = from e in carre.tables group e.Place
+
+                         
+
             switch (NbClient)
             {
                 case 1:
                 case 2:
                     {
-                        int n = 0;
+
+                        
                         if(carre.tables[n].NumeroGroupe == 0)
                         {
                             // carre.tables[0].NumeroGroupe = idGroupe;
