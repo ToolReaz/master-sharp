@@ -42,8 +42,6 @@ namespace Model.Cuisine
                     () => {
                         while (true) {
 
-
-
                             // Je lave et seche pendant 10 minutes
 
 

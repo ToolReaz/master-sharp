@@ -80,10 +80,9 @@ namespace Model.Cuisine
                                     db.SaveChanges();
                                 }
                             }
+                            // Sleep to prevent high usage of processor
+                            Thread.Sleep(2000);
                         }
-
-                        // Sleep to prevent high usage of processor
-                        Thread.Sleep(2000);
                     }));
             _thread.Start();
         }

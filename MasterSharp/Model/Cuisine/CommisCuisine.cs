@@ -68,10 +68,9 @@ namespace Model.Cuisine
                                     this.ToCutAliments.Dequeue();
                                 }
                             }
+                            // Sleep to prevent high usage of processor
+                            Thread.Sleep(2000);
                         }
-
-                        // Sleep to prevent high usage of processor
-                        Thread.Sleep(2000);
                     }));
             _thread.Start();
         }
