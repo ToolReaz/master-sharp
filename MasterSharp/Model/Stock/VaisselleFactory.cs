@@ -15,9 +15,9 @@ namespace Model.Stock
             return new Verre(t);
         }
 
-        public static IVaisselle CreateCouvert(TypeCouverts t)
+        /*public static IVaisselle CreateCouvert(TypeCouverts t)
         {
             return new Couverts(t);
-        }
+        }*/
     }
 }

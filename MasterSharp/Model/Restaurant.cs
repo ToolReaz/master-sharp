@@ -38,6 +38,7 @@ namespace Model
 
             salle = new Salle.Salle(this, new Carre());
             carte = new Carte();
+            carte.CompositionCarte();
             maitreHotel = new MaitreHotel(this, salle);
         }
 

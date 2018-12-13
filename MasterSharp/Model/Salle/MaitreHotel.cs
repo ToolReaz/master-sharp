@@ -50,7 +50,6 @@ namespace Model.Salle
                 Thread.Sleep(5000);
             }
 
-           
         }
               
         static void Welcome()

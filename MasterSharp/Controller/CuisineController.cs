@@ -108,7 +108,7 @@ namespace Controller
 
                     //serverListener.Stop();
                     client.Close();
-                    Console.Write("\nClient socket closed.");
+                    Console.Write("\nServer socket closed.");
                 }
             }
             catch (SocketException e)
