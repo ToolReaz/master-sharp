@@ -7,7 +7,7 @@ namespace Model.Salle
 {
      public class Carre
     {
-        public List<Table> tables;
+        public List<Table> tables { get; set; }
         public static int TableNumber = 0;
 
         public Carre()

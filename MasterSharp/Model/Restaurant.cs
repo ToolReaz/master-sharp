@@ -15,14 +15,14 @@ namespace Model
         private GroupeClient clients;
         private Thread thread;
         private const int NextClient = 1200000;
-        public int HowManyClient;
+        public int HowManyClient { get; private set; }
         private Random randomClient = new Random();
-        public Queue<GroupeClient> _queueClient { get; set; }
+        public Queue<GroupeClient> _queueClient { get; private set; }
         private Salle.Salle salle;
         public Carte carte { get; set; }
 
         //private MaitreHotel maitreHotel;
-        public static int idGroupe =1;
+        public static int idGroupe = 1;
 
         public Restaurant()
         {

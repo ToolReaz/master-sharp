@@ -62,7 +62,7 @@ namespace Model.Salle
             int n = 0;
             int i = 0;
             
-            // select the first occurence where a table is not assigne and the number of client is under minimal size of table 
+            // select the first occurence where a table is not assign and the number of client is under minimal size of table 
             var query = (from e in carre.tables orderby e.Place where e.NumeroGroupe == 0 && e.Place > NbClient select e).FirstOrDefault();
 
 
