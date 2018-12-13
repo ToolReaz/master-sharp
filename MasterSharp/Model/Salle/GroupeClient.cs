@@ -35,25 +35,25 @@ namespace Model.Salle
                     case 1:
                         {
                             //Console.WriteLine("Je suis busy");
-                            Groupe.Add(FactoryClient.CreateBusyClient());
+                            Groupe.Add(FactoryClient.CreateBusyClient(this));
                         }
                         break;
                     case 2:
                         {
                             //Console.WriteLine("Je suis cooool");
-                            Groupe.Add(FactoryClient.CreateCoolClient());
+                            Groupe.Add(FactoryClient.CreateCoolClient(this));
                         }
                         break;
                     case 3:
                         {
                             //Console.WriteLine("Je suis standard");
-                            Groupe.Add(FactoryClient.CreateStandardClient());
+                            Groupe.Add(FactoryClient.CreateStandardClient(this));
                         }
                         break;
                     default:
                         {
                             //Console.WriteLine("Je suis default");
-                            Groupe.Add(FactoryClient.CreateStandardClient());
+                            Groupe.Add(FactoryClient.CreateStandardClient(this));
                         }
                         break;
                 }

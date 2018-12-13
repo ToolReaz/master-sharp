@@ -7,19 +7,19 @@ namespace Model.Salle
     public abstract class FactoryClient
     {
 
-        public static IClient CreateCoolClient()
+        public static IClient CreateCoolClient(GroupeClient groupeClient)
         {
-            return new Client(TypeClient.COOL);
+            return new Client(TypeClient.COOL, groupeClient);
         }
 
-        public static IClient CreateBusyClient()
+        public static IClient CreateBusyClient(GroupeClient groupeClient)
         {
-            return new Client(TypeClient.BUSY);
+            return new Client(TypeClient.BUSY, groupeClient);
         }
 
-        public static IClient CreateStandardClient()
+        public static IClient CreateStandardClient(GroupeClient groupeClient)
         {
-            return new Client(TypeClient.STANDARD);
+            return new Client(TypeClient.STANDARD, groupeClient);
         }
     }
 }

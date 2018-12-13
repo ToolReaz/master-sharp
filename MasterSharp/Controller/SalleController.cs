@@ -21,8 +21,12 @@ namespace Controller
 
         public SalleController()
         {
-            //Console.WriteLine("SalleController instancié :");
-            salle = new Salle();            
+            Console.WriteLine("SalleController instancié :");
+            salle = new Salle();
+            /*
+            salle.ChefRang.GiveMenu();
+            ...
+            */
         }
 
        

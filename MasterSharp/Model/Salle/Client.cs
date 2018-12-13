@@ -12,19 +12,23 @@ namespace Model.Salle
     {
         private Thread thread;
 
-        public List<Recette> Command { get; private set; }
+        public List<Commande> Commandes { get; private set; }
         private int EatTime { get; set; }
 
-       private TypeClient Type { get; }
+        private TypeClient Type { get; }
+        public GroupeClient groupeClient;
+        private int idGroupe;
         
-        public Client(TypeClient Type) 
+        public Client(TypeClient Type, GroupeClient _groupeClient) 
         {
             this.Type = Type;
+            groupeClient = _groupeClient;
+            idGroupe = groupeClient.idGroupe;
         }
 
         public void ChooseMeal(Carte _carte)
         {
-            Command = new List<Recette>();
+            Commandes = new List<Commande>();
 
             //random selection of the client menu
             Random YesOrNot = new Random();
@@ -33,22 +37,22 @@ namespace Model.Salle
             if (YesOrNot.Next(1, 2) == 1)
             {
                 int entreeNbr = YesOrNot.Next(0, _carte.Entrees.Count());
-                Command.Add(_carte.Entrees[entreeNbr]);
+                Commandes.Add(new Commande(this, _carte.Entrees[entreeNbr], "entrée"));
             }
             //Plat (plus de chances d'en commander un)
             if (new int[] { 1, 2, 3, 4}.Contains(YesOrNot.Next(1, 5)))
             {
                 int platNbr = YesOrNot.Next(0, _carte.Plats.Count());
-                Command.Add(_carte.Plats[platNbr]);
+                Commandes.Add(new Commande(this, _carte.Plats[platNbr], "plat"));
             }
             //Dessert
             if (YesOrNot.Next(1, 2) == 1)
             {
                 int dessertNbr = YesOrNot.Next(0, _carte.Desserts.Count());
-                Command.Add(_carte.Desserts[dessertNbr]);
+                Commandes.Add(new Commande(this, _carte.Desserts[dessertNbr], "dessert"));
             }
 
-            Console.WriteLine("Un client a commandé : {0} & {1} & {2}", Command[0].Etapes[1], Command[1].Etapes[1], Command[2].Etapes[1]);
+            Console.WriteLine("Un client a commandé : {0} & {1} & {2}", Commandes[0].recette.Etapes[0], Commandes[1].recette.Etapes[0], Commandes[2].recette.Etapes[0]);
         }
 
         public void PayBill(int Bill)

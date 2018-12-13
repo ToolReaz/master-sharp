@@ -19,9 +19,6 @@ namespace Model.Salle
             this.Place = Place;
             this.TableNumber = TableNumber;
             this.NumeroGroupe = NumeroGroupe;
-            
-
-           
         }
 
     }
