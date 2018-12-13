@@ -9,19 +9,18 @@ namespace Model.Salle
     public class MaitreHotel : IEmployeSalle
     {
         private Salle salle;
+        private Carre Carre;
         private Thread thread;
         private Table table;
-        private Carre Carre;
-        private Restaurant restaurant { get; }
+        
         //private GroupeClient client;
         private Queue<GroupeClient> _queueAttenteClient { get; set; }
 
-        public MaitreHotel(Restaurant _restaurant, Salle _salle)
+        public MaitreHotel(Salle _salle)
         {
             Console.Write("Maitre hotel intancié > ");
             salle = _salle;
             Carre = salle.Carre;
-            restaurant = _restaurant;
 
             _queueAttenteClient = new Queue<GroupeClient>();
             this.thread = new Thread(new ThreadStart(this.DoWork));
@@ -33,17 +32,17 @@ namespace Model.Salle
             //on regarde la queue si il y a quelqu'un on traite puis dequeue
             while (true)
             {
-                if(restaurant._queueClient.Count >= 1)
+                if(salle._queueClient.Count >= 1)
                 {
-                    for(int i=0; i<=restaurant._queueClient.Count; i++ )
+                    for(int i=0; i<=salle._queueClient.Count; i++ )
                     {
                         Welcome();
                         //selection de la table + les placer 
-                        AssignTable(restaurant.HowManyClient, Restaurant.idGroupe);
+                        AssignTable(salle.HowManyClient, Salle.idGroupe);
 
 
                         //puis dequeue
-                        restaurant._queueClient.Dequeue();
+                        salle._queueClient.Dequeue();
                     }
 
                 }
@@ -73,7 +72,7 @@ namespace Model.Salle
             }
             else
             {
-                _queueAttenteClient = restaurant._queueClient;
+                _queueAttenteClient = salle._queueClient;
 
                 //need to implement after when a client quit the table
                 TableFree();

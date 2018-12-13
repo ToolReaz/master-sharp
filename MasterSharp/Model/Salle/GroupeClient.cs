@@ -10,10 +10,12 @@ namespace Model.Salle
     {
         public List<IClient> Groupe { get; }
         private Thread thread;
+        public int idGroupe { get; }
 
-        public GroupeClient(int NbPersonneGroupe, int idGroupe)
+        public GroupeClient(int NbPersonnesGroupe, int _idGroupe)
         {
             Console.Write("GroupeClient intancié > ");
+            idGroupe = _idGroupe;
             //need to create thread?
 
 
@@ -26,7 +28,7 @@ namespace Model.Salle
             int version = TypeClient.Next(1, 3);
 
             //adding client in groupe
-            for (int i = 0; i <= NbPersonneGroupe; i++)
+            for (int i = 0; i <= NbPersonnesGroupe; i++)
             {
                 switch (version)
                 {

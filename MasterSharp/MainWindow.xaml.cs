@@ -53,7 +53,7 @@ namespace MasterSharp
             sockServerCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
             sockServerCuisine.Start();
 
-            //instanciate salle -> restaurant
+            //instanciate salle
             objSalle = new SalleController();
 
         }

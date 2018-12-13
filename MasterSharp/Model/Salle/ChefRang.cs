@@ -11,12 +11,11 @@ namespace Model.Salle
         private Salle salle;
         private Thread thread;
         private Table table;
-        private Restaurant restaurant;
 
-        public ChefRang(Restaurant _restaurant)
+        public ChefRang(Salle _salle)
         {
             Console.Write("Chef de rang intancié > ");
-            restaurant = _restaurant;
+            salle = _salle;
 
             this.thread = new Thread(new ThreadStart(this.DoWork));
             //thread.Start();
@@ -32,7 +31,7 @@ namespace Model.Salle
         {
             foreach (Client client in grpClient.Groupe) 
             {
-                client.ChooseMeal(restaurant.carte);
+                client.ChooseMeal(salle.carte);
             }
         }
 

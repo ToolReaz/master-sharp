@@ -9,7 +9,6 @@ namespace Model.Salle
 
         public Salle salle { get; set; }
         public Carre carre { get; set; }
-        public Restaurant resto { get; set; }
         public int Place { get; set; }
         public int TableNumber { get; set; }
         public int NumeroGroupe { get; set; }
