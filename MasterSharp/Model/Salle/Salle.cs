@@ -33,7 +33,7 @@ namespace Model.Salle
             commisSallle = new CommisSallle();
             serveur = new Serveur();
             //maitreHotel = new MaitreHotel(restaurant, salle);
-            chefRang = new ChefRang();
+            chefRang = new ChefRang(restaurant);
         }
     }
 }

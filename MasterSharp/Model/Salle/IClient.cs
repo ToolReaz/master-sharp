@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.Salle;
+using Model.Stock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,7 @@ namespace MasterSharp.Model.Salle
 {
     public interface IClient
     {
-         void OrderMeal();
+         void ChooseMeal(Carte carte);
          void PayBill(int Bill);
     }
 }

@@ -21,6 +21,7 @@ namespace Model.Salle
         public Carte()
         {
             Console.Write("Carte intanciée > ");
+            InitCarte();
         }
         
         public void GiveCard(int NbCarteDonner)
@@ -28,7 +29,7 @@ namespace Model.Salle
             NbCarte = NbCarte - NbCarteDonner;
         }
 
-        public void CompositionCarte()
+        public void InitCarte()
         {
             Recettes = new List<Recette>();
             Entrees = new List<Recette>();
@@ -60,11 +61,11 @@ namespace Model.Salle
                 }
                 else if (recipe.Recipe_Categories.Name == "Plat")
                 {
-                    Entrees.Add(recette);
+                    Plats.Add(recette);
                 }
                 else if (recipe.Recipe_Categories.Name == "Dessert")
                 {
-                    Entrees.Add(recette);
+                    Desserts.Add(recette);
                 }
 
             }

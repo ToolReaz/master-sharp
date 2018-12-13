@@ -19,9 +19,10 @@ namespace Model.Salle
         public MaitreHotel(Restaurant _restaurant, Salle _salle)
         {
             Console.Write("Maitre hotel intancié > ");
-            this.salle = _salle;
-            this.Carre = salle.Carre;
-            this.restaurant = _restaurant;
+            salle = _salle;
+            Carre = salle.Carre;
+            restaurant = _restaurant;
+
             _queueAttenteClient = new Queue<GroupeClient>();
             this.thread = new Thread(new ThreadStart(this.DoWork));
             thread.Start();
