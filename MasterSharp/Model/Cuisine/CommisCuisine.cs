@@ -23,7 +23,7 @@ namespace Model.Cuisine
             this.ToFindAliments = new Queue<Aliment>();
             this.ToCutAliments = new Queue<Aliment>();
 
-            _thread = new Thread(
+            this._thread = new Thread(
                 new ThreadStart(
                     () => {
                         while (true) {

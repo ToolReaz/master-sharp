@@ -75,7 +75,5 @@ namespace Model.Cuisine
                 Thread.Sleep(2000);
             }
         }
-
-        public void Wash() { }
     }
 }

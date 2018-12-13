@@ -10,12 +10,6 @@ namespace Model.Cuisine
 {
     public class Cuisine
     {
-        // Stocks
-        public IStock StockVaisselle { get; set; }
-        public IStock StockTextille { get; set; }
-        private IStock StockAliment { get; set; }
-
-
         // Actions
         public List<Action> Actions { get; set; }
 
@@ -43,6 +37,7 @@ namespace Model.Cuisine
                 new ThreadStart(
                     () => {
                         while (true) {
+                            // If the cuisine need to prepare a command, send it to the chef to dispatch tasks
                             if (this._commandsToDo.Count > 0) {
                                 ChefCuisine.Dispatch(_commandsToDo.Dequeue());
                             }
@@ -66,9 +61,6 @@ namespace Model.Cuisine
 
         private void init() {
             this._commandsToDo = new Queue<Recette>();
-            this.StockVaisselle = new StockVaisselle();
-            this.StockTextille = new StockTextille();
-            this.StockAliment = new StockAliment();
             this.Actions = new List<Action>();
 
 
