@@ -16,7 +16,7 @@ namespace Model.Salle
         {
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
-            thread.Start();
+           // thread.Start();
         }
         public void DoWork()
         {

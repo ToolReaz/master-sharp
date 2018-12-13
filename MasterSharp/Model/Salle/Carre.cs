@@ -29,28 +29,28 @@ namespace Model.Salle
             int i;
 
 
-            //We need 10 tables of 2 but we divide by 2 becasue we use 2 squarre (carre)
-            for (i = 0; i < 4; i++)
+            //We need 10 tables of 2 
+            for (i = 0; i < 9; i++)
                 tables.Add(new Table(2, TableNumber, 0));
                 TableNumber++;
 
-            //We need 8 tables of 4 but we divide by 2 becasue we use 2 squarre (carre)
-            for (i = 0; i < 4; i++)
+            //We need 8 tables of 4
+            for (i = 0; i < 7; i++)
                 tables.Add(new Table(4, TableNumber,0));
                 TableNumber++;
 
-            //We need 4 tables of 6 but we divide by 2 becasue we use 2 squarre (carre)
-            for (i = 0; i < 2; i++)
+            //We need 4 tables of 6 
+            for (i = 0; i < 3; i++)
                 tables.Add(new Table(6, TableNumber, 0));
                 TableNumber++;
 
-            //We need 4 tables of 8 but we divide by 2 becasue we use 2 squarre (carre)
-            for (i = 0; i < 2; i++)
+            //We need 4 tables of 8 
+            for (i = 0; i < 3; i++)
                 tables.Add(new Table(8, TableNumber, 0));
                 TableNumber++;
 
-            //We need 2 tables of 10 but we divide by 2 becasue we use 2 squarre (carre)
-            for (i = 0; i <= 1; i++)
+            //We need 2 tables of 10 
+            for (i = 0; i < 1; i++)
                 tables.Add(new Table(10, TableNumber, 0));
                 TableNumber++;
         }
