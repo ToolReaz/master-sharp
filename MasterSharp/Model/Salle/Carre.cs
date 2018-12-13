@@ -12,13 +12,16 @@ namespace Model.Salle
 
         public Carre()
         {
+            Console.WriteLine("Carré intancié");
+            tables = new List<Table>();
             initTable();
         }
 
         //useless ?
         public Carre(List<Table> table)
         {
-            this.tables = table;  
+            this.tables = table;
+            initTable();
         }
 
         private void initTable()

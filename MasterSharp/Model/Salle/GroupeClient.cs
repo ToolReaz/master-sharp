@@ -13,7 +13,7 @@ namespace Model.Salle
 
         public GroupeClient(int NbPersonneGroupe, int idGroupe)
         {
-
+            Console.WriteLine("GroupeClient intancié");
             //need to create thread?
 
 
@@ -32,21 +32,25 @@ namespace Model.Salle
                 {
                     case 1:
                         {
+                            //Console.WriteLine("Je suis busy");
                             Groupe.Add(FactoryClient.CreateBusyClient());
                         }
                         break;
                     case 2:
                         {
+                            //Console.WriteLine("Je suis cooool");
                             Groupe.Add(FactoryClient.CreateCoolClient());
                         }
                         break;
                     case 3:
                         {
+                            //Console.WriteLine("Je suis standard");
                             Groupe.Add(FactoryClient.CreateStandardClient());
                         }
                         break;
                     default:
                         {
+                            //Console.WriteLine("Je suis default");
                             Groupe.Add(FactoryClient.CreateStandardClient());
                         }
                         break;

@@ -22,23 +22,24 @@ namespace Model
         private Salle.Salle salle;
         public Carte carte { get; set; }
         private List<Recette> recettes;
+        private MaitreHotel maitreHotel;
 
-        //private MaitreHotel maitreHotel;
         public static int idGroupe = 1;
+        public bool newClient { get; set; }
 
         public Restaurant()
         {
+            Console.WriteLine("Restaurant intancié");
             _queueClient = new Queue<GroupeClient>();
-            salle = new Salle.Salle(this, new List<Carre>());
-
-            //a modifier si necessaire
-            //maitreHotel = new MaitreHotel(salle);
+            newClient = false;
 
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
             thread.Start();
 
+            salle = new Salle.Salle(this, new List<Carre>());
+            maitreHotel = new MaitreHotel(this, salle);
         }
-        
+
         public void ClientArrived()
         {
             while (true)
@@ -46,12 +47,13 @@ namespace Model
                 HowManyClient = randomClient.Next(1, 10);
                 clients = new GroupeClient(HowManyClient, idGroupe);
                 _queueClient.Enqueue(clients);
+
+                Console.WriteLine("QueueClient : " + _queueClient);
+
                 idGroupe++;
+                newClient = true;
                 Thread.Sleep(NextClient);
-
             }
-           
-
         }
 
         public void CompositionCarte()

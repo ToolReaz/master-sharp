@@ -19,7 +19,7 @@ namespace Controller
 
         public CuisineController()
         {
-            //Console.WriteLine("CuisineController instancié !");
+            Console.WriteLine("CuisineController instancié :");
             cuisine = new Cuisine();
         }
 
