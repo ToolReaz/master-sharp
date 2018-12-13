@@ -21,8 +21,10 @@ namespace Model.Cuisine
 
 
         // Employees
-        private ChefCuisine _chefCuisine;
-        private Plongeur _plongeurCuisine;
+        public ChefCuisine ChefCuisine { get; private set; }
+        public Plongeur PlongeurCuisine { get; private set; }
+        public List<CommisCuisine> Commis { get; private set; }
+        public List<ChefPartie> ChefParties { get; private set; }
 
 
         // Recettes queue
@@ -33,7 +35,7 @@ namespace Model.Cuisine
         private Thread _thread;
 
 
-        public Cuisine(Queue<Recette> recettesToDo) {
+        public Cuisine() {
             init();
 
 
@@ -42,11 +44,11 @@ namespace Model.Cuisine
                     () => {
                         while (true) {
                             if (_commandsToDo.Count > 0) {
-                                _chefCuisine.Dispatch(_commandsToDo.Dequeue());
+                                ChefCuisine.Dispatch(_commandsToDo.Dequeue());
                             }
 
                             // Sleep to avoid processor saturation
-                            Thread.Sleep(2);
+                            Thread.Sleep(2000);
                         }
                     }));
             _thread.Start();
@@ -70,8 +72,10 @@ namespace Model.Cuisine
             Actions = new List<Action>();
 
 
-            _chefCuisine = new ChefCuisine();
-            _plongeurCuisine = new Plongeur(this);
+            ChefCuisine = new ChefCuisine(this);
+            PlongeurCuisine = new Plongeur(this);
+            Commis = new List<CommisCuisine> {new CommisCuisine(), new CommisCuisine()};
+            ChefParties = new List<ChefPartie> {new ChefPartie(), new ChefPartie()};
 
 
             // Load actions from DB

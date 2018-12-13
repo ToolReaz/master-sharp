@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace Controller
 {

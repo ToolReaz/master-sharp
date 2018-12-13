@@ -10,6 +10,7 @@ using Model;
 using Model.Cuisine;
 using Model.EDM;
 using Model.Stock;
+using MasterSharp.Model.EDM;
 
 namespace Controller
 {

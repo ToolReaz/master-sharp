@@ -1,5 +1,5 @@
-﻿using Model;
-using Model.EDM;
+﻿using MasterSharp.Model.EDM;
+using Model;
 using System;
 using System.Linq;
 using System.Net.Sockets;

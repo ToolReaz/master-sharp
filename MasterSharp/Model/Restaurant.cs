@@ -21,6 +21,7 @@ namespace Model
         private Salle.Salle salle;
 
         private MaitreHotel maitreHotel;
+        public static int idGroupe =1;
 
         public Restaurant()
         {
@@ -39,8 +40,9 @@ namespace Model
             while (true)
             {
                 HowManyClient = randomClient.Next(1, 10);
-                client = new GroupeClient(HowManyClient);
+                client = new GroupeClient(HowManyClient, idGroupe);
                 _queueClient.Enqueue(client);
+                idGroupe++;
                 Thread.Sleep(NextClient);
 
             }

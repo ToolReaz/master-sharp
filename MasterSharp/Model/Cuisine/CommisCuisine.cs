@@ -30,13 +30,14 @@ namespace Model.Cuisine
                                 // Go find aliment in stock
                                 
                             } else if (ToCutAliments.Count > 0) {
-                                // Cut the aliment
+                                // Cut the aliment if a cut is available
                             }
 
                             // Sleep to prevent high usage of processor
-                            Thread.Sleep(2);
+                            Thread.Sleep(2000);
                         }
                     }));
+            _thread.Start();
         }
 
         public void Cut(Aliment a) {

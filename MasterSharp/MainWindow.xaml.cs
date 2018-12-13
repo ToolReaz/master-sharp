@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Model.EDM;
+using MasterSharp.Model.EDM;
 
 namespace MasterSharp
 {
@@ -37,6 +37,9 @@ namespace MasterSharp
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeDB.Food_Stock();
+            InitializeDB.Dish_Stock();
+            InitializeDB.Textil_Stock();
+            InitializeDB.Utensil_Stock();
             starterOfTheDay = motd.ofTheDay("Entrée");
             Starter.Text = starterOfTheDay.Name;
             plateOfTheDay = motd.ofTheDay("Plat");
@@ -49,6 +52,8 @@ namespace MasterSharp
             objCuisine = new CuisineController();
             sockClientCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
             sockClientCuisine.Start();
+
+
         }
         /*-----------------*/
 
@@ -57,6 +62,8 @@ namespace MasterSharp
             DisplayStock disp = new DisplayStock();
             disp.Show();
         }
+
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

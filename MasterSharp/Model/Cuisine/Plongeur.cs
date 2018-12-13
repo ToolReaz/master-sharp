@@ -70,6 +70,9 @@ namespace Model.Cuisine
 
 
                 // Wash dirty ustencil
+
+
+                Thread.Sleep(2000);
             }
         }
 
