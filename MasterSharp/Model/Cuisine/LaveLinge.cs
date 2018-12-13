@@ -21,6 +21,7 @@ namespace Model.Cuisine
 
 
         public LaveLinge() {
+            this._queue = new Queue<IStockItem>();
             this._content = new List<IStockItem>();
             this._output = new List<IStockItem>();
 
@@ -33,7 +34,7 @@ namespace Model.Cuisine
                                 _content.Add(_queue.Dequeue());
                             }
 
-                            _content.ForEach(
+                            this._content.ForEach(
                                 item => {
                                     item.Wash();
                                     _output.Add(item);

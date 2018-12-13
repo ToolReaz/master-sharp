@@ -53,14 +53,14 @@ namespace Model.Cuisine
 
 
                             for (int i = 0; i < 25; i++) {
-                                if (_queue.Count > 0) {
+                                if (this._queue?.Count > 0) {
                                     _content.Add(_queue.Dequeue());
                                 } else {
                                     break;
                                 }
                             }
 
-                            if (_content.Count > 0)
+                            if (this._content?.Count > 0)
                             {
                                 _working = true;
                                 _content.ForEach(

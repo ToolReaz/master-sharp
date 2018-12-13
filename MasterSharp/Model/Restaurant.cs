@@ -27,12 +27,14 @@ namespace Model
         public Restaurant()
         {
             salle = new Salle.Salle(this, new List<Carre>());
+            _queueClient = new Queue<GroupeClient>();
 
             //a modifier si necessaire
             //maitreHotel = new MaitreHotel(salle);
 
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
             thread.Start();
+
         }
         
         public void ClientArrived()
