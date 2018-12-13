@@ -14,11 +14,14 @@ namespace Model.Salle
         private Carre carre;
         private Restaurant restaurant;
         //private GroupeClient client;
+        private Queue<GroupeClient> _queueAttenteClient { get; set; }
 
         public MaitreHotel(Restaurant _restaurant, Salle _salle)
         {
             this.salle = _salle;
             this.restaurant = _restaurant;
+            _queueAttenteClient = new Queue<GroupeClient>();
+
             this.thread = new Thread(new ThreadStart(this.DoWork));
             thread.Start();
         }
@@ -58,61 +61,28 @@ namespace Model.Salle
         {
             int n = 0;
             int i = 0;
-          //  var query = from e in carre.tables group e.Place
+            
+            // select the first occurence where a table is not assigne and the number of client is under minimal size of table 
+            var query = (from e in carre.tables orderby e.Place where e.NumeroGroupe == 0 && e.Place > NbClient select e).FirstOrDefault();
 
-                         
 
-            switch (NbClient)
+            if (query != null)
             {
-                case 1:
-                case 2:
-                    {
-
-                        
-                        if(carre.tables[n].NumeroGroupe == 0)
-                        {
-                            // carre.tables[0].NumeroGroupe = idGroupe;
-                        }
-
-
-                    }
-                    break;
-
-
-                case 3:
-                case 4:
-                    {
-                        //table.GetTable(4);
-                    }
-                    break;
-
-                case 5:
-                case 6:
-                    {
-                       // table.GetTable(6);
-                    }
-                    break;
-
-                case 7:
-                case 8:
-                    {
-                       // table.GetTable(8);
-                    }
-                    break;
-
-                case 9:
-                case 10:
-                    {
-                        //table.GetTable(10);
-                    }
-                    break;
-
-                default:
-                    {
-                        Console.WriteLine("Erreur, aucune table ne peux etre assigné (attendre dans la file)");
-                    }
-                    break;
+                query.NumeroGroupe = idGroupe;
             }
+            else
+            {
+                _queueAttenteClient = restaurant._queueClient;
+
+                //need to implement after when a client quit the table
+                TableFree();
+
+            }
+
+        }
+
+        public void TableFree()
+        {
 
         }
 
