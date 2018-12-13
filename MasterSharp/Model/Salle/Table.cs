@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Model.Salle
@@ -8,58 +9,21 @@ namespace Model.Salle
         private int GroupeClient { get; set; }
         public Salle salle;
         public Carre carre;
+        public Restaurant resto;
+        public int Place;
+        public int TableNumber;
+        public int NumeroGroupe;
 
 
-        public Table( int Place, int TableNumber)
+        public Table( int Place, int TableNumber, int NumeroGroupe)
         {
+            this.Place = Place;
+            this.TableNumber = TableNumber;
+            this.NumeroGroupe = NumeroGroupe;
             
 
+           
         }
 
-        public void CheckTable(int nbPlace)
-        {
-            switch(nbPlace)
-            {
-                case 1:
-                case 2:
-                    {
-                        
-
-                    }break;
-                   
-
-                case 3:
-                case 4:
-                    {
-
-                    }break;
-
-                case 5:
-                case 6:
-                    {
-
-                    }break;
-
-                case 7:
-                case 8:
-                    {
-
-                    }break;
-
-                case 9:
-                case 10:
-                    {
-
-                    }break;
-              
-                default:
-                    {
-                        Console.WriteLine("Erreur, aucune table ne peux etre assigné (attendre dans la file)");
-                    }
-                    break;
-
-            }
-
-        }
     }
 }
