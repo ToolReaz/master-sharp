@@ -10,10 +10,6 @@ namespace Model.Cuisine
 {
     public class Cuisine
     {
-        // Actions
-        public List<Action> Actions { get; set; }
-
-
         // Employees
         public ChefCuisine ChefCuisine { get; private set; }
         public Plongeur PlongeurCuisine { get; private set; }
@@ -39,7 +35,9 @@ namespace Model.Cuisine
                         while (true) {
                             // If the cuisine need to prepare a command, send it to the chef to dispatch tasks
                             if (this._commandsToDo.Count > 0) {
-                                ChefCuisine.Dispatch(_commandsToDo.Dequeue());
+                                lock (this._commandsToDo) {
+                                    ChefCuisine.Dispatch(_commandsToDo.Dequeue());
+                                }
                             }
 
                             // Sleep to avoid processor saturation
@@ -50,19 +48,23 @@ namespace Model.Cuisine
         }
 
         public void AddCommand(Recette r) {
-            _commandsToDo?.Enqueue(r);
+            lock (this._commandsToDo) {
+                this._commandsToDo?.Enqueue(r);
+            }
         }
 
         public Queue<Recette> GetCommandQueue() {
-            return _commandsToDo;
+            lock (this._commandsToDo) {
+                return this._commandsToDo;
+            }
         }
 
 
 
         private void init() {
-            this._commandsToDo = new Queue<Recette>();
-            this.Actions = new List<Action>();
-
+            lock (this._commandsToDo) {
+                this._commandsToDo = new Queue<Recette>();
+            }
 
             this.ChefCuisine = new ChefCuisine(this);
             this.PlongeurCuisine = new Plongeur(this);

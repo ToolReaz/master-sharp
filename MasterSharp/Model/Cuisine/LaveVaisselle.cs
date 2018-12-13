@@ -40,15 +40,11 @@ namespace Model.Cuisine
             _thread = new Thread(
                 new ThreadStart(
                     () => {
-                        while (true)
-                        {
+                        while (true) {
 
 
 
                             // Je lave et seche pendant 10 minutes
-
-
-
 
 
 

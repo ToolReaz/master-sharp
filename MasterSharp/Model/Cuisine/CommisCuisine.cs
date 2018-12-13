@@ -17,6 +17,7 @@ namespace Model.Cuisine
         public Queue<Aliment> ToFindAliments { get; }
         public Queue<Aliment> ToCutAliments { get; }
 
+        // Thread
         private Thread _thread;
 
         public CommisCuisine() {
@@ -27,11 +28,14 @@ namespace Model.Cuisine
                 new ThreadStart(
                     () => {
                         while (true) {
-                            if (ToFindAliments.Count > 0) {
+                            if (this.ToFindAliments.Count > 0) {
                                 // The stock is already updated by the controller
-                                // So we just wait 30s to simulate the time taken by the commis to get the food
+                                // So we just wait 30s to simulate the time taken by the commis to get the food and dequeue the aliment
+                                lock (this.ToFindAliments) {
+                                    this.ToFindAliments.Dequeue();
+                                }
                                 Thread.Sleep(30000);
-                            } else if (ToCutAliments.Count > 0) {
+                            } else if (this.ToCutAliments.Count > 0) {
                                 // Request DB
                                 Utensil_Stock ustensil;
                                 do {
@@ -59,6 +63,10 @@ namespace Model.Cuisine
                                     tmp.Clean = false;
                                     db.SaveChanges();
                                 }
+                                // The action is completed we can dequeue it
+                                lock (this.ToCutAliments) {
+                                    this.ToCutAliments.Dequeue();
+                                }
                             }
                         }
 
@@ -69,11 +77,15 @@ namespace Model.Cuisine
         }
 
         public void Cut(Aliment a) {
-            this.ToCutAliments.Enqueue(a);
+            lock (this.ToCutAliments) {
+                this.ToCutAliments.Enqueue(a);
+            }
         }
 
         public void Find(Aliment a) {
-            this.ToFindAliments.Enqueue(a);
+            lock (this.ToFindAliments) {
+                this.ToFindAliments.Enqueue(a);
+            }
         }
     }
 }
