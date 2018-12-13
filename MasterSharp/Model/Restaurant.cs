@@ -22,12 +22,12 @@ namespace Model
 
         private MaitreHotel maitreHotel;
 
-        public Restaurant(Salle.Salle salle)
+        public Restaurant()
         {
-            salle = new Salle.Salle(new List<Carre>());
+            salle = new Salle.Salle(this, new List<Carre>());
 
             //a modifier si necessaire
-            maitreHotel = new MaitreHotel(salle);
+            //maitreHotel = new MaitreHotel(salle);
 
             this.thread = new Thread(new ThreadStart(this.ClientArrived));
             thread.Start();

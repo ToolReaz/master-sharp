@@ -26,28 +26,14 @@ namespace MasterSharp
         MenuOfTheDay motd = new MenuOfTheDay();
         Recipe starterOfTheDay,plateOfTheDay,dessertOfTheDay;
 
-        /*---SOCKETS---*/
+        //Sockets
         CuisineController objCuisine;
         Thread sockClientCuisine;
         SalleController objSalle;
         Thread sockServerSalle;
 
 
-        public MainWindow()
-        {
-            //launch server socket (cuisine)
-            Console.WriteLine("Création du socket server (cuisine) :");
-            objCuisine = new CuisineController();
-            sockClientCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
-            sockClientCuisine.Start();
-        }
-
-        private void ButtonStock_Click(object sender, RoutedEventArgs e)
-        {
-            DisplayStock disp = new DisplayStock();
-            disp.Show();
-        }
-
+        /*---ENTRY POINT---*/
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             InitializeDB.Food_Stock();
@@ -57,6 +43,19 @@ namespace MasterSharp
             Plate.Text = plateOfTheDay.Name;
             dessertOfTheDay = motd.ofTheDay("Dessert");
             Dessert.Text = dessertOfTheDay.Name;
+
+            //launch server socket (cuisine)
+            Console.WriteLine("Création du socket server (cuisine) :");
+            objCuisine = new CuisineController();
+            sockClientCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
+            sockClientCuisine.Start();
+        }
+        /*-----------------*/
+
+        private void ButtonStock_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayStock disp = new DisplayStock();
+            disp.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

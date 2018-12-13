@@ -17,7 +17,8 @@ namespace Model.Stock
         }
 
         public StockAliment() {
-            throw new NotImplementedException();
+            //A FAIRE
+            return;
         }
     }
 }

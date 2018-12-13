@@ -12,11 +12,10 @@ namespace Model.Salle
 
         public Carre()
         {
-            this.tables = tables;
             initTable();
-            
         }
 
+        //useless ?
         public Carre(List<Table> table)
         {
             this.tables = table;  

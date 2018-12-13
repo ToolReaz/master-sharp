@@ -29,7 +29,8 @@ namespace Model.Stock
         }
 
         public StockTextille() {
-            throw new NotImplementedException();
+            //A COMPLETER
+            return;
         }
     }
 }
