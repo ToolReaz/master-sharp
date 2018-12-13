@@ -29,7 +29,7 @@ namespace Model.Salle
         public void DoWork()
         {
             //on regarde la queue si il y a quelqu'un on traite puis dequeue
-            while (restaurant.newClient)
+            while (true)
             {
                 if(restaurant._queueClient.Count >= 1)
                 {
@@ -44,9 +44,9 @@ namespace Model.Salle
                         restaurant._queueClient.Dequeue();
                     }
 
-                   
-
                 }
+
+                Thread.Sleep(5000);
             }
 
            
