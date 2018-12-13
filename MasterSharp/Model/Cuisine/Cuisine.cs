@@ -39,11 +39,11 @@ namespace Model.Cuisine
             init();
 
 
-            _thread = new Thread(
+            this._thread = new Thread(
                 new ThreadStart(
                     () => {
                         while (true) {
-                            if (_commandsToDo.Count > 0) {
+                            if (this._commandsToDo.Count > 0) {
                                 ChefCuisine.Dispatch(_commandsToDo.Dequeue());
                             }
 
@@ -65,21 +65,17 @@ namespace Model.Cuisine
 
 
         private void init() {
-            _commandsToDo = new Queue<Recette>();
-            StockVaisselle = new StockVaisselle();
-            StockTextille = new StockTextille();
-            StockAliment = new StockAliment();
-            Actions = new List<Action>();
+            this._commandsToDo = new Queue<Recette>();
+            this.StockVaisselle = new StockVaisselle();
+            this.StockTextille = new StockTextille();
+            this.StockAliment = new StockAliment();
+            this.Actions = new List<Action>();
 
 
-            ChefCuisine = new ChefCuisine(this);
-            PlongeurCuisine = new Plongeur(this);
-            Commis = new List<CommisCuisine> {new CommisCuisine(), new CommisCuisine()};
-            ChefParties = new List<ChefPartie> {new ChefPartie(), new ChefPartie()};
-
-
-            // Load actions from DB
-
+            this.ChefCuisine = new ChefCuisine(this);
+            this.PlongeurCuisine = new Plongeur(this);
+            this.Commis = new List<CommisCuisine> {new CommisCuisine(), new CommisCuisine()};
+            this.ChefParties = new List<ChefPartie> {new ChefPartie(), new ChefPartie()};
         }
     }
 }
