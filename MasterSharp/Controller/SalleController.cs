@@ -33,14 +33,14 @@ namespace Controller
             string recipeID = _recipeID.ToString();
 
             //---send the text---
-            Console.WriteLine("(client)Sending ID : " + recipeID);
+            Console.Write("\n(client)Sending ID : " + recipeID);
             byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(recipeID);
             nwStream.Write(bytesToSend, 0, bytesToSend.Length);
 
             //---read back the text---
             byte[] bytesToRead = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(bytesToRead, 0, bytesToRead.Length);
-            Console.WriteLine("(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
+            Console.Write("\n(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
 
             ClientSockClose();
         }
@@ -52,7 +52,7 @@ namespace Controller
                 //---create a TCPClient object at the IP and port no.---
                 client = new TcpClient(SERVER_IP, PORT_NO);
                 nwStream = client.GetStream();
-                Console.WriteLine("Client socket launched !");
+                Console.Write("\nClient socket launched !");
             }
             catch (ArgumentNullException e)
             {
@@ -67,7 +67,7 @@ namespace Controller
         {
             client.Close();
             nwStream.Close();
-            Console.WriteLine("Client socket closed.");
+            Console.Write("\nClient socket closed.");
         }
     }
 }
