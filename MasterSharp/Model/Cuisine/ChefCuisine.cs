@@ -29,19 +29,19 @@ namespace Model.Cuisine
             // For each step of a recipe
             for (int i = 0; i < recette.Etapes.Count; i++) {
                 // If the step's action is CUT
-                if (recette.Etapes[i].Action.Name == "CUT") {
+                if (recette.Etapes[i].ActionName == "CUT") {
                     // Send the aliment to cut to the commis
                     this._cuisine.Commis[_lastCommis]?.Cut(recette.Etapes[i].Aliment);
                     // The next action will be performed by the next commis
                     _lastCommis++;
-                } else if (recette.Etapes[i].Action.Name == "FIND") {
+                } else if (recette.Etapes[i].ActionName == "FIND") {
                     // Send the aliment to find to the commis
                     this._cuisine.Commis[_lastCommis]?.Find(recette.Etapes[i].Aliment);
                     // The next action will be performed by the next commis
                     _lastCommis++;
                 } else {
                     // Send the others actions to the chefs
-                    this._cuisine.ChefParties[_lastChef]?.AddActionToDo(recette.Etapes[i].Action);
+                    this._cuisine.ChefParties[_lastChef]?.AddActionToDo(recette.Etapes[i].ActionName, recette.Etapes[i].ActionTime);
                     // The next action will be performed by the next chef
                     _lastChef++;
                 }

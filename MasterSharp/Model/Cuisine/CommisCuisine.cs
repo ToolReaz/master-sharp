@@ -14,15 +14,15 @@ namespace Model.Cuisine
      */
     public class CommisCuisine
     {
-        public Queue<Aliment> ToFindAliments { get; }
-        public Queue<Aliment> ToCutAliments { get; }
+        public Queue<string> ToFindAliments { get; }
+        public Queue<string> ToCutAliments { get; }
 
         // Thread
         private Thread _thread;
 
         public CommisCuisine() {
-            this.ToFindAliments = new Queue<Aliment>();
-            this.ToCutAliments = new Queue<Aliment>();
+            this.ToFindAliments = new Queue<string>();
+            this.ToCutAliments = new Queue<string>();
 
             this._thread = new Thread(
                 new ThreadStart(
@@ -76,13 +76,13 @@ namespace Model.Cuisine
             _thread.Start();
         }
 
-        public void Cut(Aliment a) {
+        public void Cut(string a) {
             lock (this.ToCutAliments) {
                 this.ToCutAliments.Enqueue(a);
             }
         }
 
-        public void Find(Aliment a) {
+        public void Find(string a) {
             lock (this.ToFindAliments) {
                 this.ToFindAliments.Enqueue(a);
             }

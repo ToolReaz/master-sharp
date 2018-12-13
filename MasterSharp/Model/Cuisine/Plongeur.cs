@@ -35,9 +35,11 @@ namespace Model.Cuisine
 
                 // Check if there is dirty vaisselle
                 // Dirty vaisselle contained in the stock
-                List<IStockItem> DirtyVaisselle = cuisine.StockVaisselle.GetDirtyItems();
 
                 // Add dirty vaisselle to the LaveVaisselle's queue
+
+
+                /* TO REFACTOR
                 if (DirtyVaisselle?.Count > 0) {
                     DirtyVaisselle.ForEach(
                         item => {
@@ -50,15 +52,7 @@ namespace Model.Cuisine
                             }
                         });
                 }
-
-
-
-
-
-
-
-                // Dirty textile contained in the stock
-                List<IStockItem> DirtyTextille = cuisine.StockTextille.GetDirtyItems();
+                
 
                 // Add dirty textile to the LaveLinge's queue
                 if (DirtyTextille?.Count > 0) {
@@ -67,7 +61,7 @@ namespace Model.Cuisine
                             laveLinge.Queue(item);
                         });
                 }
-
+                */
 
                 // Wash dirty ustencil
 

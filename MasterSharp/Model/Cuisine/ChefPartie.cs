@@ -15,7 +15,8 @@ namespace Model.Cuisine
     public class ChefPartie
     {
         // Queue of all actions to do
-        public Queue<ActionRecette> ToDoAction { get; }
+        public Queue<string> ToDoAction { get; }
+        public Queue<int> TimeToDoAction { get; }
 
         // ChefPartie's thread
         private Thread _thread;
@@ -24,10 +25,11 @@ namespace Model.Cuisine
         private string ustencilToUse;
 
         // Current action
-        private ActionRecette CurrentAction;
+        private string CurrentAction;
 
         public ChefPartie() {
-            ToDoAction = new Queue<ActionRecette>();
+            ToDoAction = new Queue<string>();
+            TimeToDoAction = new Queue<int>();
 
             this._thread = new Thread(
                 new ThreadStart(
@@ -41,7 +43,7 @@ namespace Model.Cuisine
                                     this.CurrentAction = this.ToDoAction.Dequeue();
                                 }
 
-                                switch (this.CurrentAction.Name) {
+                                switch (this.CurrentAction) {
                                     case "Frire":
                                         this.ustencilToUse = "Poele";
                                         break;
@@ -60,7 +62,9 @@ namespace Model.Cuisine
                                     }
 
                                     // Time needed to complete the action (this time is also used to not spam connections if any cut where found)
-                                    Thread.Sleep(CurrentAction.DureeAction);
+                                    lock (this.TimeToDoAction) {
+                                        Thread.Sleep(TimeToDoAction.Dequeue());
+                                    }
 
                                     // Do it until a clean cut is available
                                 } while (ustensilUsed == null);
@@ -85,8 +89,14 @@ namespace Model.Cuisine
         }
 
 
-        public void AddActionToDo(ActionRecette action) {
-            this.ToDoAction.Enqueue(action);
+        public void AddActionToDo(string action, int time) {
+            lock (this.ToDoAction) {
+                this.ToDoAction.Enqueue(action);
+            }
+
+            lock (this.TimeToDoAction) {
+                this.TimeToDoAction.Enqueue(time);
+            }
         }
     }
 }
