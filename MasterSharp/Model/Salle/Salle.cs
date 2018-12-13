@@ -7,7 +7,7 @@ namespace Model.Salle
 {
     public class Salle
     {
-        public List<Carre> Carres;
+        public List<Carre> Carres { get; set; }
         private Restaurant restaurant;
         private Salle salle;
 
