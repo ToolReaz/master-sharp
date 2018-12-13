@@ -11,7 +11,6 @@ namespace Model.Cuisine
     public class LaveLinge
     {
         private Thread thread;
-        private bool ShouldRun = true;
         private Queue<IStockItem> _queue;
         private List<IStockItem> _content;
         private List<IStockItem> _output;
@@ -27,7 +26,7 @@ namespace Model.Cuisine
 
             this.thread = new Thread(
                 () => {
-                    while (ShouldRun) {
+                    while (true) {
                         if (_queue.Count > 10) {
                             _working = true;
                             for (int i = 0; i < 10; i++) {
