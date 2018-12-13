@@ -15,7 +15,6 @@ namespace Controller
 {
     public class CuisineController
     {
-        Queue<Recette> recettesToDo;
         Cuisine cuisine;
 
         public CuisineController()
