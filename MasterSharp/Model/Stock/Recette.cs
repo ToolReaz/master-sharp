@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MasterSharp.Model.EDM;
 using MasterSharp.Model.Stock;
 
 namespace Model.Stock
@@ -6,17 +7,16 @@ namespace Model.Stock
     public class Recette
     {
         public List<EtapeRecette> Etapes { get; }
-        public List<IVaisselle> Vaisselle { get; }
-
+        public List<Dish> Vaisselle { get; }
 
 
         public Recette() {
             this.Etapes = new List<EtapeRecette>();
-            this.Vaisselle = new List<IVaisselle>();
+            this.Vaisselle = new List<Dish>();
         }
 
 
-        public Recette(List<EtapeRecette> etapes, List<IVaisselle> vaisselles) {
+        public Recette(List<EtapeRecette> etapes, List<Dish> vaisselles) {
             this.Etapes = etapes;
             this.Vaisselle = vaisselles;
         }
@@ -27,7 +27,7 @@ namespace Model.Stock
         }
 
 
-        public void AddVaisselle(IVaisselle v) {
+        public void AddVaisselle(Dish v) {
             this.Vaisselle?.Add(v);
         }
 
