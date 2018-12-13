@@ -14,6 +14,7 @@ namespace Model.Salle
 
         public Carte(List<Recette> Recettes)
         {
+            Console.WriteLine("Carte intancié");
             this.Recettes = Recettes;
         }
         

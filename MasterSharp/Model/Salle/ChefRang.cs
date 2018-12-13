@@ -13,15 +13,17 @@ namespace Model.Salle
 
         public ChefRang()
         {
+            Console.WriteLine("Chef de rang intancié");
             this.salle = salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
-            thread.Start();
+            //thread.Start();
         }
       
         public void DoWork()
         {
-            //A COMPLETER
-            return;
+           
+            
+            
         }
 
         public void GiveMenu()

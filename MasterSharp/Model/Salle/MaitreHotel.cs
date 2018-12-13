@@ -12,23 +12,23 @@ namespace Model.Salle
         private Thread thread;
         private Table table;
         private Carre carre;
-        private Restaurant restaurant;
+        private Restaurant restaurant { get; }
         //private GroupeClient client;
         private Queue<GroupeClient> _queueAttenteClient { get; set; }
 
         public MaitreHotel(Restaurant _restaurant, Salle _salle)
         {
+            Console.WriteLine("Maitre hotel intancié");
             this.salle = _salle;
             this.restaurant = _restaurant;
             _queueAttenteClient = new Queue<GroupeClient>();
-
             this.thread = new Thread(new ThreadStart(this.DoWork));
             thread.Start();
         }
 
         public void DoWork()
         {
-            //on reagarde la queue si il y a quelqu'un on traite puis dequeue
+            //on regarde la queue si il y a quelqu'un on traite puis dequeue
             while (true)
             {
                 if(restaurant._queueClient.Count >= 1)
@@ -44,9 +44,9 @@ namespace Model.Salle
                         restaurant._queueClient.Dequeue();
                     }
 
-                   
-
                 }
+
+                Thread.Sleep(5000);
             }
 
            

@@ -15,7 +15,7 @@ namespace Controller
 
         public SalleController()
         {
-            //Console.WriteLine("SalleController instancié Fils instancié :");
+            //Console.WriteLine("SalleController instancié :");
             restaurant = new Restaurant();
 
         }
