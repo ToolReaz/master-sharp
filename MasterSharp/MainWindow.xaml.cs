@@ -57,15 +57,30 @@ namespace MasterSharp
             objSalle = new SalleController();
 
         }
-        /*-----------------*/
 
-        private void ButtonStock_Click(object sender, RoutedEventArgs e)
+        private void ButtonStockTextil_Click(object sender, RoutedEventArgs e)
         {
-            DisplayStock disp = new DisplayStock();
+            DisplayStock disp = new DisplayStock("Textil");
             disp.Show();
         }
 
-       
+        private void ButtonStockDish_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayStock disp = new DisplayStock("Dish");
+            disp.Show();
+        }
+
+        private void ButtonStockUtensil_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayStock disp = new DisplayStock("Utensil");
+            disp.Show();
+        }
+
+        private void ButtonStockFood_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayStock disp = new DisplayStock("Food");
+            disp.Show();
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

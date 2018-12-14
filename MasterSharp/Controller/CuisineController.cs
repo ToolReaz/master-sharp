@@ -23,7 +23,7 @@ namespace Controller
             cuisine = new Cuisine();
         }
 
-        public List<dynamic> GetStock()
+        public List<dynamic> GetFoodStock()
         {
             using (MasterSharpEntities dbcontext = new MasterSharpEntities())
             {
@@ -35,6 +35,60 @@ namespace Controller
                                 Name = h.Name,
                                 Quantity = f.Quantity,
                                 Expiry_Date = f.Expiry_Date
+                            };
+
+                return stock.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetDishStock()
+        {
+            using (MasterSharpEntities dbcontext = new MasterSharpEntities())
+            {
+                var stock = from h in dbcontext.Dishes
+                            join f in dbcontext.Dish_Stock on h.ID equals f.ID_Dishes
+                            select new
+                            {
+                                ID = h.ID,
+                                Name = h.Name,
+                                Quantity = f.Quantity,
+                                Clean = f.Clean
+                            };
+
+                return stock.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetTextilStock()
+        {
+            using (MasterSharpEntities dbcontext = new MasterSharpEntities())
+            {
+                var stock = from h in dbcontext.Textils
+                            join f in dbcontext.Textil_Stock on h.ID equals f.ID_Textils
+                            select new
+                            {
+                                ID = h.ID,
+                                Name = h.Name,
+                                Quantity = f.Quantity,
+                                Clean = f.Clean
+                            };
+
+                return stock.ToList<dynamic>();
+            }
+        }
+
+        public List<dynamic> GetUtensilStock()
+        {
+            using (MasterSharpEntities dbcontext = new MasterSharpEntities())
+            {
+                var stock = from h in dbcontext.Utensils
+                            join f in dbcontext.Utensil_Stock on h.ID equals f.ID_Utensils
+                            select new
+                            {
+                                ID = h.ID,
+                                Name = h.Name,
+                                Quantity = f.Quantity,
+                                Clean = f.Clean
                             };
 
                 return stock.ToList<dynamic>();
