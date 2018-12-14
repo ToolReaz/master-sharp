@@ -21,6 +21,7 @@ namespace Model.Salle
         public Carte()
         {
             Console.Write("Carte intanciée > ");
+            InitCarte();
         }
         
         public void GiveCard(int NbCarteDonner)
@@ -28,7 +29,7 @@ namespace Model.Salle
             NbCarte = NbCarte - NbCarteDonner;
         }
 
-        public void CompositionCarte()
+        public void InitCarte()
         {
             Recettes = new List<Recette>();
             Entrees = new List<Recette>();
@@ -40,15 +41,17 @@ namespace Model.Salle
 
             foreach (var recipe in dbRecipes)
             {
-                Console.WriteLine(recipe.Name);
-
+                //Console.Write("\n{0}.Recette : {1}", recipe.ID, recipe.Name);
                 Recette recette = new Recette();
-
                 //add all EtapeRecette to the recette :
                 foreach (var step in recipe.Recipe_Step)
                 {
-                    /*EtapeRecette etapeRecette = new EtapeRecette(new ActionRecette(step., step.Action.Utensils));
-                    recette.AddEtape(etapeRecette);*/
+                    //TotalTime par défaut est à 0, ensuite si les 3 temps additionnels seront 'null' il restera à 0
+                    int totalTime = 0;
+                    totalTime = (step.Recipe.Preparation?.Milliseconds + step.Recipe.Cook?.Milliseconds + step.Recipe.Rest?.Milliseconds).GetValueOrDefault();
+                    EtapeRecette etapeRecette = new EtapeRecette(step.Food.Name, step.Action.Name, totalTime);
+                    recette.AddEtape(etapeRecette);
+                    //Console.Write("\nEtape {0} : {1} - {2} ({3}ms)", step.Number_Step, step.Food.Name, step.Action.Name, totalTime);
                 }
 
                 //Ajout de la recette du plat dans le tableau correspondant à son type :
@@ -58,11 +61,11 @@ namespace Model.Salle
                 }
                 else if (recipe.Recipe_Categories.Name == "Plat")
                 {
-                    Entrees.Add(recette);
+                    Plats.Add(recette);
                 }
                 else if (recipe.Recipe_Categories.Name == "Dessert")
                 {
-                    Entrees.Add(recette);
+                    Desserts.Add(recette);
                 }
 
             }

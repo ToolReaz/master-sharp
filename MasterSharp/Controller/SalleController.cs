@@ -1,5 +1,5 @@
 ﻿using MasterSharp.Model.EDM;
-using Model;
+using Model.Salle;
 using System;
 using System.Linq;
 using System.Net.Sockets;
@@ -11,20 +11,25 @@ namespace Controller
 {
     public class SalleController
     {
-        Restaurant restaurant;
-
-        public SalleController()
-        {
-            //Console.WriteLine("SalleController instancié :");
-            restaurant = new Restaurant();
-
-        }
+        Salle salle;
 
         /*---SOCKET---*/
         const int PORT_NO = 5000;
         const string SERVER_IP = "127.0.0.1";
         TcpClient client;
         NetworkStream nwStream;
+
+        public SalleController()
+        {
+            Console.WriteLine("SalleController instancié :");
+            salle = new Salle();
+            /*
+            salle.ChefRang.GiveMenu();
+            ...
+            */
+        }
+
+       
 
         public void SalleCommandSend(int _recipeID)
         {
@@ -33,14 +38,14 @@ namespace Controller
             string recipeID = _recipeID.ToString();
 
             //---send the text---
-            Console.Write("\n(client)Sending ID : " + recipeID);
+            Console.WriteLine("\n(client)Sending ID : " + recipeID);
             byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(recipeID);
             nwStream.Write(bytesToSend, 0, bytesToSend.Length);
 
             //---read back the text---
             byte[] bytesToRead = new byte[client.ReceiveBufferSize];
             int bytesRead = nwStream.Read(bytesToRead, 0, bytesToRead.Length);
-            Console.Write("\n(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
+            Console.WriteLine("\n(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
 
             ClientSockClose();
         }
@@ -52,7 +57,7 @@ namespace Controller
                 //---create a TCPClient object at the IP and port no.---
                 client = new TcpClient(SERVER_IP, PORT_NO);
                 nwStream = client.GetStream();
-                Console.Write("\nClient socket launched !");
+                Console.WriteLine("\nClient socket launched !");
             }
             catch (ArgumentNullException e)
             {
@@ -67,7 +72,7 @@ namespace Controller
         {
             client.Close();
             nwStream.Close();
-            Console.Write("\nClient socket closed.");
+            Console.WriteLine("\nClient socket closed.");
         }
     }
 }

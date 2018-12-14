@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using MasterSharp.Model.Salle;
+using Model.Stock;
 
 namespace Model.Salle
 {
@@ -11,29 +12,35 @@ namespace Model.Salle
         private Thread thread;
         private Table table;
 
-        public ChefRang()
+        public ChefRang(Salle _salle)
         {
             Console.Write("Chef de rang intancié > ");
-            this.salle = salle;
+            salle = _salle;
+
             this.thread = new Thread(new ThreadStart(this.DoWork));
             //thread.Start();
         }
       
         public void DoWork()
         {
-           
-            
-            
+            //manger ?
+            //attendre ?
         }
 
-        public void GiveMenu()
+        public void GiveMenu(GroupeClient grpClient)
         {
-            throw new NotImplementedException();
+            foreach (Client client in grpClient.Groupe) 
+            {
+                client.ChooseMeal(salle.carte);
+            }
         }
 
-        public void TakeCommand()
+        public void TakeCommand(GroupeClient grpClient)
         {
-            throw new NotImplementedException();
+            foreach (Client client in grpClient.Groupe)
+            {
+                
+            }
         }
 
     }

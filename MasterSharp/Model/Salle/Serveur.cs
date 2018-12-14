@@ -12,10 +12,10 @@ namespace Model.Salle
         private Table table;
         private GroupeClient groupe;
 
-        public Serveur()
+        public Serveur(Salle _salle)
         {
             Console.Write("Serveur intancié > ");
-            this.salle = salle;
+            salle = _salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
             //thread.Start();
             

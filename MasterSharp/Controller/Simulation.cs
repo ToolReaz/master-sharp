@@ -6,7 +6,7 @@ namespace Controller
     public class Simulation
     {
         public int TimeScale;
-        //public Restaurant restaurant;
+        //public Salle salle;
 
         public void StartSimulation()
         {

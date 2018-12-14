@@ -12,24 +12,52 @@ namespace Model.Salle
     {
         private Thread thread;
 
-        private List<Recette> Command { get; }
+        public List<Commande> Commandes { get; private set; }
         private int EatTime { get; set; }
 
-       private TypeClient Type { get; }
+        private TypeClient Type { get; }
+        public GroupeClient groupeClient;
+        private int idGroupe;
         
-        public Client(TypeClient Type) 
+        public Client(TypeClient Type, GroupeClient _groupeClient) 
         {
             this.Type = Type;
+            groupeClient = _groupeClient;
+            idGroupe = groupeClient.idGroupe;
         }
 
-        public void OrderMeal()
+        public void ChooseMeal(Carte _carte)
         {
-            throw new NotImplementedException();
+            Commandes = new List<Commande>();
+
+            //random selection of the client menu
+            Random YesOrNot = new Random();
+
+            //Entrée
+            if (YesOrNot.Next(1, 2) == 1)
+            {
+                int entreeNbr = YesOrNot.Next(0, _carte.Entrees.Count());
+                Commandes.Add(new Commande(this, _carte.Entrees[entreeNbr], "entrée"));
+            }
+            //Plat (plus de chances d'en commander un)
+            if (new int[] { 1, 2, 3, 4}.Contains(YesOrNot.Next(1, 5)))
+            {
+                int platNbr = YesOrNot.Next(0, _carte.Plats.Count());
+                Commandes.Add(new Commande(this, _carte.Plats[platNbr], "plat"));
+            }
+            //Dessert
+            if (YesOrNot.Next(1, 2) == 1)
+            {
+                int dessertNbr = YesOrNot.Next(0, _carte.Desserts.Count());
+                Commandes.Add(new Commande(this, _carte.Desserts[dessertNbr], "dessert"));
+            }
+
+            Console.WriteLine("Un client a commandé : {0} & {1} & {2}", Commandes[0].recette.Etapes[0], Commandes[1].recette.Etapes[0], Commandes[2].recette.Etapes[0]);
         }
 
         public void PayBill(int Bill)
         {
-            Console.Out.WriteLine("Le client à payé: { 0}", Bill );
+            Console.Out.WriteLine("Un client a payé: { 0}", Bill );
         }
     }
 }

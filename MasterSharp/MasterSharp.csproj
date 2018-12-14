@@ -122,7 +122,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterSharpEDM.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Restaurant.cs" />
     <Compile Include="Model\EDM\Recipe.cs">
       <DependentUpon>MasterSharpEDM.tt</DependentUpon>
     </Compile>
@@ -139,6 +138,7 @@
     <Compile Include="Model\Salle\Carte.cs" />
     <Compile Include="Model\Salle\ChefRang.cs" />
     <Compile Include="Model\Salle\Client.cs" />
+    <Compile Include="Model\Salle\Commande.cs" />
     <Compile Include="Model\Salle\CommisSallle.cs" />
     <Compile Include="Model\Salle\FactoryClient.cs" />
     <Compile Include="Model\Salle\GroupeClient.cs" />
