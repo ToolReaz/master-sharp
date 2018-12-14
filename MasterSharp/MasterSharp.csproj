@@ -157,7 +157,6 @@
     </Compile>
     <Compile Include="Model\Stock\Aliment.cs" />
     <Compile Include="Model\Stock\Assiette.cs" />
-    <Compile Include="Model\Stock\Couverts.cs" />
     <Compile Include="Model\Stock\EtapeRecette.cs" />
     <Compile Include="Model\Stock\Four.cs" />
     <Compile Include="Model\Stock\Frigo.cs" />
@@ -165,7 +164,6 @@
     <Compile Include="Model\Stock\IStockItem.cs" />
     <Compile Include="Model\Stock\ITextille.cs" />
     <Compile Include="Model\Stock\IUstencile.cs" />
-    <Compile Include="Model\Stock\IUstencilLavable.cs" />
     <Compile Include="Model\Stock\IUstencilNonLavable.cs" />
     <Compile Include="Model\Stock\IVaisselle.cs" />
     <Compile Include="Model\Stock\Recette.cs" />

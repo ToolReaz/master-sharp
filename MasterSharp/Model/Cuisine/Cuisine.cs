@@ -62,9 +62,7 @@ namespace Model.Cuisine
 
 
         private void init() {
-            lock (this._commandsToDo) {
-                this._commandsToDo = new Queue<Recette>();
-            }
+            this._commandsToDo = new Queue<Recette>();
 
             this.ChefCuisine = new ChefCuisine(this);
             this.PlongeurCuisine = new Plongeur(this);
