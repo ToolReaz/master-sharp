@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using MasterSharp.Model.EDM;
 using Model.Stock;
 
 namespace Model.Cuisine
@@ -17,10 +18,15 @@ namespace Model.Cuisine
         private const int TimeToWash = 600000;
 
 
-        // Content lists
-        private List<IStockItem> _assietes;
-        private List<IStockItem> _verres;
-        private List<IStockItem> _couverts;
+        // Content ID lists
+        private List<int> _assietesID;
+        private List<int> _verresID;
+        private List<int> _couvertsID;
+
+        // Content QUANTITY lists
+        private List<int> _assietesQuantity;
+        private List<int> _verresQuantity;
+        private List<int> _couvertsQuantity;
 
 
         public LaveVaisselle() {
@@ -28,47 +34,47 @@ namespace Model.Cuisine
             _content = new List<IStockItem>();
             _output = new List<IStockItem>();
 
-            // Init content lists
-            _assietes = new List<IStockItem>();
-            _verres = new List<IStockItem>();
-            _couverts = new List<IStockItem>();
+            // Init content ID lists
+            _assietesID = new List<int>();
+            _verresID = new List<int>();
+            _couvertsID = new List<int>();
 
-            
+            // Init content QUANTITY lists
+            _assietesQuantity = new List<int>();
+            _verresQuantity = new List<int>();
+            _couvertsQuantity = new List<int>();
         }
+
 
         public void Start() {
             _thread = new Thread(
-                new ThreadStart(
-                    () => {
-                        while (true) {
-
-                            // Je lave et seche pendant 10 minutes
+                () => {
+                    while (true) {
+                        // Je lave et seche pendant 10 minutes
 
 
-
-                            for (int i = 0; i < 25; i++) {
-                                if (this._queue?.Count > 0) {
-                                    _content.Add(_queue.Dequeue());
-                                } else {
-                                    break;
-                                }
+                        for (int i = 0; i < 25; i++) {
+                            if (this._queue?.Count > 0) {
+                                _content.Add(_queue.Dequeue());
+                            } else {
+                                break;
                             }
-
-                            if (this._content?.Count > 0)
-                            {
-                                _working = true;
-                                _content.ForEach(
-                                    item => {
-                                        item.Wash();
-                                        _output.Add(item);
-                                    });
-                                _content.Clear();
-                                Thread.Sleep(TimeToWash);
-                            }
-
-                            Thread.Sleep(2000);
                         }
-                    }));
+
+                        if (this._content?.Count > 0) {
+                            _working = true;
+                            _content.ForEach(
+                                item => {
+                                    item.Wash();
+                                    _output.Add(item);
+                                });
+                            _content.Clear();
+                            Thread.Sleep(TimeToWash);
+                        }
+
+                        Thread.Sleep(2000);
+                    }
+                });
             _thread.Start();
         }
 
@@ -81,9 +87,10 @@ namespace Model.Cuisine
             _queue?.Enqueue(v);
         }
 
-        public bool AddAssiete(IStockItem a) {
-            if (_assietes.Count < 24) {
-                _assietes.Add(a);
+        public bool AddAssiete(int id, int quantity) {
+            if (_assietesID.Count < 24) {
+                _assietesID.Add(id);
+                _assietesQuantity.Add(quantity);
                 return true;
             } else {
                 return false;
@@ -91,9 +98,10 @@ namespace Model.Cuisine
         }
 
 
-        public bool AddCouvert(IStockItem c) {
-            if (_couverts.Count < 24) {
-                _couverts.Add(c);
+        public bool AddCouvert(int id, int quantity) {
+            if (_couvertsID.Count < 24) {
+                _couvertsID.Add(id);
+                _couvertsQuantity.Add(quantity);
                 return true;
             } else {
                 return false;
@@ -101,9 +109,10 @@ namespace Model.Cuisine
         }
 
 
-        public bool AddVerre(IStockItem v) {
-            if (_verres.Count < 24) {
-                _verres.Add(v);
+        public bool AddVerre(int id, int quantity) {
+            if (_verresID.Count < 24) {
+                _verresID.Add(id);
+                _verresQuantity.Add(quantity);
                 return true;
             } else {
                 return false;
