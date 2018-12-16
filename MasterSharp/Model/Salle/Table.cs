@@ -12,6 +12,7 @@ namespace Model.Salle
         public int Place { get; set; }
         public int TableNumber { get; set; }
         public int NumeroGroupe { get; set; }
+        public GroupeClient grpClients { get; set; }
 
 
         public Table( int Place, int TableNumber, int NumeroGroupe)

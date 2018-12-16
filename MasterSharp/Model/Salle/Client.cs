@@ -19,14 +19,14 @@ namespace Model.Salle
         public GroupeClient groupeClient;
         private int idGroupe;
         
-        public Client(TypeClient Type, GroupeClient _groupeClient) 
+        public Client(TypeClient Type, GroupeClient _groupeClient)
         {
             this.Type = Type;
             groupeClient = _groupeClient;
             idGroupe = groupeClient.idGroupe;
         }
 
-        public void ChooseMeal(Carte _carte)
+        public void ChooseMeal()
         {
             Commandes = new List<Commande>();
 
@@ -36,23 +36,24 @@ namespace Model.Salle
             //Entrée
             if (YesOrNot.Next(1, 2) == 1)
             {
-                int entreeNbr = YesOrNot.Next(0, _carte.Entrees.Count());
-                Commandes.Add(new Commande(this, _carte.Entrees[entreeNbr], "entrée"));
+                int entreeNbr = YesOrNot.Next(0, Carte.Instance.Entrees.Count());
+                Commandes.Add(new Commande(this, entreeNbr, "Entrees"));
             }
             //Plat (plus de chances d'en commander un)
-            if (new int[] { 1, 2, 3, 4}.Contains(YesOrNot.Next(1, 5)))
-            {
-                int platNbr = YesOrNot.Next(0, _carte.Plats.Count());
-                Commandes.Add(new Commande(this, _carte.Plats[platNbr], "plat"));
-            }
+            //if (new int[] { 1, 2, 3, 4}.Contains(YesOrNot.Next(1, 5))) { }
+            
+            //Un client aura tjrs un plat
+            int platNbr = YesOrNot.Next(0, Carte.Instance.Plats.Count());
+            Commandes.Add(new Commande(this, platNbr, "Plats"));
+            
             //Dessert
-            if (YesOrNot.Next(1, 2) == 1)
+            if (YesOrNot.Next(1, 4) == 1)
             {
-                int dessertNbr = YesOrNot.Next(0, _carte.Desserts.Count());
-                Commandes.Add(new Commande(this, _carte.Desserts[dessertNbr], "dessert"));
+                int dessertNbr = YesOrNot.Next(0, Carte.Instance.Desserts.Count());
+                Commandes.Add(new Commande(this, dessertNbr, "Desserts"));
             }
 
-            Console.WriteLine("Un client a commandé : {0} & {1} & {2}", Commandes[0].recette.Etapes[0], Commandes[1].recette.Etapes[0], Commandes[2].recette.Etapes[0]);
+            //Console.WriteLine("Un client a commandé : {0} & {1} & {2}", Commandes[0]?.recetteNbr, Commandes[1]?.recetteNbr, Commandes[2]?.recetteNbr);
         }
 
         public void PayBill(int Bill)

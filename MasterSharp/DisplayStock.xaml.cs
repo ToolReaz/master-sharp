@@ -20,15 +20,38 @@ namespace MasterSharp
     /// </summary>
     public partial class DisplayStock : Window
     {
-        public DisplayStock()
+        string stockType;
+
+        public DisplayStock(string stockType)
         {
             InitializeComponent();
+            this.stockType = stockType;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CuisineController cuisineSock = new CuisineController();
-            var stock = cuisineSock.GetStock();
+            List<dynamic> stock;
+
+            if (stockType == "Food") {
+                stock = CuisineController.Instance.GetFoodStock();
+            }
+            else if (stockType == "Dish")
+            {
+                stock = CuisineController.Instance.GetDishStock();
+            }
+            else if (stockType == "Textil")
+            {
+                stock = CuisineController.Instance.GetTextilStock();
+            }
+            else if (stockType == "Utensil")
+            {
+                stock = CuisineController.Instance.GetUtensilStock();
+            }
+            else
+            {
+                stock = null;
+            }
+            
             DataGridViewStock.AutoGenerateColumns = true;
             DataGridViewStock.ItemsSource = stock;
         }

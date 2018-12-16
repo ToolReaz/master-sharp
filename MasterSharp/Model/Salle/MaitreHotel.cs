@@ -18,7 +18,7 @@ namespace Model.Salle
 
         public MaitreHotel(Salle _salle)
         {
-            Console.Write("Maitre hotel intancié > ");
+            //Console.WriteLine("Maitre hotel intancié > ");
             salle = _salle;
             Carre = salle.Carre;
 
@@ -32,32 +32,36 @@ namespace Model.Salle
             //on regarde la queue si il y a quelqu'un on traite puis dequeue
             while (true)
             {
-                if(salle._queueClient.Count >= 1)
+                if (salle._queueClient.Count >= 1)
                 {
-                    for(int i=0; i<=salle._queueClient.Count; i++ )
+                    for (int i=0; i<= salle._queueClient.Count; i++ )
                     {
+                        GroupeClient grpClients = salle._queueClient.Peek();
+
                         Welcome();
                         //selection de la table + les placer 
-                        AssignTable(salle.HowManyClient, Salle.idGroupe);
-
-
+                        AssignTable(salle.HowManyClient, grpClients.idGroupe, grpClients);
+                                                
                         //puis dequeue
                         salle._queueClient.Dequeue();
+
+                        //ajouter le groupe a la liste des clients en attente (relais vers ChefRang)
+                        salle._justArrivedClients.Enqueue(grpClients);
                     }
 
                 }
 
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
             }
 
         }
               
         static void Welcome()
         {
-            Console.WriteLine("Un nouveau groupe de client est arrivé.");
+            Console.WriteLine("(MaîtreHotel) Bienvenue !");
         }
 
-        public void AssignTable(int NbClient ,int idGroupe)
+        public void AssignTable(int NbClient ,int idGroupe, GroupeClient grpClients)
         {
             int n = 0;
             int i = 0;
@@ -69,6 +73,7 @@ namespace Model.Salle
             if (query != null)
             {
                 query.NumeroGroupe = idGroupe;
+                query.grpClients = grpClients;
             }
             else
             {

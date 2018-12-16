@@ -27,7 +27,7 @@
         <TextBlock x:Name="Starter" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
         <TextBlock x:Name="Plate" HorizontalAlignment="Left" Margin="10,219,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
         <TextBlock x:Name="Dessert" HorizontalAlignment="Left" Margin="10,283,0,0" TextWrapping="Wrap" Text="élaboration en cours..." Width="180" Height="26" TextAlignment="Center" FontSize="16" VerticalAlignment="Top"/>
-        <Button x:Name="StockConsult" Content="Consulter le stock" HorizontalAlignment="Left" Margin="10,340,0,95.8" VerticalAlignment="Center" Width="180" Click="ButtonStock_Click" Height="37" FontWeight="Bold"/>
+        <Button x:Name="StockConsult" Content="Stock d'ustensile" HorizontalAlignment="Left" Margin="10,411,0,39.8" VerticalAlignment="Center" Width="180" Click="ButtonStockUtensil_Click" Height="22" FontWeight="Bold"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,50,0,0" TextWrapping="Wrap" Text="Client" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16"/>
         <Label Grid.Column="2" HorizontalAlignment="Left" Margin="9.4,50,0,0" VerticalAlignment="Top" Width="180" Height="16" Background="#FFF0E877"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="15.4,50,0,0" TextWrapping="Wrap" Text="Commandes" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16"/>
@@ -37,7 +37,9 @@
         <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="9.6,50,0,0" TextWrapping="Wrap" Text="Commandes" VerticalAlignment="Top" Width="180" TextAlignment="Center" Height="16" Grid.ColumnSpan="2"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="SALLE" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="1" Margin="111.2,10,0,0" Height="26"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CUISINE" Width="180" TextAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="3" Margin="108.6,10,-87.8,0" Height="26"/>
-        <Button Content="Commander (btn provisoire)" HorizontalAlignment="Left" Margin="10,382,0,65.8" VerticalAlignment="Center" Width="180" Click="Button_Click_1" Height="25" FontWeight="Bold"/>
+        <Button x:Name="StockConsult_Copy" Content="Stock de couvert" HorizontalAlignment="Left" Margin="10,384,0,66.8" VerticalAlignment="Center" Width="180" Click="ButtonStockDish_Click" Height="22" FontWeight="Bold"/>
+        <Button x:Name="StockConsult_Copy1" Content="Stock de textil" HorizontalAlignment="Left" Margin="10,357,0,93.8" VerticalAlignment="Center" Width="180" Click="ButtonStockTextil_Click" Height="22" FontWeight="Bold"/>
+        <Button x:Name="StockConsult_Copy2" Content="Stock de nourriture" HorizontalAlignment="Left" Margin="10,330,0,120.8" VerticalAlignment="Center" Width="180" Click="ButtonStockFood_Click" Height="22" FontWeight="Bold"/>
 
 
     </Grid>
