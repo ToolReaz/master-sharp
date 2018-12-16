@@ -147,20 +147,27 @@ namespace Controller
                     string recetteType = returnConcat[0];
                     int recetteNbr = int.Parse(returnConcat[1]);
                     int recipeID = 0;
+                    Recette recette = null;
 
                     //selon le type de la recette, on va pouvoir la récupérer dans la carte qui contient 1 liste/type
                     switch (recetteType)
                     {
                         case "Entrees":
                             recipeID = Carte.Instance.Entrees[recetteNbr].recipeID;
+                            recette = Carte.Instance.Entrees[recetteNbr];
                             break;
                         case "Plats":
                             recipeID = Carte.Instance.Plats[recetteNbr].recipeID;
+                            recette = Carte.Instance.Plats[recetteNbr];
                             break;
                         case "Desserts":
                             recipeID = Carte.Instance.Desserts[recetteNbr].recipeID;
-                            break;
+                            recette = Carte.Instance.Desserts[recetteNbr];
+                            break;                            
                     }
+
+                    //Send to the Cuisine class
+                    //cuisine.AddCommand(recette);
 
                     //---Recover Recipe in object
                     using (MasterSharpEntities db = new MasterSharpEntities())
