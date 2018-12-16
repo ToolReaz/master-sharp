@@ -18,12 +18,16 @@ namespace Model.Salle
         private TypeClient Type { get; }
         public GroupeClient groupeClient;
         private int idGroupe;
+        public int idClient;
         
         public Client(TypeClient Type, GroupeClient _groupeClient)
         {
             this.Type = Type;
             groupeClient = _groupeClient;
             idGroupe = groupeClient.idGroupe;
+            idClient = Salle.ClientCount;
+            Salle.ClientCount += 1;
+            View.View.Instance.AddClient("Client" + idClient);
         }
 
         public void ChooseMeal()
@@ -59,6 +63,7 @@ namespace Model.Salle
         public void PayBill(int Bill)
         {
             Console.Out.WriteLine("Un client a payé: { 0}", Bill );
+            View.View.Instance.RemoveClient("Client" + idClient);
         }
     }
 }

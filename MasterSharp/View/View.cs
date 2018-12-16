@@ -1,21 +1,25 @@
-﻿using System;
+﻿using MasterSharp;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-
+using System.Windows;   
 
 namespace View
 {
     //public access and sealed "scellée" (Singleton DP)
-    public sealed class View 
+    public class View 
     {
         //static ref to the object (Singleton DP)
         private static  View instance = null;
         //Thread-safe : only one thread can instanciate the class
         private static readonly object padlock = new object();
 
+        MainWindow winForm;
+
         //Private unique constructor & without parameters (Singleton DP)
-        private View()
+        public View()
         {
-            throw new NotImplementedException();
+            //Console.WriteLine("View instanciée >");
         }
 
 
@@ -25,7 +29,7 @@ namespace View
             {
                 lock (padlock)
                 {
-                    if (instance==null)
+                    if (instance == null)
                     {
                         instance = new View();
                     }
@@ -34,20 +38,45 @@ namespace View
             }
         }
 
-        public void UpdateView()
+        public void winPassRef(MainWindow _winForm)
         {
-            throw new NotImplementedException();
+            winForm = _winForm;
         }
 
-        public void GridView()
+        //Add columns indicators
+        public void AddClient(string text2Print)
         {
-            throw new NotImplementedException();
+            winForm.Clients.Add(text2Print);
+        }
+        public void AddSalleCommande(string text2Print)
+        {
+            winForm.SalleCommandes.Add(text2Print);
+        }
+        public void AddCuisineCommandes(string text2Print)
+        {
+            winForm.CuisineCommandes.Add(text2Print);
+        }
+        public void AddPreparations(string text2Print)
+        {
+            winForm.Preparations.Add(text2Print);
         }
 
-        public void GetViewInstance()
+        //Remove columns indicators
+        public void RemoveClient(string obj2Remove)
         {
-            throw new NotImplementedException();
+            winForm.Clients.Remove(obj2Remove);
         }
- 
+        public void RemoveSalleCommande(string obj2Remove)
+        {
+            winForm.SalleCommandes.Remove(obj2Remove);
+        }
+        public void RemoveCuisineCommandes(string obj2Remove)
+        {
+            winForm.CuisineCommandes.Remove(obj2Remove);
+        }
+        public void RemovePreparations(string obj2Remove)
+        {
+            winForm.Preparations.Remove(obj2Remove);
+        }
     }
 }

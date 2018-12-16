@@ -11,6 +11,7 @@ using System.Threading;
 
 namespace Controller
 {
+    //public access and sealed "scellée" (Singleton DP)
     public sealed class SalleController
     {
         //static ref to the object (Singleton DP)

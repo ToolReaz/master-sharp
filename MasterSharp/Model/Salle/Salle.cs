@@ -21,6 +21,7 @@ namespace Model.Salle
         private List<Recette> recettes;
         //Reception
         public static GroupeClient clients { get; set; }
+        public static int ClientCount { get; set; } = 1;        //Stat indicateur d'ID pour les clients
         private Thread thread;
         private const int NextClient = 24000;
         private Random randomClient = new Random();

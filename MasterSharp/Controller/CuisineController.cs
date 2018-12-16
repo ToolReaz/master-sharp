@@ -14,6 +14,7 @@ using Model.Salle;
 
 namespace Controller
 {
+    //public access and sealed "scellée" (Singleton DP)
     public sealed class CuisineController
     {
         //static ref to the object (Singleton DP)
