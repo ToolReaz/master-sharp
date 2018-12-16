@@ -15,6 +15,7 @@ namespace Model.Cuisine.Tests
     {
         private Queue<ITextille> _queue;
         private Thread thread;
+        private LaveLinge lave;
 
         public LaveLingeTests()
         {
@@ -30,9 +31,10 @@ namespace Model.Cuisine.Tests
         }
 
         [TestMethod()]
-        public void Queue()
+        public void QueueTest()
         {
-            Assert.Fail();
+            //_queue.Enqueue();
+            Assert.IsNotNull(_queue);
         }
     }
 }

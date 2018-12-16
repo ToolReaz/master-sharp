@@ -11,12 +11,10 @@ namespace Model.Salle.Tests
     [TestClass()]
     public class CarreTests
     {
-        List<Table> Table;
 
         [TestMethod()]
-        public void CarreTest(int NbTable)
+        public void CarreTest()
         {
-            Assert.Equals(NbTable, Table.Count);
-        }
+            Assert.Fail();
     }
 }

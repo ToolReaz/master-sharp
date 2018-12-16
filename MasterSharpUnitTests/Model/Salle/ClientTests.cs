@@ -24,10 +24,8 @@ namespace Model.Salle.Tests
         [TestMethod()]
         public void PayBill(int montant)
         {
-            if(montant == 0)
-            {
-                Assert.Fail();
-            }
+       
+            PayBill(20);
             Assert.Equals(20,montant);
 
         }

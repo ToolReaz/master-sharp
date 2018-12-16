@@ -11,12 +11,15 @@ namespace Model.Salle.Tests
     [TestClass()]
     public class SalleTests
     {
-        List<Carre> Carre = new List<Carre>();
+        private GroupeClient client;
+        private Queue<GroupeClient> _queueClient;
 
-        //[TestMethod()]
-        public SalleTests()
+       [TestMethod()]
+        public void ClientArrivedTest()
         {
-           
+            client = new GroupeClient(3,2);
+            _queueClient.Enqueue(clients);
+            Assert.IsNotNull(_queueClient);
         }
     }
 }

@@ -11,21 +11,33 @@ namespace Model.Salle.Tests
     [TestClass()]
     public class MaitreHotelTests
     {
-        //List<GroupeClient> GroupeCLient = new List<GroupeClient>();
+        private Salle salle;
+        private GroupeClient client;
+        private MaitreHotel maitre;
 
         [TestMethod()]
         public void DoWorkTest()
+        {
+            salle._queueClient.Enqueue(client = new GroupeClient(4,2));
+            Assert.IsNotNull(salle._queueClient);
+            salle._queueClient.Dequeue();
+            Assert.IsNull(salle._queueClient);
+
+
+        }
+
+        [TestMethod()]
+        public void WelcomeTest()
         {
             Assert.Fail();
         }
 
         [TestMethod()]
-        public void WelcomeTest(GroupeClient Client)
+        public void AssignTableTest()
         {
-            if(Client == null)
-            {
-                Assert.Fail();
-            }
+            maitre.AssignTable(5, 3);
+            Assert.Equals(5, client.NbPersonnesGroupe);
+            Assert.Equals(3, client.idGroupe);
         }
     }
 }

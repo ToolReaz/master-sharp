@@ -10,6 +10,7 @@ namespace Model.Salle
         public List<Table> tables { get; set; }
         public static int TableNumber = 0;
 
+        //Constructeur
         public Carre()
         {
             //Console.WriteLine("Carré intancié > ");
@@ -17,13 +18,14 @@ namespace Model.Salle
             initTable();
         }
 
-        //useless ?
+        //Constructeur
         public Carre(List<Table> table)
         {
             this.tables = table;
             initTable();
         }
 
+        //Initialise all the table in the restaurant
         private void initTable()
         {
             int i;

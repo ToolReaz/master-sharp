@@ -11,22 +11,23 @@ namespace Model.Cuisine.Tests
     [TestClass()]
     public class CommisCuisineTests
     {
-        [TestMethod()]
-        public void DoWorkTest()
-        {
-            Assert.Fail();
-        }
+       
+        private CommisCuisine commis;
+
+       
 
         [TestMethod()]
         public void CutTest()
         {
-            Assert.Fail();
+            commis.Cut("Carotte");
+            Assert.IsNotNull(commis.ToCutAliments);
         }
 
         [TestMethod()]
         public void FindTest()
         {
-            Assert.Fail();
+            commis.Find("Carotte");
+            Assert.IsNotNull(commis.ToFindAliments);
         }
     }
 }

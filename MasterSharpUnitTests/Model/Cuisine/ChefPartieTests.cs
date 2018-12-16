@@ -11,16 +11,22 @@ namespace Model.Cuisine.Tests
     [TestClass()]
     public class ChefPartieTests
     {
+        public Queue<string> ToDoAction;
+        public Queue<int> TimeToDoAction;
+        private ChefPartie chef;
+        
         [TestMethod()]
-        public void DoActionTest()
+        public void AddActionToDoTest()
         {
-            Assert.Fail();
+            ToDoAction = new Queue<string>();
+            TimeToDoAction = new Queue<int>();
+            chef.ActionToDo("find", 30);
+
+            Assert.IsNotNull(ToDoAction.Enqueue("find"));
+            Assert.IsNotNull(TimeToDoAction.Enqueue(30));
+
         }
 
-        [TestMethod()]
-        public void DoWorkTest()
-        {
-            Assert.Fail();
-        }
+        
     }
 }

@@ -20,10 +20,7 @@ namespace Model.Salle
         }
         public void DoWork()
         {
-            while (true)
-            {
-
-            }
+            
         }
 
         public void ServeWaterBread()

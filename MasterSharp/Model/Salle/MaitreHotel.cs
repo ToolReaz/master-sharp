@@ -63,7 +63,6 @@ namespace Model.Salle
 
         public void AssignTable(int NbClient ,int idGroupe, GroupeClient grpClients)
         {
-            int n = 0;
             int i = 0;
             
             // select the first occurence where a table is not assign and the number of client is under minimal size of table 

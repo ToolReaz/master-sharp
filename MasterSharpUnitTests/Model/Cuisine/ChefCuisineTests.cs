@@ -11,10 +11,12 @@ namespace Model.Cuisine.Tests
     [TestClass()]
     public class ChefCuisineTests
     {
+        private Recette recette;
         [TestMethod()]
-        public void DoWorkTest()
+        public void Dispatch(Recette recette)
         {
-            Assert.Fail();
+            Assert.Equals(recette.Etapes[2].ActionName, "CUT"); //normally just
+            Assert.Equals(recette.Etapes[2].ActionName, "FIND"); //normally fail because the action is to cut
         }
     }
 }
