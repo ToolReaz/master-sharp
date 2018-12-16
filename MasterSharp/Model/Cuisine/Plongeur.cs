@@ -32,10 +32,7 @@ namespace Model.Cuisine
 
         private void DoWork() {
             while (true) {
-                // Si il y a qqc a laver
-                // Place dans le lave vaissele le plus possible
-                // Uniquement 24 de chaque type (24 assietes, 24 verres, 24 couverts)
-
+                // Wash dishes
                 using (MasterSharpEntities db = new MasterSharpEntities()) {
                     var dirtyItemsList = db.Dish_Stock.Where(x => x.Clean == false);
 
@@ -78,8 +75,19 @@ namespace Model.Cuisine
                     }
                 }
 
+                // Wash ustencil
+                using (MasterSharpEntities db = new MasterSharpEntities()) {
+                    var dirtyUstencilList = db.Utensil_Stock.Where(x => x.Clean == false);
+
+                    foreach (var item in dirtyUstencilList) {
+                        item.Clean = true;
+                    }
+
+                    db.SaveChanges();
+                }
+
                 // Sleep to avoid high CPU usage
-                Thread.Sleep(2000);
+                    Thread.Sleep(2000);
             }
         }
     }
