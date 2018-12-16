@@ -30,23 +30,22 @@ namespace MasterSharp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CuisineController cuisineSock = new CuisineController();
             List<dynamic> stock;
 
             if (stockType == "Food") {
-                stock = cuisineSock.GetFoodStock();
+                stock = CuisineController.Instance.GetFoodStock();
             }
             else if (stockType == "Dish")
             {
-                stock = cuisineSock.GetDishStock();
+                stock = CuisineController.Instance.GetDishStock();
             }
             else if (stockType == "Textil")
             {
-                stock = cuisineSock.GetTextilStock();
+                stock = CuisineController.Instance.GetTextilStock();
             }
             else if (stockType == "Utensil")
             {
-                stock = cuisineSock.GetUtensilStock();
+                stock = CuisineController.Instance.GetUtensilStock();
             }
             else
             {

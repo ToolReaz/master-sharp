@@ -77,16 +77,5 @@ namespace MasterSharp
             disp.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //Lambda expression with no arguments (threadstart with parameters methods was impossible) :
-            /*sockClientSalle = new Thread(() => SalleController.Instance.SalleCommandSend());
-            sockClientSalle.Start();*/
-            
-            /*objSalle.SalleCommandSend(starterOfTheDay.ID);
-            objSalle.SalleCommandSend(plateOfTheDay.ID);
-            objSalle.SalleCommandSend(dessertOfTheDay.ID);*/
-        }
-
     }
 }
