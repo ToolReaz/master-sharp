@@ -14,7 +14,7 @@ namespace Model.Salle
 
         public GroupeClient(int NbPersonnesGroupe, int _idGroupe)
         {
-            Console.Write("GroupeClient intancié > ");
+            //Console.WriteLine("GroupeClient intancié > ");
             idGroupe = _idGroupe;
             //need to create thread?
 

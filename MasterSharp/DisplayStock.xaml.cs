@@ -27,8 +27,7 @@ namespace MasterSharp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            CuisineController cuisineSock = new CuisineController();
-            var stock = cuisineSock.GetStock();
+            var stock = CuisineController.Instance.GetStock();
             DataGridViewStock.AutoGenerateColumns = true;
             DataGridViewStock.ItemsSource = stock;
         }

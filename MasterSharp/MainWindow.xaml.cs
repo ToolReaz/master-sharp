@@ -27,10 +27,7 @@ namespace MasterSharp
         Recipe starterOfTheDay,plateOfTheDay,dessertOfTheDay;
 
         //Sockets
-        CuisineController objCuisine;
         Thread sockServerCuisine;
-        SalleController objSalle;
-        Thread sockClientSalle;
 
 
         /*---ENTRY POINT---*/
@@ -47,15 +44,13 @@ namespace MasterSharp
             dessertOfTheDay = motd.ofTheDay("Dessert");
             Dessert.Text = dessertOfTheDay.Name;
 
-            //launch server socket (cuisine)
+            //CUISINE (launch server socket)
             Console.WriteLine("Création du socket server (cuisine) :");
-            objCuisine = new CuisineController();
-            sockServerCuisine = new Thread(new ThreadStart(objCuisine.ServerSockLaunch));
+            sockServerCuisine = new Thread(new ThreadStart(CuisineController.Instance.ServerSockLaunch));
             sockServerCuisine.Start();
 
-            //instanciate salle
-            objSalle = new SalleController();
-
+            //SALLE
+            SalleController.Instance.CriateMi();
         }
         /*-----------------*/
 
@@ -70,8 +65,8 @@ namespace MasterSharp
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Lambda expression with no arguments (threadstart with parameters methods was impossible) :
-            sockClientSalle = new Thread(() => objSalle.SalleCommandSend(starterOfTheDay.ID));
-            sockClientSalle.Start();
+            /*sockClientSalle = new Thread(() => SalleController.Instance.SalleCommandSend());
+            sockClientSalle.Start();*/
             
             /*objSalle.SalleCommandSend(starterOfTheDay.ID);
             objSalle.SalleCommandSend(plateOfTheDay.ID);

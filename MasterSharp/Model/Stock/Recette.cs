@@ -6,19 +6,22 @@ namespace Model.Stock
 {
     public class Recette
     {
+        public int recipeID { get; }
         public List<EtapeRecette> Etapes { get; }
         public List<Dish> Vaisselle { get; }
 
 
-        public Recette() {
+        public Recette(int recipeID) {
+            this.recipeID = recipeID;
             this.Etapes = new List<EtapeRecette>();
             this.Vaisselle = new List<Dish>();
         }
 
 
-        public Recette(List<EtapeRecette> etapes, List<Dish> vaisselles) {
+        public Recette(List<EtapeRecette> etapes, List<Dish> vaisselles, int recipeID) {
             this.Etapes = etapes;
             this.Vaisselle = vaisselles;
+            this.recipeID = recipeID;
         }
 
 

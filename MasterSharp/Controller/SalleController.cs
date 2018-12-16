@@ -1,6 +1,8 @@
 ﻿using MasterSharp.Model.EDM;
+using MasterSharp.Model.Salle;
 using Model.Salle;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
@@ -9,9 +11,12 @@ using System.Threading;
 
 namespace Controller
 {
-    public class SalleController
+    public sealed class SalleController
     {
-        Salle salle;
+        //static ref to the object (Singleton DP)
+        private static SalleController instance = null;
+        //Thread-safe : only one thread can instanciate the class
+        private static readonly object padlock = new object();
 
         /*---SOCKET---*/
         const int PORT_NO = 5000;
@@ -19,35 +24,42 @@ namespace Controller
         TcpClient client;
         NetworkStream nwStream;
 
-        public SalleController()
+        /*---OTHER VAR---*/
+        Salle salle;
+
+
+        //Private unique constructor & without parameters (Singleton DP)
+        private SalleController()
         {
             Console.WriteLine("SalleController instancié :");
             salle = new Salle();
-            /*
-            salle.ChefRang.GiveMenu();
-            ...
-            */
         }
 
-       
+        public void CriateMi() { }
+        
 
-        public void SalleCommandSend(int _recipeID)
+        public void SalleCommandSend(List<Commande> commandes)
         {
-            ClientSockOpen();
+            foreach (Commande cmd in commandes)
+            {
+                ClientSockOpen();
 
-            string recipeID = _recipeID.ToString();
+                int recetteNbr = cmd.recetteNbr;
+                string recetteType = cmd.type;
+                string returnConcat = recetteType + ";" + recetteNbr;
 
-            //---send the text---
-            Console.WriteLine("\n(client)Sending ID : " + recipeID);
-            byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(recipeID);
-            nwStream.Write(bytesToSend, 0, bytesToSend.Length);
+                //---send the text---
+                Console.Write("(Salle)Sending Carte recipe : " + returnConcat + " -----> ");
+                byte[] bytesToSend = ASCIIEncoding.ASCII.GetBytes(returnConcat);
+                nwStream.Write(bytesToSend, 0, bytesToSend.Length);
 
-            //---read back the text---
-            byte[] bytesToRead = new byte[client.ReceiveBufferSize];
-            int bytesRead = nwStream.Read(bytesToRead, 0, bytesToRead.Length);
-            Console.WriteLine("\n(client)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
+                //---read back the text---
+                byte[] bytesToRead = new byte[client.ReceiveBufferSize];
+                int bytesRead = nwStream.Read(bytesToRead, 0, bytesToRead.Length);
+                Console.WriteLine("(Salle)Received : " + Encoding.ASCII.GetString(bytesToRead, 0, bytesRead));
 
-            ClientSockClose();
+                ClientSockClose();
+            }
         }
 
         private void ClientSockOpen()
@@ -57,7 +69,7 @@ namespace Controller
                 //---create a TCPClient object at the IP and port no.---
                 client = new TcpClient(SERVER_IP, PORT_NO);
                 nwStream = client.GetStream();
-                Console.WriteLine("\nClient socket launched !");
+                //Console.WriteLine("(Salle)Client socket launched !");
             }
             catch (ArgumentNullException e)
             {
@@ -72,7 +84,22 @@ namespace Controller
         {
             client.Close();
             nwStream.Close();
-            Console.WriteLine("\nClient socket closed.");
+            //Console.WriteLine("(Salle)Client socket closed.");
+        }
+
+        public static SalleController Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new SalleController();
+                    }
+                    return instance;
+                }
+            }
         }
     }
 }

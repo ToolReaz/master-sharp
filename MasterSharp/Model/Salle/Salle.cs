@@ -12,20 +12,24 @@ namespace Model.Salle
         public Carre Carre { get; set; }
 
         //Employees
-        private MaitreHotel maitreHotel;
-        private ChefRang chefRang;
-        private CommisSallle commisSallle;
-        private Serveur serveur;
+        public MaitreHotel maitreHotel;
+        public ChefRang chefRang;
+        public CommisSallle commisSallle;
+        public Serveur serveur;
         //Recips commands 
         public Carte carte { get; set; }
         private List<Recette> recettes;
         //Reception
-        private GroupeClient clients;
+        public static GroupeClient clients { get; set; }
         private Thread thread;
-        private const int NextClient = 1200000;
+        private const int NextClient = 24000;
         private Random randomClient = new Random();
         public int HowManyClient { get; private set; }
         public Queue<GroupeClient> _queueClient { get; set; }
+        public Queue<GroupeClient> _justArrivedClients { get; set; }
+        public Queue<GroupeClient> _readyToOrderClients { get; set; }
+        public Queue<GroupeClient> _waitingClients { get; set; }
+        public Queue<GroupeClient> _finishedClients { get; set; }
         public static int idGroupe = 1;
         public bool newClient { get; set; }
 
@@ -33,19 +37,21 @@ namespace Model.Salle
 
         public Salle()
         {
-            Console.Write("Salle intanciée > ");
+            //Console.WriteLine("Salle intanciée > ");
             Carre = new Carre();
 
             newClient = false;
             _queueClient = new Queue<GroupeClient>();
+            _justArrivedClients = new Queue<GroupeClient>();
+            _readyToOrderClients = new Queue<GroupeClient>();
+            _waitingClients = new Queue<GroupeClient>();
+            _finishedClients = new Queue<GroupeClient>();
             initSalle();
 
 
             //Thread
             thread = new Thread(new ThreadStart(this.ClientArrived));
             thread.Start();
-
-            carte = new Carte();
         }
 
 
@@ -63,6 +69,7 @@ namespace Model.Salle
             {
                 HowManyClient = randomClient.Next(1, 10);
                 clients = new GroupeClient(HowManyClient, idGroupe);
+                Console.WriteLine("Groupe de {0} clients généré, groupe numéro {1}.", HowManyClient+1, idGroupe);
                 _queueClient.Enqueue(clients);
                 idGroupe++;
                 newClient = true;

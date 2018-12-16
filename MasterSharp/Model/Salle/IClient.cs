@@ -10,7 +10,7 @@ namespace MasterSharp.Model.Salle
 {
     public interface IClient
     {
-         void ChooseMeal(Carte carte);
+         void ChooseMeal();
          void PayBill(int Bill);
     }
 }

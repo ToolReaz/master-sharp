@@ -14,7 +14,7 @@ namespace Model.Salle
 
         public Serveur(Salle _salle)
         {
-            Console.Write("Serveur intancié > ");
+            //Console.WriteLine("Serveur intancié > ");
             salle = _salle;
             this.thread = new Thread(new ThreadStart(this.DoWork));
             //thread.Start();
