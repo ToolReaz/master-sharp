@@ -151,8 +151,7 @@ namespace Controller
                     Recette recette = null;
 
                     //selon le type de la recette, on va pouvoir la récupérer dans la carte qui contient 1 liste/type
-                    switch (recetteType)
-                    {
+                    switch (recetteType) {
                         case "Entrees":
                             recipeID = Carte.Instance.Entrees[recetteNbr].recipeID;
                             recette = Carte.Instance.Entrees[recetteNbr];
@@ -168,11 +167,10 @@ namespace Controller
                     }
 
                     //Send to the Cuisine class
-                    //cuisine.AddCommand(recette);
+                    cuisine.AddCommand(recette);
 
                     //---Recover Recipe in object
-                    using (MasterSharpEntities db = new MasterSharpEntities())
-                    {
+                    using (MasterSharpEntities db = new MasterSharpEntities()) {
                         //Search in the DB the first recipe which correspond to the given ID 
                         var objRecipe = (from f in db.Recipes
                                          where f.ID == recipeID

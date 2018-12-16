@@ -63,7 +63,11 @@ namespace Model.Cuisine
 
                                     // Time needed to complete the action (this time is also used to not spam connections if any cut where found)
                                     lock (this.TimeToDoAction) {
-                                        Thread.Sleep(TimeToDoAction.Dequeue());
+                                        try {
+                                            Thread.Sleep(TimeToDoAction.Dequeue());
+                                        } catch (Exception e) {
+                                            Thread.Sleep(10000);
+                                        }
                                     }
 
                                     // Do it until a clean cut is available
